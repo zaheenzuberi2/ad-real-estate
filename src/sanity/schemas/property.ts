@@ -1,0 +1,232 @@
+import { defineField, defineType } from "sanity";
+
+export const propertyType = defineType({
+  name: "property",
+  title: "Property",
+  type: "document",
+  groups: [
+    { name: "content", title: "Content", default: true },
+    { name: "details", title: "Details" },
+    { name: "seo", title: "SEO" },
+  ],
+  fields: [
+    defineField({
+      name: "title",
+      title: "Project Name",
+      type: "string",
+      group: "content",
+      validation: (r) => r.required(),
+    }),
+    defineField({
+      name: "slug",
+      title: "URL Slug",
+      type: "slug",
+      group: "content",
+      description:
+        "The page address. Once this project is live, changing it breaks existing links and loses search ranking.",
+      options: { source: "title", maxLength: 96 },
+      validation: (r) => r.required(),
+    }),
+    defineField({
+      name: "eyebrow",
+      title: "Category Label",
+      type: "string",
+      group: "content",
+      description: 'Small label above the title, e.g. "Luxury Villas".',
+      validation: (r) => r.required(),
+    }),
+    defineField({
+      name: "location",
+      title: "Address Line",
+      type: "string",
+      group: "content",
+      validation: (r) => r.required(),
+    }),
+    defineField({
+      name: "phase",
+      title: "Phase / Sector",
+      type: "string",
+      group: "details",
+      description: "Used by the site's location filter.",
+      options: {
+        list: [
+          "DHA Phase 1",
+          "DHA Phase 2",
+          "DHA Phase 3",
+          "DHA Phase 4",
+          "DHA Phase 5",
+          "DHA Phase 6",
+          "DHA Valley",
+          "Bahria Town Phase 1",
+          "Bahria Town Phase 2",
+          "Bahria Town Phase 4",
+          "Bahria Town Phase 6",
+          "Bahria Town Phase 7",
+          "Bahria Town Phase 8",
+          "Bahria Enclave",
+          "Bahria Golf City",
+        ],
+      },
+      validation: (r) => r.required(),
+    }),
+    defineField({
+      name: "propertyType",
+      title: "Property Type",
+      type: "string",
+      group: "details",
+      options: {
+        list: [
+          "Residential Plot",
+          "Commercial Plot",
+          "House",
+          "Apartment",
+          "Farmhouse",
+          "Villa",
+        ],
+      },
+      validation: (r) => r.required(),
+    }),
+    defineField({
+      name: "status",
+      title: "Availability",
+      type: "string",
+      group: "details",
+      options: {
+        list: ["Available", "New Launch", "Limited Units", "Sold Out"],
+      },
+      initialValue: "Available",
+      validation: (r) => r.required(),
+    }),
+    defineField({
+      name: "description",
+      title: "Short Description",
+      type: "text",
+      rows: 3,
+      group: "content",
+      description:
+        "Shown on cards and in Google results. Aim for 140–160 characters.",
+      validation: (r) => r.required().max(200),
+    }),
+    defineField({
+      name: "overview",
+      title: "Full Overview",
+      type: "array",
+      of: [{ type: "text", rows: 4 }],
+      group: "content",
+      description: "One entry per paragraph on the project page.",
+    }),
+    defineField({
+      name: "images",
+      title: "Photos",
+      type: "array",
+      group: "content",
+      of: [
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            {
+              name: "alt",
+              type: "string",
+              title: "Alt Text",
+              description:
+                "Describe the photo for screen readers and image search. Required.",
+              validation: (r) => r.required(),
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: "priceFrom",
+      title: "Starting Price (PKR)",
+      type: "number",
+      group: "details",
+      description: "Plain number, e.g. 8500000 for 85 Lac. Leave empty for 'On Request'.",
+    }),
+    defineField({
+      name: "priceNote",
+      title: "Price Note",
+      type: "string",
+      group: "details",
+    }),
+    defineField({
+      name: "sizes",
+      title: "Available Sizes",
+      type: "array",
+      of: [{ type: "string" }],
+      group: "details",
+      options: { layout: "tags" },
+    }),
+    defineField({
+      name: "features",
+      title: "Key Features",
+      type: "array",
+      group: "details",
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              name: "icon",
+              type: "string",
+              options: {
+                list: [
+                  "ruler",
+                  "route",
+                  "map-pin",
+                  "calendar-clock",
+                  "flag",
+                  "heart-pulse",
+                  "building",
+                ],
+              },
+              validation: (r) => r.required(),
+            },
+            { name: "label", type: "string", validation: (r) => r.required() },
+          ],
+          preview: { select: { title: "label", subtitle: "icon" } },
+        },
+      ],
+    }),
+    defineField({
+      name: "highlights",
+      title: "Selling Points",
+      type: "array",
+      of: [{ type: "string" }],
+      group: "details",
+    }),
+    defineField({
+      name: "installmentMonths",
+      title: "Installment Tenure (months)",
+      type: "number",
+      group: "details",
+      description: "Leave empty if this project is not sold on installments.",
+    }),
+    defineField({
+      name: "featured",
+      title: "Show On Homepage",
+      type: "boolean",
+      group: "content",
+      initialValue: false,
+    }),
+    defineField({
+      name: "order",
+      title: "Sort Order",
+      type: "number",
+      group: "content",
+      description: "Lower numbers appear first.",
+      initialValue: 100,
+    }),
+  ],
+  orderings: [
+    {
+      title: "Sort Order",
+      name: "orderAsc",
+      by: [{ field: "order", direction: "asc" }],
+    },
+  ],
+  preview: {
+    select: { title: "title", subtitle: "location", media: "images.0" },
+  },
+});

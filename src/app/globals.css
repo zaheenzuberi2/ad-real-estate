@@ -1,26 +1,411 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Brand palette — ported from the approved design */
+  --color-navy-deep: #060d1a;
+  --color-navy: #0b1b33;
+  --color-navy-mid: #13294b;
+  --color-gold: #c6a15b;
+  --color-gold-bright: #ebce8e;
+  --color-ivory: #fbfaf7;
+  --color-sand: #f3ede0;
+  --color-hairline: #e7e2d6;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #1ebe5a;
+
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-brand: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor targets so the sticky header doesn't cover them */
+    scroll-padding-top: 6rem;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-navy-deep);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Visible keyboard focus — the prototype removed outlines entirely */
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /*
+   * iOS zooms the viewport when a focused control's text is under 16px.
+   * Sizing controls at 16px on small screens avoids that jump entirely;
+   * the visual size is tuned back down from `sm:` upward.
+   */
+  @media (max-width: 639px) {
+    input,
+    select,
+    textarea {
+      font-size: 16px;
+    }
+  }
+
+  /* Comfortable drag target for the calculator sliders. */
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 2.75rem;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 0.375rem;
+    border-radius: 999px;
+    background: var(--color-hairline);
+  }
+
+  input[type="range"]::-moz-range-track {
+    height: 0.375rem;
+    border-radius: 999px;
+    background: var(--color-hairline);
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-top: -0.5625rem;
+    border-radius: 999px;
+    background: var(--color-gold);
+    border: 3px solid #fff;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.25);
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 999px;
+    background: var(--color-gold);
+    border: 3px solid #fff;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.25);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  /* Guarantees a comfortable touch target without changing visual size. */
+  .tap {
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+  }
+
+  /* 3D flip card — front/back share one grid cell so the box never jumps. */
+  .flip {
+    perspective: 1400px;
+  }
+
+  .flip-inner {
+    display: grid;
+    transform-style: preserve-3d;
+    transition: transform 0.7s var(--ease-brand);
+  }
+
+  .flip-face {
+    grid-area: 1 / 1;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+  }
+
+  .flip-back {
+    transform: rotateY(180deg);
+  }
+
+  .flip.is-flipped .flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  /* Pointer devices get hover; touch devices are driven by scroll/tap. */
+  @media (hover: hover) and (pointer: fine) {
+    .flip:hover .flip-inner,
+    .flip:focus-within .flip-inner {
+      transform: rotateY(180deg);
+    }
+  }
+
+  .eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .shell {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 400px) {
+    .shell {
+      padding-inline: 1.25rem;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .shell {
+      padding-inline: 2rem;
+    }
+  }
+}
+
+/*
+ * Browser surfaces. Selection, caret and scrollbar ship with defaults that
+ * belong to no design system; theming them is what separates a built page
+ * from an assembled one.
+ */
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-navy-deep);
+}
+
+html {
+  scrollbar-color: var(--color-gold) var(--color-sand);
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-sand);
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-gold) 70%, var(--color-navy));
+  border-radius: 999px;
+  border: 3px solid var(--color-sand);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Content settles into place on first view; visible by default if JS fails. */
+[data-reveal="out"] {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+[data-reveal="in"] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.75s var(--ease-brand) var(--reveal-delay, 0ms),
+    transform 0.75s var(--ease-brand) var(--reveal-delay, 0ms);
+}
+
+/* Ambient drift. Long, low-amplitude, and always on an inner wrapper so it
+   never fights the reveal transform on the same element. */
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -9px, 0);
+  }
+}
+
+.drift {
+  animation: drift 8s ease-in-out infinite;
+}
+
+.drift-slow {
+  animation: drift 12s ease-in-out infinite;
+}
+
+.drift-delay-1 {
+  animation-delay: -2.6s;
+}
+
+.drift-delay-2 {
+  animation-delay: -5.2s;
+}
+
+/* A quieter bob for button content: the outer control already lifts and
+   glows on hover, so its resting state only needs a hint of life, not the
+   card-scale ±9px drift. Applied to an inner wrapper, never the button
+   itself, so it never fights the hover/magnetic transform sitting on the
+   outer element. */
+@keyframes drift-btn {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.drift-btn {
+  animation: drift-btn 3.2s ease-in-out infinite;
+}
+
+/* Survey light — the hero's focal moment. See SurveyLight.tsx. */
+.survey-light {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  --lx: 50%;
+  --ly: 38%;
+}
+
+.survey-grid {
+  position: absolute;
+  inset: -1px;
+  background-image:
+    linear-gradient(rgba(198, 161, 91, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(198, 161, 91, 0.5) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: 0.11;
+}
+
+/* The lit copy shows only where the lamp falls. */
+.survey-grid-lit {
+  opacity: 0.85;
+  background-image:
+    linear-gradient(rgba(235, 206, 142, 0.95) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(235, 206, 142, 0.95) 1px, transparent 1px);
+  mask-image: radial-gradient(
+    circle 240px at var(--lx) var(--ly),
+    #000 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    transparent 72%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle 240px at var(--lx) var(--ly),
+    #000 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    transparent 72%
+  );
+  transition: opacity 0.5s ease;
+}
+
+.survey-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 260px at var(--lx) var(--ly),
+    rgba(198, 161, 91, 0.24) 0%,
+    transparent 70%
+  );
+  transition: opacity 0.5s ease;
+}
+
+/* Idle until the pointer arrives, so nothing pulses at an absent cursor. */
+.survey-light:not([data-live]) .survey-grid-lit,
+.survey-light:not([data-live]) .survey-glow {
+  opacity: 0;
+}
+
+@media (hover: none) {
+  .survey-grid-lit,
+  .survey-glow {
+    display: none;
+  }
+}
+
+/* Chat widget panel entrance */
+@keyframes chat-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Intro loader: the mark settles into place on first load. */
+@keyframes intro-mark-in {
+  from {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.intro-mark-in {
+  animation: intro-mark-in 0.7s var(--ease-brand) both;
+}
+
+/* Marquee ticker */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 48s linear infinite;
+}
+
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+
+  /* Keep both faces reachable without spinning the card. */
+  .flip-inner {
+    transition: none;
+  }
+
+  .drift,
+  .drift-slow,
+  .drift-btn {
+    animation: none;
+  }
+
+  [data-reveal="out"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
