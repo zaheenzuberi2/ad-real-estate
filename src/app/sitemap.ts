@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
-import { properties } from "@/content/properties";
+import { getProperties } from "@/lib/properties-data";
 import { site } from "@/lib/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
+  const properties = await getProperties();
 
   const staticRoutes = [
     { path: "", priority: 1, changeFrequency: "weekly" as const },

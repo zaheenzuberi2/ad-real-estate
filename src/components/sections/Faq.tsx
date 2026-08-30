@@ -1,4 +1,5 @@
 import { faqs } from "@/content/faqs";
+import { jsonLd } from "@/lib/schema";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Icon } from "@/components/ui/Icon";
 
@@ -17,7 +18,7 @@ export function Faq() {
     <section id="faq" className="bg-ivory py-16 sm:py-24 lg:py-28">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(schema) }}
       />
       <div className="shell max-w-3xl">
         <SectionHeading

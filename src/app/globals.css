@@ -262,70 +262,6 @@ html {
   animation: drift-btn 3.2s ease-in-out infinite;
 }
 
-/* Survey light — the hero's focal moment. See SurveyLight.tsx. */
-.survey-light {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  --lx: 50%;
-  --ly: 38%;
-}
-
-.survey-grid {
-  position: absolute;
-  inset: -1px;
-  background-image:
-    linear-gradient(rgba(198, 161, 91, 0.5) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(198, 161, 91, 0.5) 1px, transparent 1px);
-  background-size: 72px 72px;
-  opacity: 0.11;
-}
-
-/* The lit copy shows only where the lamp falls. */
-.survey-grid-lit {
-  opacity: 0.85;
-  background-image:
-    linear-gradient(rgba(235, 206, 142, 0.95) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(235, 206, 142, 0.95) 1px, transparent 1px);
-  mask-image: radial-gradient(
-    circle 240px at var(--lx) var(--ly),
-    #000 0%,
-    rgba(0, 0, 0, 0.45) 45%,
-    transparent 72%
-  );
-  -webkit-mask-image: radial-gradient(
-    circle 240px at var(--lx) var(--ly),
-    #000 0%,
-    rgba(0, 0, 0, 0.45) 45%,
-    transparent 72%
-  );
-  transition: opacity 0.5s ease;
-}
-
-.survey-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle 260px at var(--lx) var(--ly),
-    rgba(198, 161, 91, 0.24) 0%,
-    transparent 70%
-  );
-  transition: opacity 0.5s ease;
-}
-
-/* Idle until the pointer arrives, so nothing pulses at an absent cursor. */
-.survey-light:not([data-live]) .survey-grid-lit,
-.survey-light:not([data-live]) .survey-glow {
-  opacity: 0;
-}
-
-@media (hover: none) {
-  .survey-grid-lit,
-  .survey-glow {
-    display: none;
-  }
-}
-
 /* Chat widget panel entrance */
 @keyframes chat-in {
   from {
@@ -338,24 +274,62 @@ html {
   }
 }
 
-/* Intro loader: the mark settles into place on first load. */
+/* Intro loader: a one-second reveal — the mark rises, overshoots, and settles. */
 @keyframes intro-mark-in {
-  from {
+  0% {
     opacity: 0;
-    transform: scale(0.72);
+    transform: translateY(16px) scale(0.7);
   }
-  60% {
+  45% {
     opacity: 1;
-    transform: scale(1.04);
+    transform: translateY(0) scale(1.06);
   }
-  to {
+  70% {
+    transform: translateY(0) scale(0.985);
+  }
+  100% {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) scale(1);
   }
 }
 
 .intro-mark-in {
-  animation: intro-mark-in 0.7s var(--ease-brand) both;
+  animation: intro-mark-in 1s var(--ease-brand) both;
+}
+
+/*
+ * The intro cover is hidden by default. A blocking inline script in the root
+ * layout sets `data-intro` on <html> during parse when the splash should run,
+ * which reveals the overlay before the page paints underneath it — no flash of
+ * the page. The React IntroLoader then runs the animation and removes
+ * `data-intro`, at which point the overlay fades back out via its own
+ * `transition-opacity`. A delayed keyframe is the pure-CSS failsafe: if the
+ * IntroLoader never runs, the cover clears itself after 3 seconds.
+ */
+#intro-overlay {
+  opacity: 0;
+  visibility: hidden;
+}
+
+html[data-intro] {
+  overflow: hidden;
+}
+
+html[data-intro] #intro-overlay {
+  visibility: visible;
+  animation: intro-cover 3s ease-in 0s 1 normal forwards;
+}
+
+@keyframes intro-cover {
+  0%,
+  92% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 /* Marquee ticker */

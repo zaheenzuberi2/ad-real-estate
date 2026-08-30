@@ -28,7 +28,7 @@ export const team: TeamMember[] = [
   },
   {
     name: "Maj Ali Warraich",
-    role: "Director, Client Relations",
+    role: "Senior Sales Consultant",
     photo: "/images/maj-ali-warraich.jpg",
     phoneDisplay: "0324-6577364",
     phoneIntl: "923246577364",

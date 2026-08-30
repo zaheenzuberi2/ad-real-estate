@@ -8,21 +8,21 @@
 export const site = {
   name: "AD Real Estate",
   legalName: "AD Real Estate & Builders (Pvt) Ltd",
-  tagline: "DHA · Bahria Town · Islamabad",
+  tagline: "DHA · Islamabad",
   description:
-    "Property advisory for DHA and Bahria Town, Islamabad. Verified plots, villas and commercial units, with title checks, guided site visits and full transfer support for local and overseas buyers.",
+    "Property advisory for DHA, Islamabad. Verified plots, villas and commercial units, with title checks, guided site visits and full transfer support for local and overseas buyers.",
   // Set to the live domain before launch; also update NEXT_PUBLIC_SITE_URL on Vercel.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://adrealestate.pk",
   locale: "en_PK",
 
   phone: {
-    display: "+92 304 1112523",
-    href: "tel:+923041112523",
-    intl: "+923041112523",
+    display: "+92 345 5664266",
+    href: "tel:+923455664266",
+    intl: "+923455664266",
   },
   whatsapp: {
-    number: "923041112523",
-    href: "https://wa.me/923041112523",
+    number: "923455664266",
+    href: "https://wa.me/923455664266",
   },
   email: "info@adgroupofcompanies.pk",
 
@@ -58,7 +58,7 @@ export const site = {
 
   rating: {
     value: 5.0,
-    count: 24,
+    count: 25,
   },
 } as const;
 
@@ -68,8 +68,10 @@ export const site = {
  */
 export const developer = {
   name: "Zaheen Zuberi",
+  role: "Software Developer",
   url: "https://zaheenzuberi.com",
   whatsapp: "https://wa.me/923461223692",
+  phone: { display: "0346 1223692", href: "https://wa.me/923461223692" },
 } as const;
 
 export const navLinks = [

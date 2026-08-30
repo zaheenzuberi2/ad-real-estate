@@ -77,7 +77,7 @@ export function PropertyCard({ property }: { property: Property }) {
 
         <div className="mt-6 flex items-end justify-between gap-4 border-t border-hairline pt-5">
           <div>
-            <p className="eyebrow text-[9px] text-slate-400">Starting From</p>
+            <p className="eyebrow text-[9px] text-slate-500">Starting From</p>
             <p className="font-display text-lg font-semibold text-navy-deep">
               {property.priceFrom ? formatPkr(property.priceFrom) : "On Request"}
             </p>

@@ -2,7 +2,20 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
-import { respond, OPENING, type BotReply, type ChatAction } from "@/lib/chat/engine";
+import {
+  respond,
+  OPENING,
+  type BotReply,
+  type ChatAction,
+} from "@/lib/chat/engine";
+import {
+  LEAD_FLOW,
+  FLOW_SKIP_LABEL,
+  type FlowStep,
+} from "@/lib/chat/lead-flow";
+import { submitChatLead } from "@/app/actions/submit-chat-lead";
+import type { ChatLeadInput } from "@/lib/lead-schema";
+import { site } from "@/lib/site";
 import { Icon } from "@/components/ui/Icon";
 import { WhatsAppGlyph } from "@/components/ui/WhatsAppGlyph";
 import { LogoMark } from "@/components/ui/Logo";
@@ -13,6 +26,8 @@ type Message = {
   reply?: BotReply;
   text?: string;
 };
+
+type FlowState = { index: number; answers: Record<string, string> };
 
 /**
  * A sequential counter would collide with itself: it resets to 0 on every
@@ -25,6 +40,7 @@ const nextId = () =>
   `m${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`;
 
 const STORAGE_KEY = "ad-re-chat-history-v1";
+const FLOW_KEY = "ad-re-chat-flow-v1";
 
 function loadHistory(): Message[] | null {
   try {
@@ -46,6 +62,42 @@ function saveHistory(messages: Message[]) {
   }
 }
 
+function loadFlow(): FlowState | null {
+  try {
+    const raw = sessionStorage.getItem(FLOW_KEY);
+    return raw ? (JSON.parse(raw) as FlowState) : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveFlow(flow: FlowState | null) {
+  try {
+    if (flow) sessionStorage.setItem(FLOW_KEY, JSON.stringify(flow));
+    else sessionStorage.removeItem(FLOW_KEY);
+  } catch {
+    // Non-fatal — the flow just will not resume after a reload.
+  }
+}
+
+const whatsappFallback: ChatAction = {
+  kind: "external",
+  label: "Message us on WhatsApp",
+  href: `${site.whatsapp.href}?text=${encodeURIComponent(
+    "Hi, I tried to leave my details on the site assistant."
+  )}`,
+};
+
+/** The bot bubble for one flow step: its question plus tappable answers. */
+function stepReply(step: FlowStep): BotReply {
+  const actions: ChatAction[] = (step.options ?? []).map((label) => ({
+    kind: "reply",
+    label,
+  }));
+  if (step.skippable) actions.push({ kind: "reply", label: FLOW_SKIP_LABEL });
+  return { text: step.question, actions };
+}
+
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [everOpened, setEverOpened] = useState(false);
@@ -57,8 +109,12 @@ export function ChatWidget() {
       ? [{ id: nextId(), from: "bot", reply: OPENING }]
       : loadHistory() ?? [{ id: nextId(), from: "bot", reply: OPENING }]
   );
+  const [flow, setFlow] = useState<FlowState | null>(() =>
+    typeof window === "undefined" ? null : loadFlow()
+  );
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
+  const [sending, setSending] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const titleId = useId();
@@ -66,6 +122,10 @@ export function ChatWidget() {
   useEffect(() => {
     saveHistory(messages);
   }, [messages]);
+
+  useEffect(() => {
+    saveFlow(flow);
+  }, [flow]);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -94,19 +154,83 @@ export function ChatWidget() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  const pushBot = (reply: BotReply) =>
+    setMessages((prev) => [...prev, { id: nextId(), from: "bot", reply }]);
+
+  const startFlow = () => {
+    setFlow({ index: 0, answers: {} });
+    pushBot(stepReply(LEAD_FLOW[0]));
+    setTimeout(() => inputRef.current?.focus(), 50);
+  };
+
   const send = (raw: string) => {
     const text = raw.trim();
-    if (!text) return;
+    if (!text || sending) return;
     setInput("");
     setMessages((prev) => [...prev, { id: nextId(), from: "user", text }]);
-    setTyping(true);
 
-    // A short, varied delay reads as "thinking" without pretending to be a
-    // person typing — it never exceeds the point of feeling laggy.
+    // ── Guided lead-capture flow ──────────────────────────────────────────
+    if (flow) {
+      const step = LEAD_FLOW[flow.index];
+      const skipped =
+        !!step.skippable && text.toLowerCase() === FLOW_SKIP_LABEL.toLowerCase();
+      const value = skipped ? "" : text;
+
+      if (!skipped && step.validate) {
+        const err = step.validate(value);
+        if (err) {
+          setTyping(true);
+          window.setTimeout(() => {
+            pushBot({ text: err, actions: stepReply(step).actions });
+            setTyping(false);
+          }, 300);
+          return;
+        }
+      }
+
+      const answers = { ...flow.answers, [step.key]: value };
+      const nextIndex = flow.index + 1;
+
+      if (nextIndex < LEAD_FLOW.length) {
+        setFlow({ index: nextIndex, answers });
+        setTyping(true);
+        window.setTimeout(() => {
+          pushBot(stepReply(LEAD_FLOW[nextIndex]));
+          setTyping(false);
+        }, 360 + Math.random() * 240);
+        return;
+      }
+
+      // Last answer collected — hand it to the server.
+      setFlow(null);
+      setSending(true);
+      setTyping(true);
+      void (async () => {
+        let result;
+        try {
+          result = await submitChatLead(answers as unknown as ChatLeadInput);
+        } catch {
+          result = {
+            ok: false,
+            message:
+              "That did not go through. You can reach us straight on WhatsApp.",
+          };
+        }
+        setTyping(false);
+        setSending(false);
+        pushBot({
+          text: result.message,
+          actions: result.ok ? undefined : [whatsappFallback],
+        });
+      })();
+      return;
+    }
+
+    // ── Ordinary Q&A ─────────────────────────────────────────────────────
+    setTyping(true);
     const delay = 380 + Math.random() * 320;
     window.setTimeout(() => {
-      const reply = respond(text);
-      setMessages((prev) => [...prev, { id: nextId(), from: "bot", reply }]);
+      pushBot(respond(text));
       setTyping(false);
     }, delay);
   };
@@ -115,7 +239,14 @@ export function ChatWidget() {
     const opening = { id: nextId(), from: "bot" as const, reply: OPENING };
     setMessages([opening]);
     saveHistory([opening]);
+    setFlow(null);
   };
+
+  const composerHint = flow
+    ? LEAD_FLOW[flow.index]?.allowText
+      ? "Type your answer…"
+      : "Tap an option above…"
+    : "Ask about plots, prices, visits…";
 
   return (
     <div className="fixed bottom-24 right-4 z-40 flex flex-col items-end gap-3 sm:bottom-28 sm:right-6">
@@ -172,7 +303,12 @@ export function ChatWidget() {
             className="flex-1 space-y-3 overflow-y-auto bg-ivory px-3.5 py-4"
           >
             {messages.map((m) => (
-              <ChatBubble key={m.id} message={m} onAction={send} />
+              <ChatBubble
+                key={m.id}
+                message={m}
+                onAction={send}
+                onStartFlow={startFlow}
+              />
             ))}
             {typing && (
               <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-sm bg-white px-4 py-3 shadow-sm w-fit">
@@ -199,12 +335,15 @@ export function ChatWidget() {
               ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask about plots, prices, visits…"
-              className="min-w-0 flex-1 rounded-full bg-sand px-4 py-2.5 text-sm text-navy-deep placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/50"
+              placeholder={composerHint}
+              aria-label="Type your message"
+              autoComplete="off"
+              disabled={sending}
+              className="min-w-0 flex-1 rounded-full bg-sand px-4 py-2.5 text-sm text-navy-deep placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gold/50 disabled:opacity-60"
             />
             <button
               type="submit"
-              disabled={!input.trim()}
+              disabled={!input.trim() || sending}
               aria-label="Send message"
               className="tap flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gold text-navy-deep transition-transform duration-200 ease-brand hover:scale-105 disabled:opacity-40 disabled:hover:scale-100"
             >
@@ -239,9 +378,11 @@ export function ChatWidget() {
 function ChatBubble({
   message,
   onAction,
+  onStartFlow,
 }: {
   message: Message;
   onAction: (text: string) => void;
+  onStartFlow: () => void;
 }) {
   if (message.from === "user") {
     return (
@@ -290,7 +431,12 @@ function ChatBubble({
       {reply.actions && reply.actions.length > 0 && (
         <div className="flex flex-wrap gap-1.5">
           {reply.actions.map((a) => (
-            <ActionChip key={a.label} action={a} onReply={onAction} />
+            <ActionChip
+              key={a.label}
+              action={a}
+              onReply={onAction}
+              onStartFlow={onStartFlow}
+            />
           ))}
         </div>
       )}
@@ -301,12 +447,27 @@ function ChatBubble({
 function ActionChip({
   action,
   onReply,
+  onStartFlow,
 }: {
   action: ChatAction;
   onReply: (text: string) => void;
+  onStartFlow: () => void;
 }) {
   const cls =
     "tap inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-semibold transition-colors";
+
+  if (action.kind === "flow") {
+    return (
+      <button
+        type="button"
+        onClick={onStartFlow}
+        className={`${cls} bg-gold text-navy-deep hover:bg-gold-bright`}
+      >
+        <Icon name="phone" className="h-3.5 w-3.5" />
+        {action.label}
+      </button>
+    );
+  }
 
   if (action.kind === "reply") {
     return (

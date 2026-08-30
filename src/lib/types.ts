@@ -42,6 +42,9 @@ export type Property = {
   gradient: string;
   art: "road" | "orchard" | "villa";
   installmentMonths?: number;
+  /** Structured spec for JSON-LD. Only set on built units; never guessed. */
+  bedrooms?: number;
+  bathrooms?: number;
   highlights: string[];
   featured: boolean;
   /** Real photography uploaded in Studio. Falls back to the illustrated

@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Us: Registered Property Consultants in Islamabad",
   description:
-    "AD Real Estate is a government-registered property advisory in DHA Phase 5, Islamabad, serving local and overseas buyers across DHA and Bahria Town since inception.",
+    "AD Real Estate is a government-registered property advisory in DHA Phase 5, Islamabad, serving local and overseas buyers across DHA Islamabad since inception.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About AD Real Estate: Registered Property Consultants",

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/lib/site";
 
-export const alt = `${site.name}: Property Advisory in DHA & Bahria Town, Islamabad`;
+export const alt = `${site.name}: Property Advisory in DHA, Islamabad`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -74,7 +74,7 @@ export default async function OpengraphImage() {
               letterSpacing: -1.5,
             }}
           >
-            Your foothold in DHA &amp; Bahria Town
+            Your foothold in DHA, Islamabad
           </span>
         </div>
 

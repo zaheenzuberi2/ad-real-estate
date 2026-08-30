@@ -54,6 +54,8 @@ type SanityProperty = {
   features?: { icon: Property["features"][number]["icon"]; label: string }[];
   highlights?: string[];
   installmentMonths?: number;
+  bedrooms?: number;
+  bathrooms?: number;
   featured?: boolean;
 };
 
@@ -74,6 +76,8 @@ const PROPERTY_PROJECTION = `{
   features[]{ icon, label },
   highlights,
   installmentMonths,
+  bedrooms,
+  bathrooms,
   featured
 }`;
 
@@ -103,6 +107,8 @@ function toProperty(doc: SanityProperty, index: number): Property {
     gradient: GRADIENT_CYCLE[index % GRADIENT_CYCLE.length],
     art: ART_CYCLE[index % ART_CYCLE.length],
     installmentMonths: doc.installmentMonths,
+    bedrooms: doc.bedrooms,
+    bathrooms: doc.bathrooms,
     highlights: doc.highlights ?? [],
     featured: doc.featured ?? false,
     photos: photos.length > 0 ? photos : undefined,

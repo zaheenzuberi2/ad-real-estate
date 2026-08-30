@@ -121,16 +121,33 @@ export async function Footer() {
             <Link href="/terms" className="tap flex items-center transition-colors hover:text-slate-300">
               Terms of Service
             </Link>
-            <a
-              href={developer.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="tap flex items-center transition-colors hover:text-slate-300"
-            >
-              Built by {developer.name}
-            </a>
           </div>
         </div>
+      </div>
+
+      <div className="border-t border-white/10 bg-navy">
+        <p className="shell flex flex-wrap items-center justify-center gap-x-2 gap-y-1 py-4 text-center text-[11px] text-slate-500">
+          <span>Designed &amp; built by</span>
+          <a
+            href={developer.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-slate-200 transition-colors hover:text-gold"
+          >
+            {developer.name}
+          </a>
+          <span aria-hidden="true">·</span>
+          <span>{developer.role}</span>
+          <span aria-hidden="true">·</span>
+          <a
+            href={developer.phone.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="tap transition-colors hover:text-gold"
+          >
+            {developer.phone.display}
+          </a>
+        </p>
       </div>
     </footer>
   );

@@ -16,7 +16,7 @@ export function Calculator() {
   const monthly = remaining / tenure;
 
   return (
-    <section id="calculator" className="bg-sand py-16 sm:py-24 lg:py-28">
+    <section id="calculator" className="bg-sand py-14 sm:py-24 lg:py-28">
       <div className="shell">
         <SectionHeading
           eyebrow="Plan Your Investment"
@@ -25,8 +25,8 @@ export function Calculator() {
           align="center"
         />
 
-        <div className="mx-auto mt-10 grid max-w-4xl gap-8 rounded-2xl bg-white p-5 shadow-[0_1px_2px_rgba(11,27,51,0.06),0_12px_28px_-12px_rgba(11,27,51,0.18)] sm:mt-12 sm:p-10 lg:grid-cols-2">
-          <div className="space-y-8">
+        <div className="mx-auto mt-8 grid max-w-4xl gap-5 rounded-2xl bg-white p-4 shadow-[0_1px_2px_rgba(11,27,51,0.06),0_12px_28px_-12px_rgba(11,27,51,0.18)] sm:mt-12 sm:gap-8 sm:p-10 lg:grid-cols-2">
+          <div className="space-y-5 sm:space-y-8">
             <div>
               <div className="flex items-baseline justify-between">
                 <label
@@ -86,7 +86,7 @@ export function Calculator() {
                     type="button"
                     onClick={() => setTenure(t)}
                     aria-pressed={tenure === t}
-                    className={`tap rounded-full px-5 py-2.5 text-xs font-bold transition-colors ${
+                    className={`tap rounded-full px-4 py-2 text-[11px] font-bold transition-colors sm:px-5 sm:py-2.5 sm:text-xs ${
                       tenure === t
                         ? "bg-navy text-white"
                         : "bg-sand text-navy hover:bg-hairline"
@@ -99,30 +99,34 @@ export function Calculator() {
             </fieldset>
           </div>
 
-          <div className="flex flex-col justify-center gap-5 rounded-xl bg-navy-deep p-6 text-white sm:p-7">
-            <div>
-              <p className="eyebrow text-[10px] text-gold">Down Payment</p>
-              <p className="mt-1 font-display text-3xl font-semibold">
+          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl bg-white/10 sm:flex sm:flex-col sm:justify-center sm:gap-5 sm:bg-navy-deep sm:p-7">
+            <div className="bg-navy-deep p-4 sm:bg-transparent sm:p-0">
+              <p className="eyebrow text-[9px] text-gold sm:text-[10px]">Down Payment</p>
+              <p className="mt-1 font-display text-base font-semibold text-white sm:text-3xl">
                 {formatPkr(down)}
               </p>
             </div>
-            <div className="border-t border-white/10 pt-5">
-              <p className="eyebrow text-[10px] text-gold">Monthly Installment</p>
-              <p className="mt-1 font-display text-3xl font-semibold text-gold sm:text-4xl">
+            <div className="bg-navy-deep p-4 sm:border-t sm:border-white/10 sm:bg-transparent sm:p-0 sm:pt-5">
+              <p className="eyebrow text-[9px] text-gold sm:text-[10px]">
+                Monthly<span className="hidden sm:inline"> Installment</span>
+              </p>
+              <p className="mt-1 font-display text-base font-semibold text-gold sm:text-4xl">
                 {formatPkr(monthly)}
               </p>
-              <p className="mt-1 text-xs text-slate-400">over {tenure} months</p>
+              <p className="mt-0.5 text-[11px] text-slate-400 sm:mt-1 sm:text-xs">
+                over {tenure} months
+              </p>
             </div>
-            <div className="border-t border-white/10 pt-5">
-              <p className="eyebrow text-[10px] text-gold">Total Remaining</p>
-              <p className="mt-1 font-display text-2xl font-semibold">
+            <div className="col-span-2 bg-navy-deep p-4 sm:border-t sm:border-white/10 sm:bg-transparent sm:p-0 sm:pt-5">
+              <p className="eyebrow text-[9px] text-gold sm:text-[10px]">Total Remaining</p>
+              <p className="mt-1 font-display text-base font-semibold text-white sm:text-2xl">
                 {formatPkr(remaining)}
               </p>
             </div>
           </div>
         </div>
 
-        <p className="mx-auto mt-5 max-w-2xl text-center text-xs leading-relaxed text-slate-500">
+        <p className="mx-auto mt-4 max-w-2xl text-center text-[11px] leading-relaxed text-slate-500 sm:mt-5 sm:text-xs">
           Figures are indicative only and assume equal monthly installments with
           no markup. Confirm the actual schedule with an advisor before you
           commit.

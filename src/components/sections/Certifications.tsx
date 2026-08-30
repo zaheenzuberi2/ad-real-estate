@@ -5,7 +5,7 @@ import { Icon } from "@/components/ui/Icon";
 
 export function Certifications() {
   return (
-    <section className="bg-navy-deep py-16 sm:py-24 lg:py-28">
+    <section className="bg-navy-deep py-14 sm:py-24 lg:py-28">
       <div className="shell">
         <SectionHeading
           eyebrow="Verified & Recognised"
@@ -14,7 +14,7 @@ export function Certifications() {
           tone="dark"
         />
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+        <div className="mt-10 grid gap-8 sm:mt-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-10">
           <figure>
             <div className="overflow-hidden rounded-2xl border border-gold/20">
               <Image
@@ -31,25 +31,26 @@ export function Certifications() {
             </figcaption>
           </figure>
 
-          <ul className="space-y-4">
+          <ul className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-1">
             {certifications.map((c) => (
               <li
                 key={c.title}
-                className="rounded-xl border border-white/10 bg-white/[0.03] p-5"
+                className="flex flex-col rounded-xl border border-white/10 bg-white/[0.03] p-3.5 sm:p-5 lg:flex-row lg:items-start lg:gap-3.5"
               >
-                <div className="flex items-start gap-3.5">
-                  <Icon name="award" className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
-                  <div>
-                    <h3 className="font-display text-base font-semibold text-white">
-                      {c.title}
-                    </h3>
-                    <p className="eyebrow mt-1 text-[9px] text-gold">
-                      {c.issuer}
-                    </p>
-                    <p className="mt-2.5 text-sm leading-relaxed text-slate-400">
-                      {c.body}
-                    </p>
-                  </div>
+                <Icon
+                  name="award"
+                  className="h-[18px] w-[18px] shrink-0 text-gold sm:h-5 sm:w-5 lg:mt-0.5"
+                />
+                <div className="mt-2 lg:mt-0">
+                  <h3 className="font-display text-[0.8rem] font-semibold leading-snug text-white sm:text-base">
+                    {c.title}
+                  </h3>
+                  <p className="eyebrow mt-1 text-[8px] text-gold sm:text-[9px]">
+                    {c.issuer}
+                  </p>
+                  <p className="mt-2 hidden text-sm leading-relaxed text-slate-400 lg:block">
+                    {c.body}
+                  </p>
                 </div>
               </li>
             ))}

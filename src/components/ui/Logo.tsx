@@ -1,107 +1,107 @@
 /**
- * Vector rebuild of the AD Real Estate mark: twin peaks forming the "A",
- * paired with the notched "D".
+ * The AD Real Estate mark: a single gold peak forming the "A" (its crossbar
+ * counter knocked out), fused with a notched "D". Warm diagonal gold gradient
+ * to match the supplied logo.
  *
- * Traced by eye from the supplied raster. Two things make it survive real use:
- * the A's counter is knocked out of the path rather than painted over, so any
- * ground shows through it, and the front peak carries a darker gold so the two
- * planes stay separate instead of merging into one silhouette.
- *
- * If the original vector (.ai / .eps / .svg) turns up, replace these paths.
+ * Hand rebuild from a raster. If the designer's vector (.ai / .eps / .svg)
+ * turns up, swap these paths for it.
  */
 
 function GoldDefs({ id }: { id: string }) {
   return (
     <defs>
-      <linearGradient id={`${id}-back`} x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stopColor="#8A6A2F" />
-        <stop offset="0.45" stopColor="#DDB765" />
-        <stop offset="0.75" stopColor="#F2D791" />
-        <stop offset="1" stopColor="#C39B4A" />
+      <linearGradient id={`${id}-gold`} x1="0.05" y1="0" x2="0.95" y2="1">
+        <stop offset="0" stopColor="#6F5326" />
+        <stop offset="0.32" stopColor="#B98F44" />
+        <stop offset="0.56" stopColor="#EBD29A" />
+        <stop offset="0.8" stopColor="#C8A253" />
+        <stop offset="1" stopColor="#9A7734" />
       </linearGradient>
-      <linearGradient id={`${id}-front`} x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stopColor="#6E5324" />
-        <stop offset="0.5" stopColor="#B8913F" />
-        <stop offset="1" stopColor="#8A6A2F" />
+      <linearGradient id={`${id}-gold-front`} x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stopColor="#8B6C33" />
+        <stop offset="0.5" stopColor="#C7A459" />
+        <stop offset="1" stopColor="#E4CA85" />
+      </linearGradient>
+      <linearGradient id={`${id}-bar`} x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stopColor="#A9843C" />
+        <stop offset="0.55" stopColor="#D8B463" />
+        <stop offset="1" stopColor="#E7CA80" />
       </linearGradient>
     </defs>
   );
 }
 
+/** The AD monogram: twin gold peaks forming the A + a notched D. */
+function Monogram({ id }: { id: string }) {
+  return (
+    <>
+      {/* Back peak — carries the A, its crossbar counter knocked out */}
+      <path
+        d="M78 6 L134 116 L30 116 Z M78 58 L96 116 L60 116 Z"
+        fill={`url(#${id}-gold)`}
+        fillRule="evenodd"
+      />
+      {/* Front peak — a flatter, lighter gold so the ridge reads as two planes */}
+      <path d="M44 42 L80 116 L8 116 Z" fill={`url(#${id}-gold-front)`} />
+
+      {/* D — solid bowl with the counter and the horizontal slot knocked out */}
+      <path
+        d="M112 8 H142 A54 54 0 0 1 142 116 H112 Z
+           M112 34 H138 A30 30 0 0 1 138 90 H112 Z
+           M134 52 H194 V72 H134 Z"
+        fill={`url(#${id}-gold)`}
+        fillRule="evenodd"
+      />
+    </>
+  );
+}
+
 export function LogoMark({
-  size = 36,
+  size = 28,
   className,
 }: {
+  /** Rendered height in px; width follows the mark's natural ratio. */
   size?: number;
   className?: string;
 }) {
   return (
     <svg
-      width={size}
       height={size}
-      viewBox="0 0 128 104"
+      width={(size * 200) / 124}
+      viewBox="0 0 200 124"
       fill="none"
       className={className}
       aria-hidden="true"
     >
       <GoldDefs id="mk" />
-
-      {/* Tall peak carrying the A, counter knocked out */}
-      <path
-        d="M76 6 L126 98 H26 Z M76 50 L94 82 H58 Z"
-        fill="url(#mk-back)"
-        fillRule="evenodd"
-      />
-
-      {/* Front peak, darker so the two planes read apart */}
-      <path d="M30 46 L62 98 H0 Z" fill="url(#mk-front)" />
+      <Monogram id="mk" />
     </svg>
   );
 }
 
-export function LogoLockup({
-  className,
-  tone = "onDark",
-}: {
-  className?: string;
-  /** Only the wordmark inside the bar changes; the peaks work on any ground. */
-  tone?: "onDark" | "onLight";
-}) {
+export function LogoLockup({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 320 148"
+      viewBox="0 0 200 178"
       fill="none"
       className={className}
       role="img"
       aria-label="AD Real Estate"
     >
       <GoldDefs id="lk" />
+      <Monogram id="lk" />
 
-      {/* A */}
-      <path
-        d="M96 6 L146 98 H46 Z M96 50 L114 82 H78 Z"
-        fill="url(#lk-back)"
-        fillRule="evenodd"
-      />
-      <path d="M50 46 L82 98 H20 Z" fill="url(#lk-front)" />
-
-      {/* D, with the horizontal slot cut through the bowl */}
-      <path
-        d="M170 6 H222 a46 46 0 0 1 0 92 H170 V64 h30 a14 14 0 0 0 0-28 h-30 Z"
-        fill="url(#lk-back)"
-      />
-
-      {/* Wordmark bar */}
-      <rect x="0" y="110" width="320" height="38" fill="url(#lk-back)" />
+      <rect x="0" y="134" width="200" height="40" rx="2" fill="url(#lk-bar)" />
       <text
-        x="160"
-        y="136"
+        x="100"
+        y="162"
         textAnchor="middle"
-        fill={tone === "onDark" ? "#060D1A" : "#FFFFFF"}
+        textLength="168"
+        lengthAdjust="spacingAndGlyphs"
+        fill="#FFFFFF"
         fontFamily="var(--font-inter), system-ui, sans-serif"
         fontSize="24"
         fontWeight="800"
-        letterSpacing="8"
       >
         REAL ESTATE
       </text>

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 import { Fraunces, Inter } from "next/font/google";
 import { site } from "@/lib/site";
 import { OrganizationSchema } from "@/components/seo/OrganizationSchema";
@@ -25,18 +26,18 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name}: Property Advisory in DHA & Bahria Town, Islamabad`,
+    default: `${site.name}: Property Advisory in DHA, Islamabad`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
   applicationName: site.name,
   keywords: [
     "DHA Islamabad plots",
-    "Bahria Town Islamabad property",
-    "real estate agent Islamabad",
     "DHA Phase 5 plots for sale",
-    "Margalla Orchard installments",
-    "Bahria Town villas",
+    "DHA Phase 6 plots for sale",
+    "real estate agent Islamabad",
+    "DHA Islamabad villas",
+    "DHA Islamabad commercial plots",
     "overseas Pakistani property investment",
   ],
   authors: [{ name: site.legalName }],
@@ -49,12 +50,12 @@ export const metadata: Metadata = {
     locale: site.locale,
     url: site.url,
     siteName: site.name,
-    title: `${site.name}: DHA & Bahria Town Property Advisory`,
+    title: `${site.name}: DHA Islamabad Property Advisory`,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name}: DHA & Bahria Town Property Advisory`,
+    title: `${site.name}: DHA Islamabad Property Advisory`,
     description: site.description,
   },
   robots: {
@@ -76,25 +77,51 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // The admin panel and the Sanity Studio are standalone apps — no marketing
+  // header, footer, floating buttons or intro splash over them.
+  const pathname = (await headers()).get("x-pathname") ?? "";
+  const chrome = !(
+    pathname === "/admin" ||
+    pathname.startsWith("/admin/") ||
+    pathname.startsWith("/studio")
+  );
+
   return (
     <html lang="en-PK" className={`${fraunces.variable} ${inter.variable}`}>
       <body>
-        <IntroLoader />
-        <OrganizationSchema />
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-navy focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
-        >
-          Skip to content
-        </a>
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
-        <WhatsAppButton />
-        <ChatWidget />
+        {chrome && (
+          // Runs during HTML parse, before the page paints: flags <html> so the
+          // intro cover is already up on first paint (no flash of the page
+          // underneath). The React IntroLoader then takes over and clears it.
+          <script
+            dangerouslySetInnerHTML={{
+              __html:
+                "try{var p=location.pathname;if(sessionStorage.getItem('ad-re-intro-shown')!=='1'&&!matchMedia('(prefers-reduced-motion:reduce)').matches&&p.indexOf('/studio')!==0&&p.indexOf('/admin')!==0){document.documentElement.setAttribute('data-intro','')}}catch(e){}",
+            }}
+          />
+        )}
+        {chrome ? (
+          <>
+            <IntroLoader />
+            <OrganizationSchema />
+            <a
+              href="#main"
+              className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-navy focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+            >
+              Skip to content
+            </a>
+            <Header />
+            <main id="main">{children}</main>
+            <Footer />
+            <WhatsAppButton />
+            <ChatWidget />
+          </>
+        ) : (
+          children
+        )}
       </body>
     </html>
   );

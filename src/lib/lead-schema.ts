@@ -35,3 +35,22 @@ export type LeadFormState = {
   message?: string;
   fieldErrors?: Partial<Record<keyof LeadInput, string>>;
 };
+
+/**
+ * The chat assistant qualifies a visitor over several taps, then collects a
+ * name and WhatsApp number — no email. Same name/number rules as the form so a
+ * chat lead is held to the same standard once it reaches the Studio.
+ */
+export const chatLeadSchema = z.object({
+  name: leadSchema.shape.name,
+  whatsapp: leadSchema.shape.whatsapp,
+  intent: z.string().trim().min(1).max(120),
+  budget: z.string().trim().max(120).optional().or(z.literal("")),
+  area: z.string().trim().max(120).optional().or(z.literal("")),
+  features: z.string().trim().max(500).optional().or(z.literal("")),
+  timeline: z.string().trim().max(120).optional().or(z.literal("")),
+});
+
+export type ChatLeadInput = z.infer<typeof chatLeadSchema>;
+
+export type ChatLeadResult = { ok: boolean; message: string };

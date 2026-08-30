@@ -8,7 +8,9 @@ import { concepts, score, extract, type Entities } from "./nlp";
 export type ChatAction =
   | { kind: "link"; label: string; href: string }
   | { kind: "external"; label: string; href: string }
-  | { kind: "reply"; label: string };
+  | { kind: "reply"; label: string }
+  /** Starts the guided lead-capture flow inside the widget. */
+  | { kind: "flow"; label: string };
 
 export type ChatCard = {
   title: string;
@@ -38,6 +40,9 @@ const advisorAction: ChatAction = {
   label: "Talk to an advisor",
   href: WHATSAPP("Hi, I was using the site assistant and would like to speak to someone."),
 };
+
+/** Hands the visitor to the in-widget qualification flow. */
+const callbackAction: ChatAction = { kind: "flow", label: "Request a callback" };
 
 // ── Property matching over the real inventory ────────────────────────────
 
@@ -91,11 +96,12 @@ function propertyReply(e: Entities): BotReply {
       ? `Nothing in our published list matches ${criteria} right now. Our inventory moves quickly and plenty of what we handle never gets listed publicly, so it is worth asking an advisor directly.`
       : "I could not match that to a published listing. Our inventory moves quickly and a lot of what we handle is never listed publicly.",
     actions: [
+      callbackAction,
       {
         kind: "external",
         label: "Ask an advisor on WhatsApp",
         href: WHATSAPP(
-          `Hi, I am looking for ${criteria || "a property"} in DHA or Bahria Town. What do you have available?`
+          `Hi, I am looking for ${criteria || "a property"} in DHA, Islamabad. What do you have available?`
         ),
       },
       { kind: "link", label: "Browse all listings", href: "/properties" },
@@ -142,8 +148,9 @@ const INTENTS: Intent[] = [
     name: "greeting",
     keywords: ["greeting", "hi", "hello", "salam", "hey"],
     answer: () => ({
-      text: "Hello. I can look up our listings, explain how buying in DHA or Bahria Town works, and work out installment numbers. What are you after?",
+      text: "Hello. I can look up our listings, explain how buying in DHA Islamabad works, and work out installment numbers. What are you after?",
       actions: [
+        callbackAction,
         { kind: "reply", label: "Show me properties" },
         { kind: "reply", label: "Installment plans" },
         { kind: "reply", label: "Book a site visit" },
@@ -220,8 +227,9 @@ const INTENTS: Intent[] = [
     name: "contact",
     keywords: ["contact", "advisor", "whatsapp"],
     answer: () => ({
-      text: `You can reach us on ${site.phone.display}, email ${site.email}, or walk into the DHA Phase 5 office. Our advisors answer WhatsApp fastest.`,
+      text: `You can reach us on ${site.phone.display}, email ${site.email}, or walk into the DHA Phase 5 office. Our advisors answer WhatsApp fastest — or leave your details here and one will call you.`,
       actions: [
+        callbackAction,
         advisorAction,
         { kind: "external", label: `Call ${site.phone.display}`, href: site.phone.href },
         { kind: "link", label: "Contact page", href: "/contact" },
@@ -318,10 +326,10 @@ export function respond(message: string): BotReply {
 
   // Out of depth. Say so plainly rather than guessing.
   return {
-    text: "I did not follow that one. I can help with our listings, installment numbers, documents, buying from overseas, and booking a visit. For anything else an advisor is the better answer.",
+    text: "I did not follow that one. I can help with our listings, installment numbers, documents, buying from overseas, and booking a visit. For anything else, leave your details and an advisor will call you.",
     actions: [
+      callbackAction,
       { kind: "reply", label: "Show me properties" },
-      { kind: "reply", label: "What documents do I need?" },
       advisorAction,
     ],
     handoff: true,
@@ -329,8 +337,9 @@ export function respond(message: string): BotReply {
 }
 
 export const OPENING: BotReply = {
-  text: "Hello. I am an automated assistant for AD Real Estate, not a person. I can search our listings, answer the common questions and work out installment numbers. For anything specific I will put you through to an advisor.",
+  text: "Hello. I am an automated assistant for AD Real Estate, not a person. I can search our listings, answer the common questions and work out installment numbers — or take a few details and have an advisor call you.",
   actions: [
+    callbackAction,
     { kind: "reply", label: "Show me properties" },
     { kind: "reply", label: "Installment plans" },
     { kind: "reply", label: "Buying from overseas" },

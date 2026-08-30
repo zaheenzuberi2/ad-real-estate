@@ -129,6 +129,18 @@ export const propertyTypes = [
   "Villa",
 ] as const;
 
+/** Bedroom filtering only makes sense for built homes. */
+export const bedroomTypes = ["House", "Apartment", "Villa"] as const;
+
+/** Values that go into the URL (`?beds=`); "5+" means five or more. */
+export const bedroomOptions = ["1", "2", "3", "4", "5+"] as const;
+
+export function bedsToMin(value: string): number | null {
+  if (value === "5+") return 5;
+  const n = Number(value);
+  return Number.isInteger(n) && n > 0 ? n : null;
+}
+
 export const budgetBands = [
   { label: "Any Budget", min: 0, max: Infinity },
   { label: "Under PKR 50 Lac", min: 0, max: 5_000_000 },

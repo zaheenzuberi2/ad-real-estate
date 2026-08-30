@@ -61,6 +61,7 @@ export async function submitLead(
       email: lead.email,
       project: lead.project,
       message: lead.message || undefined,
+      channel: "Website form",
       submittedAt,
       sourcePage,
       status: "new",

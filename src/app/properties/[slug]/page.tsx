@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProperties, getProperty } from "@/lib/properties-data";
 import { site, fullAddress } from "@/lib/site";
+import { propertySchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
 import { formatPkr } from "@/lib/format";
 import { Icon } from "@/components/ui/Icon";
 import { PropertyArt } from "@/components/ui/PropertyArt";
@@ -54,52 +55,8 @@ export default async function PropertyPage(props: {
   const properties = await getProperties();
   const others = properties.filter((p) => p.slug !== property.slug);
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Residence",
-    name: property.title,
-    description: property.description,
-    url: `${site.url}/properties/${property.slug}`,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: site.address.city,
-      addressRegion: site.address.region,
-      addressCountry: site.address.country,
-      streetAddress: property.location,
-    },
-    ...(property.priceFrom && {
-      offers: {
-        "@type": "Offer",
-        price: property.priceFrom,
-        priceCurrency: "PKR",
-        availability:
-          property.status === "Sold Out"
-            ? "https://schema.org/SoldOut"
-            : "https://schema.org/InStock",
-        seller: { "@id": `${site.url}/#organization` },
-      },
-    }),
-  };
-
-  const breadcrumbs = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Properties",
-        item: `${site.url}/properties`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: property.title,
-        item: `${site.url}/properties/${property.slug}`,
-      },
-    ],
-  };
+  const schema = propertySchema(property);
+  const breadcrumbs = breadcrumbSchema(property);
 
   const enquiryText = encodeURIComponent(
     `Hi, I'd like more information about ${property.title} (${property.location}).`
@@ -109,11 +66,11 @@ export default async function PropertyPage(props: {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(schema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }}
       />
 
       <section className="relative overflow-hidden" style={{ background: property.gradient }}>

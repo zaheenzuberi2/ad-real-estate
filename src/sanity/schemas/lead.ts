@@ -12,7 +12,25 @@ export const leadType = defineType({
     defineField({ name: "name", title: "Full Name", type: "string", readOnly: true }),
     defineField({ name: "whatsapp", title: "WhatsApp", type: "string", readOnly: true }),
     defineField({ name: "email", title: "Email", type: "string", readOnly: true }),
+    defineField({
+      name: "channel",
+      title: "Came From",
+      type: "string",
+      readOnly: true,
+      description: "Website form or the chat assistant.",
+    }),
     defineField({ name: "project", title: "Project Of Interest", type: "string", readOnly: true }),
+    defineField({
+      name: "intent",
+      title: "Looking To",
+      type: "string",
+      readOnly: true,
+      description: "What the visitor said they want to do (chat leads only).",
+    }),
+    defineField({ name: "budget", title: "Budget", type: "string", readOnly: true }),
+    defineField({ name: "area", title: "Preferred Area", type: "string", readOnly: true }),
+    defineField({ name: "features", title: "Requested Features", type: "text", rows: 2, readOnly: true }),
+    defineField({ name: "timeline", title: "Timeframe", type: "string", readOnly: true }),
     defineField({ name: "message", title: "Message", type: "text", rows: 4, readOnly: true }),
     defineField({
       name: "submittedAt",
@@ -68,18 +86,20 @@ export const leadType = defineType({
       title: "name",
       project: "project",
       status: "status",
+      channel: "channel",
       submittedAt: "submittedAt",
     },
-    prepare({ title, project, status, submittedAt }) {
+    prepare({ title, project, status, channel, submittedAt }) {
       const date = submittedAt
         ? new Date(submittedAt).toLocaleDateString("en-PK", {
             day: "numeric",
             month: "short",
           })
         : "";
+      const tag = channel === "Chat assistant" ? "Chat" : null;
       return {
         title: `${title ?? "Unknown"}${status === "new" ? "  ● NEW" : ""}`,
-        subtitle: [project, date].filter(Boolean).join(" · "),
+        subtitle: [tag, project, date].filter(Boolean).join(" · "),
       };
     },
   },

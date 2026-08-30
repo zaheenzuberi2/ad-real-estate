@@ -204,6 +204,21 @@ export const propertyType = defineType({
       description: "Leave empty if this project is not sold on installments.",
     }),
     defineField({
+      name: "bedrooms",
+      title: "Bedrooms",
+      type: "number",
+      group: "details",
+      description:
+        "Built units only. Leave empty for plots or anything sold as grey structure — it feeds search-engine structured data and must be a real figure.",
+    }),
+    defineField({
+      name: "bathrooms",
+      title: "Bathrooms",
+      type: "number",
+      group: "details",
+      description: "Built units only. Leave empty when unknown.",
+    }),
+    defineField({
       name: "featured",
       title: "Show On Homepage",
       type: "boolean",

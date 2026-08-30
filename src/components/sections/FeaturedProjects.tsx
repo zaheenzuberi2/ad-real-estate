@@ -16,7 +16,7 @@ export async function FeaturedProjects() {
           <SectionHeading
             eyebrow="Signature Developments"
             title="Featured Projects"
-            intro="A selection of DHA and Bahria Town developments our team has personally vetted for title clarity, location and long-term value."
+            intro="A selection of the developments our team has personally vetted for title clarity, location and long-term value."
           />
           <Button href="/properties" variant="ghost" size="md">
             View All Projects

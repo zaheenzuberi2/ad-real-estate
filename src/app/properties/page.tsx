@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { budgetBands } from "@/content/properties";
+import { budgetBands, bedsToMin } from "@/content/properties";
 import { getProperties } from "@/lib/properties-data";
 import { PropertyCard } from "@/components/ui/PropertyCard";
 import { PropertyFilters } from "@/components/sections/PropertyFilters";
@@ -7,36 +7,46 @@ import { site } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Properties For Sale in DHA & Bahria Town, Islamabad",
+  title: "Properties For Sale in DHA, Islamabad",
   description:
-    "Browse verified plots, villas and commercial units across DHA and Bahria Town, Islamabad. Every listing title-checked before it reaches you.",
+    "Browse verified plots, villas and commercial units across DHA, Islamabad. Every listing title-checked before it reaches you.",
   alternates: { canonical: "/properties" },
   openGraph: {
-    title: "Properties For Sale in DHA & Bahria Town, Islamabad",
+    title: "Properties For Sale in DHA, Islamabad",
     description:
-      "Browse verified plots, villas and commercial units across DHA and Bahria Town, Islamabad.",
+      "Browse verified plots, villas and commercial units across DHA, Islamabad.",
     url: `${site.url}/properties`,
   },
 };
 
 export default async function PropertiesPage(props: {
-  searchParams: Promise<{ phase?: string; type?: string; budget?: string }>;
+  searchParams: Promise<{
+    phase?: string;
+    type?: string;
+    beds?: string;
+    budget?: string;
+  }>;
 }) {
-  const { phase, type, budget } = await props.searchParams;
+  const { phase, type, beds, budget } = await props.searchParams;
 
   const band = budgetBands.find((b) => b.label === budget);
+  const minBeds = beds ? bedsToMin(beds) : null;
   const properties = await getProperties();
 
   const results = properties.filter((p) => {
     if (phase && p.phase !== phase) return false;
     if (type && p.propertyType !== type) return false;
+    if (minBeds !== null) {
+      if (typeof p.bedrooms !== "number" || p.bedrooms < minBeds) return false;
+      if (beds !== "5+" && p.bedrooms !== minBeds) return false;
+    }
     if (band && p.priceFrom !== null) {
       if (p.priceFrom < band.min || p.priceFrom > band.max) return false;
     }
     return true;
   });
 
-  const filtered = Boolean(phase || type || budget);
+  const filtered = Boolean(phase || type || beds || budget);
 
   return (
     <>
@@ -47,7 +57,7 @@ export default async function PropertiesPage(props: {
             Our Inventory
           </p>
           <h1 className="mt-4 max-w-3xl font-display text-4xl font-medium leading-tight text-white sm:text-5xl">
-            Properties in DHA &amp; Bahria Town
+            Properties in DHA, Islamabad
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
             Every listing below has had its title, dues, and transfer history
