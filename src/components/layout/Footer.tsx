@@ -3,7 +3,7 @@ import { site, navLinks, fullAddress, developer } from "@/lib/site";
 import { LogoMark } from "@/components/ui/Logo";
 import { Icon } from "@/components/ui/Icon";
 import { getProperties } from "@/lib/properties-data";
-import { FacebookGlyph, InstagramGlyph } from "@/components/ui/SocialGlyphs";
+import { FacebookGlyph, InstagramGlyph, YouTubeGlyph } from "@/components/ui/SocialGlyphs";
 
 export async function Footer() {
   const properties = await getProperties();
@@ -49,6 +49,15 @@ export async function Footer() {
               className="tap flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-300 transition-all duration-300 ease-brand hover:-translate-y-1 hover:border-gold/50 hover:text-gold hover:shadow-[0_10px_22px_-10px_rgba(198,161,91,0.5)]"
             >
               <InstagramGlyph className="h-[18px] w-[18px]" />
+            </a>
+            <a
+              href={site.social.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="AD Real Estate on YouTube"
+              className="tap flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-slate-300 transition-all duration-300 ease-brand hover:-translate-y-1 hover:border-gold/50 hover:text-gold hover:shadow-[0_10px_22px_-10px_rgba(198,161,91,0.5)]"
+            >
+              <YouTubeGlyph className="h-[18px] w-[18px]" />
             </a>
           </div>
         </div>

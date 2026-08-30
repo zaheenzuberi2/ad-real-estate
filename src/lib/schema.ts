@@ -117,7 +117,7 @@ export function realEstateAgentSchema() {
         closes: site.openingHoursSpec.closes,
       },
     ],
-    sameAs: [site.social.facebook, site.social.instagram],
+    sameAs: [site.social.facebook, site.social.instagram, site.social.youtube],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: site.rating.value,

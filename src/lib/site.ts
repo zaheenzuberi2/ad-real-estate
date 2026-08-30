@@ -29,6 +29,7 @@ export const site = {
   social: {
     facebook: "https://www.facebook.com/share/19QyTndqDw/",
     instagram: "https://www.instagram.com/adrealestate__",
+    youtube: "https://www.youtube.com/@ADrealestateisb",
   },
 
   address: {
