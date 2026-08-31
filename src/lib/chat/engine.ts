@@ -165,6 +165,37 @@ const INTENTS: Intent[] = [
       actions: [advisorAction],
     }),
   },
+  // `sell` and `financing` sit before `property` so that "sell my house" or
+  // "home loan" — which carry a property word — are not swallowed by the
+  // buy-side property matcher. See the override in `respond()`.
+  {
+    name: "sell",
+    keywords: ["sell", "selling", "resale", "dispose"],
+    answer: () => ({
+      text:
+        "Yes, we handle sales and resale as well as purchases. An advisor will value your plot or property against current sector rates, list it through our buyer network — including deals that never go public — and manage the verification and transfer through to possession. Leave your details and someone will call you back.",
+      actions: [
+        callbackAction,
+        {
+          kind: "external",
+          label: "Discuss a sale on WhatsApp",
+          href: WHATSAPP("Hi, I would like to sell a property in DHA, Islamabad. Can an advisor help with valuation and listing?"),
+        },
+      ],
+    }),
+  },
+  {
+    name: "financing",
+    keywords: ["financing", "finance", "loan", "mortgage", "leasing", "bank"],
+    answer: () => ({
+      text:
+        "We can introduce you to financing options from partner banks on eligible projects. Approval and the final terms are set by the lender rather than by us, so an advisor will point you to the banks currently lending on a given project and what they look for.",
+      actions: [
+        callbackAction,
+        advisorAction,
+      ],
+    }),
+  },
   {
     name: "property",
     keywords: ["plot", "house", "commercial", "apartment", "buy", "property", "marla", "kanal", "available", "villa", "invest"],
@@ -288,22 +319,6 @@ const INTENTS: Intent[] = [
       ],
     }),
   },
-  {
-    name: "sell",
-    keywords: ["sell", "selling", "resale", "dispose"],
-    answer: () => ({
-      text:
-        "Yes, we handle sales and resale as well as purchases. An advisor will value your plot or property against current sector rates, list it through our buyer network — including deals that never go public — and manage the verification and transfer through to possession. Leave your details and someone will call you back.",
-      actions: [
-        callbackAction,
-        {
-          kind: "external",
-          label: "Discuss a sale on WhatsApp",
-          href: WHATSAPP("Hi, I would like to sell a property in DHA, Islamabad. Can an advisor help with valuation and listing?"),
-        },
-      ],
-    }),
-  },
 ];
 
 // ── Public entry point ───────────────────────────────────────────────────
@@ -350,7 +365,15 @@ export function respond(message: string): BotReply {
     };
   }
 
-  if (hasPropertySignal && (!bestIntent || bestIntent.s < 2)) {
+  // "sell my house", "home loan" — a property word, but not a buy request.
+  // If one of these intents is the top match, it answers instead of the
+  // buy-side property matcher.
+  const intentOverridesProperty =
+    bestIntent !== null &&
+    bestIntent.s >= 1 &&
+    (bestIntent.intent.name === "sell" || bestIntent.intent.name === "financing");
+
+  if (hasPropertySignal && !intentOverridesProperty && (!bestIntent || bestIntent.s < 2)) {
     return propertyReply(e);
   }
 
