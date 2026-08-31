@@ -19,7 +19,7 @@ const SYNONYMS: Record<string, string[]> = {
   apartment: ["apartment", "flat", "flats", "apartments"],
   visit: ["visit", "see", "tour", "viewing", "site", "dekhna", "appointment", "meet", "meeting"],
   buy: ["buy", "purchase", "buying", "invest", "investment", "kharidna", "lena"],
-  sell: ["sell", "selling", "resale", "bechna"],
+  sell: ["sell", "selling", "resale", "bechna", "dispose", "offload"],
   documents: ["document", "documents", "paper", "papers", "cnic", "nicop", "passport", "kaghaz", "requirement", "requirements", "need"],
   overseas: ["overseas", "abroad", "foreign", "outside", "uk", "usa", "dubai", "canada", "australia", "saudi", "remote", "remotely"],
   transfer: ["transfer", "possession", "registry", "intiqal", "mutation", "ownership", "title"],
@@ -33,6 +33,7 @@ const SYNONYMS: Record<string, string[]> = {
   thanks: ["thanks", "thank", "shukriya", "thankyou", "appreciated"],
   freehold: ["freehold", "leasehold", "ownership", "own"],
   legit: ["legit", "trusted", "scam", "genuine", "verify", "verified", "registered", "licence", "license", "real"],
+  whyus: ["why", "choose", "chose", "different", "difference", "better", "best", "advantage", "advantages", "reason", "reasons", "unique", "special", "reliable", "reputation", "experience", "experienced", "record", "recommend", "compare", "pick"],
 };
 
 /** word -> canonical concept */

@@ -399,7 +399,7 @@ function ChatBubble({
 
   return (
     <div className="flex flex-col items-start gap-2">
-      <div className="max-w-[92%] rounded-2xl rounded-bl-sm bg-white px-4 py-2.5 text-sm leading-relaxed text-navy-deep shadow-sm">
+      <div className="max-w-[92%] whitespace-pre-line rounded-2xl rounded-bl-sm bg-white px-4 py-2.5 text-sm leading-relaxed text-navy-deep shadow-sm">
         {reply.text}
       </div>
 

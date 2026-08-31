@@ -270,6 +270,40 @@ const INTENTS: Intent[] = [
       actions: [{ kind: "link", label: "See our certifications", href: "/about" }],
     }),
   },
+  {
+    name: "whyus",
+    keywords: ["whyus", "why", "choose", "different", "better", "best", "advantage", "reason", "trust", "reputation", "experience", "recommend", "compare"],
+    answer: () => ({
+      text:
+        `A few concrete reasons people work with us:\n` +
+        `• Registered firm — ${site.legalName}, licensed under the 1980 Real Estate Regulation Ordinance, with a Zameen.com "Trusted Agency" award and Rawalpindi Chamber membership.\n` +
+        `• We focus on DHA Islamabad, especially Phase 5 and 6, rather than spreading across every society.\n` +
+        `• An advisor handles your site visits, ownership verification and possession personally — you are not passed around.\n` +
+        `• Overseas buyers are handled end to end with power of attorney and video verification.\n` +
+        `• Our fee is agreed in writing up front, with no hidden charges, and our Google rating is ${site.rating.value} from ${site.rating.count} reviews.`,
+      actions: [
+        { kind: "link", label: "See our certifications", href: "/about" },
+        { kind: "link", label: "Meet the team", href: "/about" },
+        callbackAction,
+      ],
+    }),
+  },
+  {
+    name: "sell",
+    keywords: ["sell", "selling", "resale", "dispose"],
+    answer: () => ({
+      text:
+        "Yes, we handle sales and resale as well as purchases. An advisor will value your plot or property against current sector rates, list it through our buyer network — including deals that never go public — and manage the verification and transfer through to possession. Leave your details and someone will call you back.",
+      actions: [
+        callbackAction,
+        {
+          kind: "external",
+          label: "Discuss a sale on WhatsApp",
+          href: WHATSAPP("Hi, I would like to sell a property in DHA, Islamabad. Can an advisor help with valuation and listing?"),
+        },
+      ],
+    }),
+  },
 ];
 
 // ── Public entry point ───────────────────────────────────────────────────
@@ -341,6 +375,7 @@ export const OPENING: BotReply = {
   actions: [
     callbackAction,
     { kind: "reply", label: "Show me properties" },
+    { kind: "reply", label: "Why choose AD Real Estate?" },
     { kind: "reply", label: "Installment plans" },
     { kind: "reply", label: "Buying from overseas" },
     { kind: "reply", label: "Book a site visit" },
