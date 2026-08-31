@@ -38,7 +38,10 @@ export function Reveal({
           observer.disconnect();
         }
       },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.05 }
+      // Positive bottom margin: start the reveal ~15% before the element
+      // actually enters the viewport, so it has finished settling by the time
+      // it is on screen — even on a fast scroll.
+      { rootMargin: "0px 0px 15% 0px", threshold: 0 }
     );
 
     observer.observe(el);

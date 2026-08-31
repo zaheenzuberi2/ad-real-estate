@@ -204,15 +204,15 @@ html {
 /* Content settles into place on first view; visible by default if JS fails. */
 [data-reveal="out"] {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(12px);
 }
 
 [data-reveal="in"] {
   opacity: 1;
   transform: none;
   transition:
-    opacity 0.75s var(--ease-brand) var(--reveal-delay, 0ms),
-    transform 0.75s var(--ease-brand) var(--reveal-delay, 0ms);
+    opacity 0.4s var(--ease-brand) var(--reveal-delay, 0ms),
+    transform 0.4s var(--ease-brand) var(--reveal-delay, 0ms);
 }
 
 /* Ambient drift. Long, low-amplitude, and always on an inner wrapper so it

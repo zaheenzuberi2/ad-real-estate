@@ -19,7 +19,7 @@ export function Process() {
             <Reveal
               as="li"
               key={step.title}
-              delay={i * 100}
+              delay={i * 50}
               className="relative rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 sm:border-0 sm:bg-transparent sm:p-0"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-gold/30 bg-gold/10 sm:h-12 sm:w-12 sm:rounded-xl">
