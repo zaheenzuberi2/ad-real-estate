@@ -20,12 +20,13 @@ const cspReportOnly = [
   "form-action 'self'",
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://cdn.sanity.io",
+  "img-src 'self' data: blob: https://cdn.sanity.io https://maps.gstatic.com https://maps.googleapis.com",
   "font-src 'self' data:",
   "connect-src 'self' https://*.sanity.io wss://*.sanity.io",
   "media-src 'self'",
   "worker-src 'self' blob:",
-  "frame-src 'self'",
+  // Google Maps embed on the contact page (loaded on click via the map facade).
+  "frame-src 'self' https://maps.google.com https://www.google.com",
   "manifest-src 'self'",
   "upgrade-insecure-requests",
 ].join("; ");

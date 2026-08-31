@@ -4,6 +4,7 @@ import { ContactForm } from "@/components/sections/ContactForm";
 import { Icon } from "@/components/ui/Icon";
 import { WhatsAppGlyph } from "@/components/ui/WhatsAppGlyph";
 import { Button } from "@/components/ui/Button";
+import { MapEmbed } from "@/components/ui/MapEmbed";
 import { getProperties } from "@/lib/properties-data";
 
 export async function Contact() {
@@ -67,15 +68,7 @@ export async function Contact() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-2xl border border-hairline shadow-[0_1px_2px_rgba(11,27,51,0.06),0_12px_28px_-12px_rgba(11,27,51,0.18)]">
-              <iframe
-                title={`Map showing ${site.name} office in DHA Phase 5, Islamabad`}
-                src={`https://maps.google.com/maps?q=${mapsQuery}&output=embed`}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="h-72 w-full border-0"
-              />
-            </div>
+            <MapEmbed query={mapsQuery} addressLine={fullAddress} />
           </div>
 
           <ContactForm projectTitles={properties.map((p) => p.title)} />
