@@ -294,6 +294,14 @@ const INTENTS: Intent[] = [
     }),
   },
   {
+    name: "fee",
+    keywords: ["fee", "fees", "commission", "charges", "charge"],
+    answer: () => ({
+      text: "Our consultancy fee depends on the transaction type and the project, and we confirm it in writing before any work begins — no hidden charges. An advisor will give you the exact figure for what you have in mind.",
+      actions: [callbackAction, advisorAction],
+    }),
+  },
+  {
     name: "legit",
     keywords: ["legit", "trusted", "registered", "verify", "scam"],
     answer: () => ({
@@ -334,6 +342,10 @@ export function respond(message: string): BotReply {
 
   // A concrete property description outranks a generic intent match.
   const hasPropertySignal = Boolean(e.phase || e.size || e.propertyType);
+  // A bare type word ("plot", "house", "file") is a weak signal — it also
+  // appears in questions the FAQ answers ("file vs possession plot"). Only a
+  // phase or a size means the visitor is really describing a listing.
+  const concreteProperty = Boolean(e.phase || e.size);
 
   let bestIntent: { intent: Intent; s: number } | null = null;
   for (const intent of INTENTS) {
@@ -354,7 +366,7 @@ export function respond(message: string): BotReply {
     faqHit &&
     faqHit.s >= FAQ_MIN_HITS &&
     (!bestIntent || faqHit.s > bestIntent.s) &&
-    !hasPropertySignal
+    !concreteProperty
   ) {
     return {
       text: faqs[faqHit.index].a,
@@ -372,6 +384,13 @@ export function respond(message: string): BotReply {
     bestIntent !== null &&
     bestIntent.s >= 1 &&
     (bestIntent.intent.name === "sell" || bestIntent.intent.name === "financing");
+
+  // An explicit "sell" with no "buy" is a clear seller — answer as a sale even
+  // when the message is packed with plot / phase / size detail.
+  if (c.has("sell") && !c.has("buy")) {
+    const sellIntent = INTENTS.find((i) => i.name === "sell");
+    if (sellIntent) return sellIntent.answer(e, message);
+  }
 
   if (hasPropertySignal && !intentOverridesProperty && (!bestIntent || bestIntent.s < 2)) {
     return propertyReply(e);
