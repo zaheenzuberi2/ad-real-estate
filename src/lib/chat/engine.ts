@@ -81,10 +81,11 @@ function propertyReply(e: Entities): BotReply {
   if (matches.length > 0) {
     return {
       text: criteria
-        ? `Here is what we currently list matching ${criteria}. Prices are confirmed per plot, so an advisor will quote you the live rate.`
-        : "Here is what we currently have listed. Prices are confirmed per plot, so an advisor will quote you the live rate.",
+        ? `Here is what we currently list matching ${criteria}. This is only what is posted publicly — we hold more off-market, so leave your details and an advisor can send the full picture.`
+        : "Here is what we currently have listed publicly. We hold more off-market, so leave your details and an advisor can send the full picture.",
       cards: toCards(matches),
       actions: [
+        { kind: "flow", label: "Get matched by an advisor" },
         { kind: "link", label: "See all properties", href: "/properties" },
         advisorAction,
       ],
@@ -93,10 +94,10 @@ function propertyReply(e: Entities): BotReply {
 
   return {
     text: criteria
-      ? `Nothing in our published list matches ${criteria} right now. Our inventory moves quickly and plenty of what we handle never gets listed publicly, so it is worth asking an advisor directly.`
-      : "I could not match that to a published listing. Our inventory moves quickly and a lot of what we handle is never listed publicly.",
+      ? `We do not have a published listing for ${criteria} right now — but a lot of what we handle in DHA never gets posted. Leave your requirement and number and an advisor will come back to you with options that fit, usually the same day.`
+      : "I could not match that to a published listing, and plenty of our inventory is never posted. Tell me the area, size, budget and timeline you have in mind plus your number, and an advisor will come back with options.",
     actions: [
-      callbackAction,
+      { kind: "flow", label: "Share my requirement" },
       {
         kind: "external",
         label: "Ask an advisor on WhatsApp",
