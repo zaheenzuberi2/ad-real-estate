@@ -280,7 +280,7 @@ const INTENTS: Intent[] = [
         `• We focus on DHA Islamabad, especially Phase 5 and 6, rather than spreading across every society.\n` +
         `• An advisor handles your site visits, ownership verification and possession personally — you are not passed around.\n` +
         `• Overseas buyers are handled end to end with power of attorney and video verification.\n` +
-        `• Our fee is agreed in writing up front, with no hidden charges, and our Google rating is ${site.rating.value} from ${site.rating.count} reviews.`,
+        `• Our fee is agreed in writing up front, with no hidden charges, and our Google rating is ${site.rating.value.toFixed(1)} from ${site.rating.count} reviews.`,
       actions: [
         { kind: "link", label: "See our certifications", href: "/about" },
         { kind: "link", label: "Meet the team", href: "/about" },
