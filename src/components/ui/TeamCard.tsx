@@ -78,7 +78,7 @@ export function TeamCard({
               <h3 className="font-display text-base font-semibold leading-tight text-navy-deep sm:text-lg">
                 {member.name}
               </h3>
-              <p className="eyebrow mt-1 text-[9px] leading-snug text-gold">
+              <p className="eyebrow mt-1 text-[9px] leading-snug text-gold-ink">
                 {member.role}
               </p>
             </div>

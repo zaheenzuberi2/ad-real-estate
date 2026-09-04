@@ -45,7 +45,7 @@ export function PropertyCard({ property }: { property: Property }) {
       </Link>
 
       <div className="flex flex-1 flex-col p-6">
-        <p className="eyebrow text-gold">{property.eyebrow}</p>
+        <p className="eyebrow text-gold-ink">{property.eyebrow}</p>
         <h3 className="mt-2 font-display text-2xl font-semibold text-navy-deep">
           <Link
             href={`/properties/${property.slug}`}

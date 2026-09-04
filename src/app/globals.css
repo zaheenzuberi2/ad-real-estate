@@ -7,6 +7,9 @@
   --color-navy-mid: #13294b;
   --color-gold: #c6a15b;
   --color-gold-bright: #ebce8e;
+  /* Same hue, darkened to clear 4.5:1 against white/ivory — --color-gold
+     itself only hits ~2.4:1 there and is reserved for dark backgrounds. */
+  --color-gold-ink: #8a6a28;
   --color-ivory: #fbfaf7;
   --color-sand: #f3ede0;
   --color-hairline: #e7e2d6;
