@@ -69,6 +69,9 @@ export const metadata: Metadata = {
     },
   },
   category: "real estate",
+  verification: {
+    google: "YFU_kFdRU7y9-rhd4modn8hqduDVOIFvj0XQBRLX5MQ",
+  },
 };
 
 export const viewport: Viewport = {
