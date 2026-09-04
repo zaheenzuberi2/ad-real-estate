@@ -6,8 +6,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      // The Studio is the agency's admin panel — it holds client enquiries.
-      disallow: ["/studio", "/studio/"],
+      // Studio and the custom admin panel both hold client enquiries — keep
+      // both, and their login screens, out of the index.
+      disallow: ["/studio", "/studio/", "/admin", "/admin/"],
     },
     sitemap: `${site.url}/sitemap.xml`,
   };

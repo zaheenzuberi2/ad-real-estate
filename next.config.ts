@@ -42,6 +42,18 @@ const nextConfig: NextConfig = {
     remotePatterns: [{ protocol: "https", hostname: "cdn.sanity.io" }],
   },
 
+  async redirects() {
+    return [
+      // Canonical host is the apex; www is only registered so it resolves.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.adrealestate.pk" }],
+        destination: "https://adrealestate.pk/:path*",
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
       {
