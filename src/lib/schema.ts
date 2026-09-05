@@ -1,4 +1,6 @@
 import type { Property } from "@/lib/types";
+import type { Guide } from "@/content/guides";
+import type { Faq } from "@/content/faqs";
 import { site } from "@/lib/site";
 
 /**
@@ -216,5 +218,63 @@ export function breadcrumbSchema(property: Property) {
         item: `${site.url}/properties/${property.slug}`,
       },
     ],
+  };
+}
+
+/** One long-form guide article. */
+export function articleSchema(guide: Guide) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${site.url}/guides/${guide.slug}#article`,
+    headline: guide.title,
+    description: guide.description,
+    url: `${site.url}/guides/${guide.slug}`,
+    datePublished: guide.date,
+    dateModified: guide.date,
+    inLanguage: "en-PK",
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+    mainEntityOfPage: `${site.url}/guides/${guide.slug}`,
+    about: [
+      { "@type": "Place", name: "DHA Islamabad" },
+      { "@type": "Thing", name: "Real estate" },
+    ],
+  };
+}
+
+/** Home > Guides > {guide} */
+export function guideBreadcrumbSchema(guide: Guide) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Guides",
+        item: `${site.url}/guides`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: guide.title,
+        item: `${site.url}/guides/${guide.slug}`,
+      },
+    ],
+  };
+}
+
+/** FAQ block shared by the guide pages. */
+export function faqPageSchema(faqs: Faq[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
   };
 }

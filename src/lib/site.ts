@@ -78,6 +78,7 @@ export const developer = {
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "Properties", href: "/properties" },
+  { label: "Guides", href: "/guides" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ] as const;
