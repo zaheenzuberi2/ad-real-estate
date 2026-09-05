@@ -160,6 +160,205 @@ export const guides: Guide[] = [
       },
     ],
   },
+  {
+    slug: "dha-phase-5-vs-phase-6",
+    title: "DHA Phase 5 vs Phase 6, Islamabad: Which to Buy",
+    metaTitle: "DHA Phase 5 vs Phase 6 Islamabad: Which to Buy",
+    description:
+      "Phase 5 is the settled choice, Phase 6 is the growth bet. How the two DHA Islamabad phases compare on development, price, risk and buyer fit — and why the sector matters more than the phase.",
+    dek: "Phase 5 is the settled choice; Phase 6 is the growth bet. The right answer depends on whether you want to build now or hold for appreciation — and, more than that, on the specific sector.",
+    category: "Buying guide",
+    readingTime: "6 min read",
+    date: "2026-09-05",
+    dateLabel: "5 September 2026",
+    body: [
+      { type: "h2", text: "The short version" },
+      {
+        type: "p",
+        text: "Phase 5 is older, largely developed and lived in — you pay more, you get certainty, you can build today. Phase 6 is newer and far larger, development is uneven across its sectors, prices are lower, and the upside is bigger if you pick well and wait. Neither wins outright. It comes down to your timeline and the exact sector.",
+      },
+      { type: "h2", text: "Phase 5: the settled option" },
+      {
+        type: "ul",
+        items: [
+          "Development — most sectors are developed with possession handed over. Roads, utilities, parks and commercial areas are in place and in use.",
+          "Who is there — an established residential population, active construction, functioning markets.",
+          "Price — a higher entry cost than Phase 6, with steadier, slower appreciation.",
+          "Best for — end-users who want to build and move in now, and investors who prioritise low risk and rental potential over maximum capital gain.",
+          "Watch for — the premium is already priced in, and corner, park-facing and boulevard plots carry a further premium on top.",
+        ],
+      },
+      { type: "h2", text: "Phase 6: the growth option" },
+      {
+        type: "ul",
+        items: [
+          "Development — Phase 6 is much larger and progress is uneven. Some sectors are developed with possession; others are still developing or remain files only. Its development timeline was extended for years by land-acquisition and legal matters, and different blocks moved at very different speeds.",
+          "Who is there — fewer built houses so far. In most sectors there are more plots than people.",
+          "Price — a lower entry cost, with more room for appreciation as development completes, and more downside if a sector stalls.",
+          "Best for — investors with a multi-year horizon who can research sectors and wait.",
+          "Watch for — large differences between sectors. On its own, “a Phase 6 plot” tells you very little.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "The decision comes down to the sector, not the phase",
+      },
+      {
+        type: "p",
+        text: "Averages across a whole phase hide the thing that actually decides your outcome. Within Phase 6, a developed sector with possession behaves nothing like a file in a sector still under development. Before you compare prices, pin down four things about the specific plot: is the sector developed, is possession available, are the development charges paid, and is the plot transferable right now. Those answers matter more than the phase number.",
+      },
+      { type: "h2", text: "Questions to ask before you choose" },
+      {
+        type: "ol",
+        items: [
+          "What is my horizon — building within a year or two, or holding for five years or more?",
+          "Do I need possession now, or can I wait for development to reach the plot?",
+          "What is my risk tolerance if a sector's timeline slips?",
+          "For this specific plot: developed or file, possession or not, dues cleared, transferable now?",
+          "What is the realistic resale market for this sector today?",
+        ],
+      },
+      { type: "h2", text: "How we help" },
+      {
+        type: "p",
+        text: "We work in both phases every week. For a specific plot or a budget, we can tell you which sectors are worth looking at and which to avoid right now — based on current development status, transfer rules and what is actually selling. Send us your budget and timeline and we will point you at the right shortlist.",
+      },
+      {
+        type: "p",
+        text: "This guide is general information. Development status, transfer rules and prices vary by sector and change over time — confirm the current position for any plot with DHA and a qualified advisor before you commit.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is Phase 5 or Phase 6 a better investment in DHA Islamabad?",
+        a: "Phase 5 offers lower risk and steadier value because it is developed and populated. Phase 6 offers more appreciation potential, but over a longer horizon and with more variation between sectors. Which is better depends on your timeline and the specific sector you are looking at.",
+      },
+      {
+        q: "Can I build a house in DHA Phase 6 now?",
+        a: "In Phase 6 sectors where development is complete and possession has been handed over, yes. In sectors still under development, or where you hold only a file, not yet. Confirm the possession status of the specific sector before assuming you can build.",
+      },
+      {
+        q: "Why is Phase 6 cheaper than Phase 5?",
+        a: "Phase 5 is older, fully developed and lived in, so its price reflects certainty and immediate usability. Phase 6 is newer, larger and still developing in parts, so plots are priced lower with the expectation that value rises as development completes.",
+      },
+      {
+        q: "Which phase is better for overseas buyers?",
+        a: "Both work. Overseas buyers who want a low-maintenance hold often prefer a developed sector with possession — in either phase — so there is less uncertainty to manage from abroad. The transfer is handled remotely either way.",
+      },
+      {
+        q: "How do I check the development status of a DHA sector?",
+        a: "DHA's records and transfer section confirms whether a sector is developed, whether possession has been handed over, and whether plots are currently transferable. We check this for every plot before a client commits.",
+      },
+    ],
+  },
+  {
+    slug: "buying-dha-property-overseas-pakistani",
+    title: "Buying DHA Islamabad Property as an Overseas Pakistani",
+    metaTitle: "Overseas Pakistani Guide: Buying DHA Islamabad Property",
+    description:
+      "Buy, transfer and hold a DHA Islamabad plot without flying home. The process for overseas buyers — the power of attorney, video verification, moving the money, and the tax to plan for.",
+    dek: "You can buy, transfer and hold a DHA Islamabad plot without flying home. Here is the process for overseas buyers — the power of attorney, the verification, moving the money, and the tax you need to plan for.",
+    category: "Buying guide",
+    readingTime: "6 min read",
+    date: "2026-09-05",
+    dateLabel: "5 September 2026",
+    body: [
+      { type: "h2", text: "You do not need to be in Pakistan" },
+      {
+        type: "p",
+        text: "Every step of a DHA transfer can be completed for you by an attorney you appoint, with you verifying by video call. The trade-off is paperwork done in the right order: a power of attorney that is properly attested, funds that move through banking channels, and tax handled correctly as a non-resident.",
+      },
+      { type: "h2", text: "Step 1: Appoint a power of attorney" },
+      {
+        type: "p",
+        text: "You choose someone in Pakistan you trust — a family member, or your advisor's nominated representative — to sign and attend the DHA office on your behalf.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Draft the power of attorney specifically for this transaction — property purchase and transfer, naming the plot if it is known.",
+          "Have it attested by the Pakistani embassy or consulate in your country of residence.",
+          "Then have it attested by the Ministry of Foreign Affairs in Islamabad and, where required, registered locally.",
+          "A general power of attorney is not always accepted. A special power of attorney that names the transaction is the safer choice.",
+        ],
+      },
+      { type: "h2", text: "Step 2: Verification" },
+      {
+        type: "p",
+        text: "DHA and the seller's side will confirm you are who you say you are and that you consent to the purchase. Expect a video verification call, copies of your passport and NICOP or POC, and photographs. Keep your NICOP current — an expired card stalls the transfer.",
+      },
+      { type: "h2", text: "Step 3: Move the money the right way" },
+      {
+        type: "ul",
+        items: [
+          "Send funds from your own account abroad to a Pakistani account through normal banking channels — not through informal transfer.",
+          "Keep every remittance advice and bank record. This proves the source of funds for tax, and it is what allows you to repatriate the proceeds if you sell later.",
+          "Pay the seller only after DHA has verified the file — never before.",
+        ],
+      },
+      { type: "h2", text: "Step 4: The transfer itself" },
+      {
+        type: "p",
+        text: "Your attorney attends the DHA office with the original documents, the No Demand Certificate, the attested power of attorney, and ID. DHA cancels the seller's allocation and issues a new transfer letter in your name. Your attorney collects it — arrange to get the original to you or into safe keeping.",
+      },
+      { type: "h2", text: "Tax you need to plan for" },
+      {
+        type: "p",
+        text: "As a non-resident buyer you still pay the standard transaction taxes, and your filer status matters.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Federal advance tax on the purchase — the rate is lower for those on the Active Taxpayer List. Overseas Pakistanis may be exempt from the higher non-filer rate on the basis of their NICOP or POC. Confirm your status before the transfer, as it can materially change the amount.",
+          "Capital Value Tax, and provincial stamp duty and registration where applicable.",
+          "On a future sale, capital gains tax may apply depending on how long you held the plot.",
+          "Keep your remittance records — they support both the source of funds and any later repatriation.",
+        ],
+      },
+      { type: "h2", text: "What usually goes wrong" },
+      {
+        type: "ul",
+        items: [
+          "A power of attorney attested at the embassy but not by the Ministry of Foreign Affairs, so the DHA office rejects it.",
+          "A general power of attorney where a special one naming the transaction was needed.",
+          "Paying the seller before DHA verification.",
+          "An expired NICOP or POC.",
+          "Cash or informal money transfer, leaving no record for tax or repatriation.",
+        ],
+      },
+      { type: "h2", text: "How we handle overseas buyers" },
+      {
+        type: "p",
+        text: "We do this regularly. We tell you exactly which power of attorney wording to use, coordinate the video verification, run the same file checks covered in our guide on buying a plot, and keep you updated at each step. You approve; we execute on the ground.",
+      },
+      {
+        type: "p",
+        text: "This guide is general information. Attestation requirements and tax rules change and vary by country and province — confirm the current requirements with the Pakistani mission in your country and a qualified tax advisor before you proceed.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Can an overseas Pakistani buy DHA Islamabad property without visiting?",
+        a: "Yes. The purchase and transfer are completed by an attorney you appoint through a properly attested power of attorney, with you verifying by video call.",
+      },
+      {
+        q: "What kind of power of attorney do I need?",
+        a: "A special power of attorney that names the property transaction, attested by the Pakistani embassy or consulate in your country and then by the Ministry of Foreign Affairs in Islamabad. A general power of attorney is often not accepted for property transfers.",
+      },
+      {
+        q: "How should I send the money for the purchase?",
+        a: "Through formal banking channels from your own account abroad, and keep every remittance record. This establishes the source of funds for tax and is what lets you repatriate the proceeds if you sell later. Avoid informal transfers.",
+      },
+      {
+        q: "Do overseas Pakistanis pay more tax when buying property?",
+        a: "Not automatically. The main variable is filer status — advance tax is lower for those on the Active Taxpayer List, and overseas Pakistanis may be exempt from the higher non-filer rate on the basis of their NICOP or POC. Confirm your status before the transfer.",
+      },
+      {
+        q: "Can I sell the plot later and send the money back abroad?",
+        a: "Yes, provided you bought it with funds remitted through banking channels and kept the records. That documentation is what supports repatriation of the sale proceeds.",
+      },
+    ],
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {
