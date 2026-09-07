@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { ChatWidget } from "@/components/chat/ChatWidget";
 import { IntroLoader } from "@/components/layout/IntroLoader";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -125,6 +126,7 @@ export default async function RootLayout({
         ) : (
           children
         )}
+        <Analytics />
       </body>
     </html>
   );
