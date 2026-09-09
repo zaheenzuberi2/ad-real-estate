@@ -37,6 +37,8 @@ export type Guide = {
   dateLabel: string;
   body: GuideBlock[];
   faqs: Faq[];
+  /** Listing slugs this guide directly applies to — cross-linked on the page. */
+  relatedProperties?: string[];
 };
 
 export const guides: Guide[] = [
@@ -159,6 +161,7 @@ export const guides: Guide[] = [
         a: "Expect a DHA transfer fee, a membership fee on your first transfer, Capital Value Tax, federal advance tax at the filer or non-filer rate, and stamp duty where a registered deed is used. Rates are set by DHA and the FBR and change, so confirm current figures before signing.",
       },
     ],
+    relatedProperties: ["dha-phase-5-6-plots"],
   },
   {
     slug: "dha-phase-5-vs-phase-6",
@@ -250,6 +253,7 @@ export const guides: Guide[] = [
         a: "DHA's records and transfer section confirms whether a sector is developed, whether possession has been handed over, and whether plots are currently transferable. We check this for every plot before a client commits.",
       },
     ],
+    relatedProperties: ["dha-phase-5-6-plots"],
   },
   {
     slug: "buying-dha-property-overseas-pakistani",
@@ -358,6 +362,7 @@ export const guides: Guide[] = [
         a: "Yes, provided you bought it with funds remitted through banking channels and kept the records. That documentation is what supports repatriation of the sale proceeds.",
       },
     ],
+    relatedProperties: ["dha-phase-5-6-plots", "margalla-orchard"],
   },
 ];
 

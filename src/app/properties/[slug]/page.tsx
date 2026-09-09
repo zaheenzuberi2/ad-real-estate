@@ -3,8 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProperties, getProperty } from "@/lib/properties-data";
+import { guides } from "@/content/guides";
 import { site, fullAddress } from "@/lib/site";
-import { propertySchema, breadcrumbSchema, jsonLd } from "@/lib/schema";
+import {
+  propertySchema,
+  breadcrumbSchema,
+  faqPageSchema,
+  jsonLd,
+} from "@/lib/schema";
 import { formatPkr } from "@/lib/format";
 import { Icon } from "@/components/ui/Icon";
 import { PropertyArt } from "@/components/ui/PropertyArt";
@@ -55,6 +61,10 @@ export default async function PropertyPage(props: {
   const properties = await getProperties();
   const others = properties.filter((p) => p.slug !== property.slug);
 
+  const relatedGuides = (property.relatedGuides ?? [])
+    .map((slug) => guides.find((g) => g.slug === slug))
+    .filter((g): g is (typeof guides)[number] => Boolean(g));
+
   const schema = propertySchema(property);
   const breadcrumbs = breadcrumbSchema(property);
 
@@ -72,6 +82,14 @@ export default async function PropertyPage(props: {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }}
       />
+      {property.faqs?.length ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: jsonLd(faqPageSchema(property.faqs)),
+          }}
+        />
+      ) : null}
 
       <section className="relative overflow-hidden" style={{ background: property.gradient }}>
         {property.photos?.[0] ? (
@@ -217,6 +235,56 @@ export default async function PropertyPage(props: {
               <strong className="text-navy-deep">Pricing note:</strong>{" "}
               {property.priceNote}
             </p>
+
+            {property.faqs?.length ? (
+              <section className="mt-12">
+                <h2 className="font-display text-2xl font-medium text-navy-deep">
+                  Frequently asked
+                </h2>
+                <div className="mt-6 divide-y divide-hairline border-y border-hairline">
+                  {property.faqs.map((f) => (
+                    <details key={f.q} className="group py-2">
+                      <summary className="tap flex cursor-pointer list-none items-center justify-between gap-4 py-3 text-left">
+                        <h3 className="font-display text-base font-medium text-navy-deep">
+                          {f.q}
+                        </h3>
+                        <Icon
+                          name="chevron-down"
+                          className="h-5 w-5 shrink-0 text-gold transition-transform group-open:rotate-180"
+                        />
+                      </summary>
+                      <p className="mb-3 mt-1 pr-6 text-sm leading-relaxed text-slate-600 sm:pr-10">
+                        {f.a}
+                      </p>
+                    </details>
+                  ))}
+                </div>
+              </section>
+            ) : null}
+
+            {relatedGuides.length > 0 && (
+              <section className="mt-12">
+                <h2 className="eyebrow text-gold-ink">Related guides</h2>
+                <ul className="mt-4 space-y-3">
+                  {relatedGuides.map((g) => (
+                    <li key={g.slug}>
+                      <Link
+                        href={`/guides/${g.slug}`}
+                        className="tap group flex items-center justify-between gap-4 border-b border-hairline py-3 text-navy-deep transition-colors hover:text-gold-ink"
+                      >
+                        <span className="font-display text-base font-medium">
+                          {g.title}
+                        </span>
+                        <Icon
+                          name="arrow-right"
+                          className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5"
+                        />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
           </div>
 
           <div className="lg:sticky lg:top-28 lg:self-start">

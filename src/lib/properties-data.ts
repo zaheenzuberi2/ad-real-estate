@@ -116,17 +116,24 @@ function toProperty(doc: SanityProperty, index: number): Property {
 }
 
 /**
- * All published properties, ordered the way Studio's "Sort Order" field
- * defines.
- *
- * Deliberately NOT cached across requests in process memory: a hand-rolled
- * `let cache` here previously kept serving the first result for the entire
- * life of the server process, silently breaking the one promise a CMS makes —
- * that editing in Studio updates the live site. Sanity's CDN-backed client
- * (`useCdn: true`) is already fast; that is the right layer to cache at, not
- * a module-level variable with no invalidation path.
+ * Repo-maintained SEO copy that is deliberately NOT editable in Studio:
+ * listing FAQs and guide cross-links live in `src/content/properties.ts`
+ * next to the rest of the authored SEO content (guides.ts, faqs.ts), so they
+ * stay version-controlled and reviewable. Overlaid onto every listing by
+ * slug, whatever the data source — a listing added only through Studio simply
+ * has no overlay until an entry is added to the seed file.
  */
-export async function getProperties(): Promise<Property[]> {
+function withSeoOverlay(property: Property): Property {
+  const seed = staticProperties.find((s) => s.slug === property.slug);
+  if (!seed) return property;
+  return {
+    ...property,
+    faqs: seed.faqs,
+    relatedGuides: seed.relatedGuides,
+  };
+}
+
+async function fetchProperties(): Promise<Property[]> {
   if (!isSanityConfigured) return staticProperties;
 
   try {
@@ -139,6 +146,22 @@ export async function getProperties(): Promise<Property[]> {
     console.error("[properties-data] Sanity fetch failed, using seed data:", err);
     return staticProperties;
   }
+}
+
+/**
+ * All published properties, ordered the way Studio's "Sort Order" field
+ * defines.
+ *
+ * Deliberately NOT cached across requests in process memory: a hand-rolled
+ * `let cache` here previously kept serving the first result for the entire
+ * life of the server process, silently breaking the one promise a CMS makes —
+ * that editing in Studio updates the live site. Sanity's CDN-backed client
+ * (`useCdn: true`) is already fast; that is the right layer to cache at, not
+ * a module-level variable with no invalidation path.
+ */
+export async function getProperties(): Promise<Property[]> {
+  const base = await fetchProperties();
+  return base.map(withSeoOverlay);
 }
 
 export async function getProperty(slug: string): Promise<Property | undefined> {

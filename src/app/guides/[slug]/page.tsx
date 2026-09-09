@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { guides, getGuide, type GuideBlock } from "@/content/guides";
+import { getProperties } from "@/lib/properties-data";
 import { site } from "@/lib/site";
 import {
   jsonLd,
@@ -88,6 +89,11 @@ export default async function GuidePage(props: {
   if (!guide) notFound();
 
   const others = guides.filter((g) => g.slug !== guide.slug);
+
+  const allProperties = await getProperties();
+  const relatedProperties = (guide.relatedProperties ?? [])
+    .map((slug) => allProperties.find((p) => p.slug === slug))
+    .filter((p): p is (typeof allProperties)[number] => Boolean(p));
 
   return (
     <>
@@ -195,6 +201,37 @@ export default async function GuidePage(props: {
               ))}
             </div>
           </section>
+
+          {relatedProperties.length > 0 && (
+            <section className="mt-14">
+              <h2 className="eyebrow text-gold-ink">
+                Developments this applies to
+              </h2>
+              <ul className="mt-4 space-y-3">
+                {relatedProperties.map((p) => (
+                  <li key={p.slug}>
+                    <Link
+                      href={`/properties/${p.slug}`}
+                      className="tap group flex items-center justify-between gap-4 border-b border-hairline py-3 text-navy-deep transition-colors hover:text-gold-ink"
+                    >
+                      <span>
+                        <span className="block font-display text-lg font-medium">
+                          {p.title}
+                        </span>
+                        <span className="mt-0.5 block text-sm text-slate-500">
+                          {p.location}
+                        </span>
+                      </span>
+                      <Icon
+                        name="arrow-right"
+                        className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5"
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           {others.length > 0 && (
             <section className="mt-14">

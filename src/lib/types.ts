@@ -50,6 +50,11 @@ export type Property = {
   /** Real photography uploaded in Studio. Falls back to the illustrated
    *  PropertyArt when absent, e.g. before the client has supplied photos. */
   photos?: { url: string; alt: string }[];
+  /** Listing-specific FAQs — drive the on-page accordion and FAQPage schema.
+   *  General information only; nothing here invents a price or a rate. */
+  faqs?: { q: string; a: string }[];
+  /** Guide slugs to surface as "related reading" on the detail page. */
+  relatedGuides?: string[];
 };
 
 export type IconName =

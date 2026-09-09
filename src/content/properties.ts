@@ -46,6 +46,28 @@ export const properties: Property[] = [
       "Both possession plots and files available",
     ],
     featured: true,
+    relatedGuides: [
+      "buying-a-plot-in-dha-islamabad",
+      "dha-phase-5-vs-phase-6",
+    ],
+    faqs: [
+      {
+        q: "Are plots in DHA Phase 5 and 6 freehold?",
+        a: "Plots in these phases are held on a transferable DHA allotment, recorded in the buyer's name at the DHA office. The exact ownership status varies by sector and file, so we confirm it in writing for the specific plot before you commit.",
+      },
+      {
+        q: "What is the difference between a file and a possession plot in Phase 5 or 6?",
+        a: "A file is an allotment that does not yet have a demarcated location on the ground. A possession plot is developed and physically handed over. Files usually cost less but carry different resale and risk considerations. We tell you which one a given plot is, and whether it suits your plan, before you see the paperwork.",
+      },
+      {
+        q: "Can I start building as soon as I buy?",
+        a: "Only on a possession plot in a developed sector, and after the DHA building approval process. A file cannot be built on until it is balloted and possession is handed over. We confirm the build status of any plot you are considering.",
+      },
+      {
+        q: "How is the price of a plot decided?",
+        a: "Price varies by sector, plot size and possession status, and is confirmed per plot rather than quoted as a fixed rate. Speak to an advisor for current figures on a specific plot.",
+      },
+    ],
   },
   {
     slug: "margalla-orchard",
@@ -80,6 +102,25 @@ export const properties: Property[] = [
       "At the base of the Margalla Hills, off Park Road",
     ],
     featured: true,
+    relatedGuides: ["buying-a-plot-in-dha-islamabad"],
+    faqs: [
+      {
+        q: "Is Margalla Orchard sold as files or possession plots?",
+        a: "As a new launch, it is sold as files rather than developed possession plots. That means a lower entry cost and different resale mechanics, and a wait before possession. We explain exactly what has to happen between purchase and possession.",
+      },
+      {
+        q: "How does the 36-month installment plan work?",
+        a: "A modest down payment followed by fixed monthly instalments over 36 months, with no balloon payment at the end. Use the calculator on the page to model a down payment and monthly figure, then confirm current pricing with an advisor.",
+      },
+      {
+        q: "Is there a lump sum due at the end of the plan?",
+        a: "No. The structure is designed without a final balloon payment — the monthly instalments complete the plan. Always confirm the current terms in writing before you sign.",
+      },
+      {
+        q: "Who is a new launch like this suitable for?",
+        a: "First-time buyers who want a reachable entry point, and longer-term investors comfortable holding through the development phase. It suits you less if you need to build or resell quickly. We give you an honest read for your situation.",
+      },
+    ],
   },
   {
     slug: "bahria-town-villas",
@@ -113,6 +154,25 @@ export const properties: Property[] = [
       "Realistic finishing budget provided upfront",
     ],
     featured: true,
+    relatedGuides: ["buying-a-plot-in-dha-islamabad"],
+    faqs: [
+      {
+        q: "What does grey structure mean?",
+        a: "The structure, roof and blockwork are complete; the interior finish — flooring, kitchen, bathrooms, paint, fixtures — is left for the buyer to do. You control the fit-out rather than paying for someone else's finish.",
+      },
+      {
+        q: "How much does it cost to finish a grey-structure villa?",
+        a: "Finishing carries a real cost that buyers routinely underestimate, and it depends on the size and the standard you want. We give you a realistic completion estimate for your plan before you commit, rather than an optimistic one.",
+      },
+      {
+        q: "Why does the location inside Bahria Town matter so much?",
+        a: "For resale, the pocket of the community matters more than the plot size. These units sit adjacent to the golf club with the health centre nearby, which is the area that has held value most reliably.",
+      },
+      {
+        q: "Are these villas ready to move into?",
+        a: "Not as sold. They need interior finishing first. Plan for the finishing timeline and budget on top of the purchase, and we will help you scope both.",
+      },
+    ],
   },
 ];
 
