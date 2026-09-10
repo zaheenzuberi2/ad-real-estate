@@ -50,6 +50,9 @@ export const properties: Property[] = [
       "buying-a-plot-in-dha-islamabad",
       "dha-phase-5-vs-phase-6",
     ],
+    metaTitle: "DHA Phase 5 & 6 Plots for Sale, Islamabad",
+    metaDescription:
+      "Surveyed 5 Marla to 1 Kanal residential plots for sale in DHA Phase 5 & 6, Islamabad, on the Expressway. Title and dues verified before you commit.",
     faqs: [
       {
         q: "Are plots in DHA Phase 5 and 6 freehold?",
@@ -103,6 +106,9 @@ export const properties: Property[] = [
     ],
     featured: true,
     relatedGuides: ["buying-a-plot-in-dha-islamabad"],
+    metaTitle: "Margalla Orchard Installment Plots, Islamabad",
+    metaDescription:
+      "Newly launched 5 to 10 Marla plots on 36-month installment plans at the base of the Margalla Hills, off Park Road, Islamabad. Built for first-time buyers and investors.",
     faqs: [
       {
         q: "Is Margalla Orchard sold as files or possession plots?",
@@ -155,6 +161,9 @@ export const properties: Property[] = [
     ],
     featured: true,
     relatedGuides: ["buying-a-plot-in-dha-islamabad"],
+    metaTitle: "Bahria Town Villas for Sale, Islamabad",
+    metaDescription:
+      "1 & 2 Kanal grey-structure villas for sale in Bahria Town Phase 7, Islamabad, beside the golf club. You control the interior finish; we give you a realistic completion budget.",
     faqs: [
       {
         q: "What does grey structure mean?",

@@ -15,8 +15,8 @@ export async function FeaturedProjects() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading
             eyebrow="Signature Developments"
-            title="Featured Projects"
-            intro="A selection of the developments our team has personally vetted for title clarity, location and long-term value."
+            title="Featured Developments in DHA & Bahria Town, Islamabad"
+            intro="A selection of the plots and villas our team has personally vetted for title clarity, location and long-term value."
           />
           <Button href="/properties" variant="ghost" size="md">
             View All Projects

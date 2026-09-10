@@ -55,6 +55,11 @@ export type Property = {
   faqs?: { q: string; a: string }[];
   /** Guide slugs to surface as "related reading" on the detail page. */
   relatedGuides?: string[];
+  /** SEO <title> override. When absent the page falls back to a generated
+   *  "{title}: {propertyType} in {phase}". Keep ~60 chars, keyword-forward. */
+  metaTitle?: string;
+  /** SEO meta description override. Falls back to `description`. Keep <160. */
+  metaDescription?: string;
 };
 
 export type IconName =

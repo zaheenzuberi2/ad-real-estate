@@ -27,7 +27,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name}: Property Advisory in DHA, Islamabad`,
+    default: `${site.name}: DHA Islamabad Plots, Villas & Property Advisory`,
     template: `%s | ${site.name}`,
   },
   description: site.description,

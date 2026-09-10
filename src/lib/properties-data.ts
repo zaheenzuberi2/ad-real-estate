@@ -130,6 +130,8 @@ function withSeoOverlay(property: Property): Property {
     ...property,
     faqs: seed.faqs,
     relatedGuides: seed.relatedGuides,
+    metaTitle: seed.metaTitle,
+    metaDescription: seed.metaDescription,
   };
 }
 

@@ -31,22 +31,25 @@ export async function generateMetadata(props: {
   const property = await getProperty(slug);
   if (!property) return {};
 
-  const title = `${property.title}: ${property.propertyType} in ${property.phase}`;
+  const title =
+    property.metaTitle ??
+    `${property.title}: ${property.propertyType} in ${property.phase}`;
+  const description = property.metaDescription ?? property.description;
 
   return {
     title,
-    description: property.description,
+    description,
     alternates: { canonical: `/properties/${property.slug}` },
     openGraph: {
       type: "article",
       title,
-      description: property.description,
+      description,
       url: `${site.url}/properties/${property.slug}`,
     },
     twitter: {
       card: "summary_large_image",
       title,
-      description: property.description,
+      description,
     },
   };
 }
@@ -196,7 +199,7 @@ export default async function PropertyPage(props: {
             )}
 
             <h2 className="font-display text-3xl font-medium text-navy-deep">
-              About This Development
+              About {property.title}
             </h2>
             <div className="mt-5 space-y-4 text-base leading-relaxed text-slate-600">
               {property.overview.map((para) => (
