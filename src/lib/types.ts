@@ -50,6 +50,9 @@ export type Property = {
   /** Real photography uploaded in Studio. Falls back to the illustrated
    *  PropertyArt when absent, e.g. before the client has supplied photos. */
   photos?: { url: string; alt: string }[];
+  /** A YouTube or Vimeo link. Rendered as an embedded player on the detail
+   *  page. Absent on most listings; only shown when a real link is set. */
+  videoUrl?: string;
   /** Listing-specific FAQs — drive the on-page accordion and FAQPage schema.
    *  General information only; nothing here invents a price or a rate. */
   faqs?: { q: string; a: string }[];

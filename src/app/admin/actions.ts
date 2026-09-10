@@ -111,10 +111,40 @@ function listingFields(fd: FormData) {
       .filter((f) => f.icon && f.label),
     highlights: lines(fd, "highlights"),
     installmentMonths: monthsRaw ? Number(monthsRaw) : null,
+    videoUrl: str(fd, "videoUrl") || undefined,
     featured: fd.get("featured") === "on",
     order: Number(str(fd, "order")) || 100,
   };
 }
+
+type WriteClient = ReturnType<typeof getWriteClient>;
+
+/** Upload image files to Sanity and append them to a listing's `images` array. */
+async function appendImages(
+  client: WriteClient,
+  id: string,
+  files: File[],
+  altBase: string,
+) {
+  const uploaded = [];
+  for (const file of files) {
+    const asset = await client.assets.upload(
+      "image",
+      Buffer.from(await file.arrayBuffer()),
+      { filename: file.name || "photo.jpg" },
+    );
+    uploaded.push({
+      _type: "image" as const,
+      _key: key(),
+      asset: { _type: "reference" as const, _ref: asset._id },
+      alt: altBase,
+    });
+  }
+  await client.patch(id).setIfMissing({ images: [] }).append("images", uploaded).commit();
+}
+
+const photoFiles = (fd: FormData) =>
+  fd.getAll("photos").filter((f): f is File => f instanceof File && f.size > 0);
 
 export async function saveListing(formData: FormData) {
   await assertAdmin();
@@ -131,24 +161,40 @@ export async function saveListing(formData: FormData) {
 
   const fields = listingFields(formData);
   const client = getWriteClient();
+  const newPhotos = photoFiles(formData);
+
+  const targetId = existingId || `property-${slug}`;
 
   if (existingId) {
-    await client.patch(existingId).set(fields).commit();
+    const patch = client.patch(existingId).set(fields);
+    if (!fields.videoUrl) patch.unset(["videoUrl"]);
+    await patch.commit();
   } else {
     await client.create({
       _type: "property",
-      _id: `property-${slug}`,
+      _id: targetId,
       slug: { _type: "slug", current: slug },
       images: [],
       ...fields,
     });
   }
 
+  if (newPhotos.length > 0) {
+    const altBase = fields.title
+      ? `${fields.title}, ${fields.location || "AD Real Estate"}`
+      : "Property photo";
+    await appendImages(client, targetId, newPhotos, altBase);
+  }
+
   revalidatePath("/admin/listings");
+  revalidatePath(`/admin/listings/${targetId}`);
   revalidatePath("/properties");
   revalidatePath(`/properties/${slug}`);
   revalidatePath("/");
-  redirect("/admin/listings");
+  // A brand-new listing lands on its own edit screen, where the photos just
+  // added can be captioned and reordered. Editing an existing one returns to
+  // the list, as before.
+  redirect(existingId ? "/admin/listings" : `/admin/listings/${targetId}`);
 }
 
 export async function deleteListing(formData: FormData) {
@@ -169,29 +215,15 @@ export async function deleteListing(formData: FormData) {
 export async function uploadListingPhotos(formData: FormData) {
   await assertAdmin();
   const id = str(formData, "id");
-  const files = formData.getAll("photos").filter((f): f is File => f instanceof File && f.size > 0);
+  const files = photoFiles(formData);
   if (!id || files.length === 0) return;
 
-  const client = getWriteClient();
   const property = await getAdminProperty(id);
-  const altBase = property?.title ? `${property.title}, ${property.location ?? "AD Real Estate"}` : "Property photo";
+  const altBase = property?.title
+    ? `${property.title}, ${property.location ?? "AD Real Estate"}`
+    : "Property photo";
 
-  const uploaded = [];
-  for (const file of files) {
-    const asset = await client.assets.upload(
-      "image",
-      Buffer.from(await file.arrayBuffer()),
-      { filename: file.name || "photo.jpg" },
-    );
-    uploaded.push({
-      _type: "image" as const,
-      _key: key(),
-      asset: { _type: "reference" as const, _ref: asset._id },
-      alt: altBase,
-    });
-  }
-
-  await client.patch(id).setIfMissing({ images: [] }).append("images", uploaded).commit();
+  await appendImages(getWriteClient(), id, files, altBase);
 
   revalidatePath(`/admin/listings/${id}`);
   revalidatePath("/properties");

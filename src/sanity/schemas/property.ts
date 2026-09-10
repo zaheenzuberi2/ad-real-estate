@@ -138,6 +138,21 @@ export const propertyType = defineType({
       ],
     }),
     defineField({
+      name: "videoUrl",
+      title: "Video URL",
+      type: "url",
+      group: "content",
+      description:
+        "A YouTube or Vimeo link. Shown as an embedded player on the project page. Leave empty for no video.",
+      validation: (r) =>
+        r.uri({ scheme: ["http", "https"] }).custom((value) => {
+          if (!value) return true;
+          return /youtube\.com|youtu\.be|vimeo\.com/.test(value)
+            ? true
+            : "Use a YouTube or Vimeo link.";
+        }),
+    }),
+    defineField({
       name: "priceFrom",
       title: "Starting Price (PKR)",
       type: "number",

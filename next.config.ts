@@ -25,8 +25,9 @@ const cspReportOnly = [
   "connect-src 'self' https://*.sanity.io wss://*.sanity.io",
   "media-src 'self'",
   "worker-src 'self' blob:",
-  // Google Maps embed on the contact page (loaded on click via the map facade).
-  "frame-src 'self' https://maps.google.com https://www.google.com",
+  // Google Maps embed on the contact page (loaded on click via the map facade),
+  // plus YouTube / Vimeo players for listing video tours.
+  "frame-src 'self' https://maps.google.com https://www.google.com https://www.youtube-nocookie.com https://player.vimeo.com",
   "manifest-src 'self'",
   "upgrade-insecure-requests",
 ].join("; ");

@@ -48,6 +48,7 @@ type SanityProperty = {
   description: string;
   overview?: string[];
   images?: SanityImage[];
+  videoUrl?: string;
   priceFrom?: number | null;
   priceNote?: string;
   sizes?: string[];
@@ -70,6 +71,7 @@ const PROPERTY_PROJECTION = `{
   description,
   overview,
   images[]{ asset, alt },
+  videoUrl,
   priceFrom,
   priceNote,
   sizes,
@@ -112,6 +114,7 @@ function toProperty(doc: SanityProperty, index: number): Property {
     highlights: doc.highlights ?? [],
     featured: doc.featured ?? false,
     photos: photos.length > 0 ? photos : undefined,
+    videoUrl: doc.videoUrl || undefined,
   };
 }
 

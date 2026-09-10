@@ -24,6 +24,35 @@ export async function generateStaticParams() {
   return properties.map((p) => ({ slug: p.slug }));
 }
 
+/** Turn a YouTube or Vimeo link into a privacy-friendly embed URL, or null
+ *  when the link is not one we can embed. */
+function toEmbedUrl(raw: string): string | null {
+  try {
+    const u = new URL(raw);
+    const host = u.hostname.replace(/^www\.|^m\./, "");
+    if (host === "youtube.com") {
+      const id =
+        u.searchParams.get("v") || u.pathname.split("/").filter(Boolean).pop();
+      return id ? `https://www.youtube-nocookie.com/embed/${id}` : null;
+    }
+    if (host === "youtube-nocookie.com") return raw;
+    if (host === "youtu.be") {
+      const id = u.pathname.split("/").filter(Boolean)[0];
+      return id ? `https://www.youtube-nocookie.com/embed/${id}` : null;
+    }
+    if (host === "vimeo.com") {
+      const id = u.pathname.split("/").filter(Boolean)[0];
+      return id && /^\d+$/.test(id)
+        ? `https://player.vimeo.com/video/${id}`
+        : null;
+    }
+    if (host === "player.vimeo.com") return raw;
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
@@ -67,6 +96,8 @@ export default async function PropertyPage(props: {
   const relatedGuides = (property.relatedGuides ?? [])
     .map((slug) => guides.find((g) => g.slug === slug))
     .filter((g): g is (typeof guides)[number] => Boolean(g));
+
+  const videoEmbed = property.videoUrl ? toEmbedUrl(property.videoUrl) : null;
 
   const schema = propertySchema(property);
   const breadcrumbs = breadcrumbSchema(property);
@@ -194,6 +225,19 @@ export default async function PropertyPage(props: {
                   fill
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   className="object-cover"
+                />
+              </div>
+            )}
+
+            {videoEmbed && (
+              <div className="relative mb-8 aspect-video overflow-hidden rounded-2xl border border-hairline bg-navy-deep">
+                <iframe
+                  src={videoEmbed}
+                  title={`${property.title} video`}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full"
                 />
               </div>
             )}

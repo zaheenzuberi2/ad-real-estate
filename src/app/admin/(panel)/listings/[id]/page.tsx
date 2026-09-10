@@ -171,6 +171,20 @@ export default async function ListingEditPage({
           />
         </Field>
 
+        <Field
+          label="Video URL"
+          hint="YouTube or Vimeo link, shown as a player on the listing page"
+        >
+          <input
+            name="videoUrl"
+            type="url"
+            inputMode="url"
+            placeholder="https://www.youtube.com/watch?v=..."
+            defaultValue={p?.videoUrl ?? ""}
+            className={inputCls}
+          />
+        </Field>
+
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label="Available sizes" hint="comma or line separated">
             <textarea
@@ -213,6 +227,21 @@ export default async function ListingEditPage({
           />
           Show on homepage
         </label>
+
+        {isNew && (
+          <Field
+            label="Photos"
+            hint="JPG or PNG, add several at once. Caption and reorder them after the listing is created."
+          >
+            <input
+              type="file"
+              name="photos"
+              accept="image/*"
+              multiple
+              className="mt-2 block w-full text-sm"
+            />
+          </Field>
+        )}
 
         <div className="flex flex-wrap gap-3 border-t border-navy-deep/10 pt-5">
           <button
