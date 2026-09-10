@@ -19,13 +19,13 @@ export type GuideBlock =
   | { type: "ol"; items: string[] };
 
 export type Guide = {
-  /** URL segment — keep stable once published. */
+  /** URL segment. Keep stable once published. */
   slug: string;
   /** On-page <h1>. */
   title: string;
-  /** <title> tag — may be more keyword-forward than the h1. Keep ~60 chars. */
+  /** <title> tag. May be more keyword-forward than the h1. Keep ~60 chars. */
   metaTitle: string;
-  /** Meta description — keep under ~160 chars. */
+  /** Meta description. Keep under ~160 chars. */
   description: string;
   /** Short standfirst under the h1. */
   dek: string;
@@ -37,7 +37,7 @@ export type Guide = {
   dateLabel: string;
   body: GuideBlock[];
   faqs: Faq[];
-  /** Listing slugs this guide directly applies to — cross-linked on the page. */
+  /** Listing slugs this guide directly applies to. Cross-linked on the page. */
   relatedProperties?: string[];
 };
 
@@ -47,7 +47,7 @@ export const guides: Guide[] = [
     title: "Buying a Plot in DHA Islamabad: The Complete Process",
     metaTitle: "Buying a Plot in DHA Islamabad: Full Process & Checklist",
     description:
-      "How a DHA Islamabad plot actually changes hands — the routes to market, file vs possession, the pre-purchase checks, the transfer step by step, and the costs beyond the plot price.",
+      "How a DHA Islamabad plot actually changes hands. The routes to market, file versus possession, the pre-purchase checks, the transfer step by step, and the costs beyond the plot price.",
     dek: "A DHA Islamabad plot changes hands through a documented transfer at the DHA office, not a handshake. Here is what the process involves, the paperwork you need, and the checks that protect your money.",
     category: "Buying guide",
     readingTime: "7 min read",
@@ -62,15 +62,15 @@ export const guides: Guide[] = [
       {
         type: "ul",
         items: [
-          "Balloting — you apply as a DHA member, pay over instalments, and a sector and plot number are assigned to you by draw. It is the longest route and the lowest entry price.",
-          "File transfer — you buy an allotment that has not yet been physically handed over. Cheaper than a developed plot and easy to resell, but its value depends entirely on the file being clean and the sector being transferable.",
-          "Possession plot — a developed plot at a known location that you can stand on. It costs more and there is far less that can go wrong.",
+          "Balloting: you apply as a DHA member, pay over instalments, and a sector and plot number are assigned to you by draw. It is the longest route and the lowest entry price.",
+          "File transfer: you buy an allotment that has not yet been physically handed over. Cheaper than a developed plot and easy to resell, but its value depends entirely on the file being clean and the sector being transferable.",
+          "Possession plot: a developed plot at a known location that you can stand on. It costs more and there is far less that can go wrong.",
         ],
       },
       { type: "h2", text: "File or possession: which one fits you" },
       {
         type: "p",
-        text: "A file is a claim on a future plot. A possession plot is the plot itself. A file suits an investor who is comfortable holding through development and keeping an eye on transfer rules. A possession plot suits a buyer who wants certainty now, or who plans to build. Neither is better in the abstract — it depends on your horizon and your appetite for paperwork.",
+        text: "A file is a claim on a future plot. A possession plot is the plot itself. A file suits an investor who is comfortable holding through development and keeping an eye on transfer rules. A possession plot suits a buyer who wants certainty now, or who plans to build. Neither is better in the abstract. It depends on your horizon and your appetite for paperwork.",
       },
       { type: "h2", text: "Before you pay: the checks that matter" },
       {
@@ -81,9 +81,9 @@ export const guides: Guide[] = [
         type: "ol",
         items: [
           "Confirm the seller is the recorded allottee. The name on the allotment or transfer letter must match the seller's CNIC. If someone is selling on another person's behalf, you need a registered power of attorney, not a verbal arrangement.",
-          "Get a No Demand Certificate (NDC) from DHA. It confirms every charge on the plot — development charges, membership, instalments — has been cleared. Any unpaid balance becomes your problem the moment the plot is in your name.",
+          "Get a No Demand Certificate (NDC) from DHA. It confirms that every charge on the plot, from development charges to membership to instalments, has been cleared. Any unpaid balance becomes your problem the moment the plot is in your name.",
           "Check the transfer status of the sector. Newly balloted sectors sometimes carry a lock-in period during which plots cannot be transferred at all. DHA's transfer and records section confirms this in minutes.",
-          "Verify the plot location and category. Corner, park-facing, boulevard, and the exact sector all affect value and must appear on the file — not just in conversation.",
+          "Verify the plot location and category. Corner, park-facing, boulevard, and the exact sector all affect value and must appear on the file, not just in conversation.",
           "Look for holds or litigation. DHA flags plots under dispute, attachment, or inheritance transfer. These are not necessarily deal-breakers, but they take longer and need extra documents.",
         ],
       },
@@ -95,7 +95,7 @@ export const guides: Guide[] = [
           "The seller applies for the NDC and clears any outstanding dues.",
           "Both parties, or their attorneys, book a transfer appointment at the DHA office with original documents and passport-size photographs.",
           "DHA verifies identities and documents, cancels the seller's allocation, and issues a fresh transfer letter in your name.",
-          "Records are updated. You receive the new letter — keep the original safe, because you will need it to sell the plot or to take possession later.",
+          "Records are updated. You receive the new letter. Keep the original safe, because you will need it to sell the plot or to take possession later.",
         ],
       },
       { type: "h2", text: "What you will pay beyond the plot price" },
@@ -106,7 +106,7 @@ export const guides: Guide[] = [
       {
         type: "ul",
         items: [
-          "A DHA transfer fee, and — on the first transfer into your name — a membership fee.",
+          "A DHA transfer fee, plus a membership fee on the first transfer into your name.",
           "Capital Value Tax and federal advance tax. The advance tax rate depends on whether you are on the active taxpayer list.",
           "Stamp duty and registration charges where a registered deed is involved.",
           "Agent commission, agreed in writing up front.",
@@ -116,7 +116,7 @@ export const guides: Guide[] = [
       { type: "h2", text: "Buying from abroad" },
       {
         type: "p",
-        text: "You do not need to fly in. Overseas buyers complete the same transfer through a power of attorney attested by the Pakistani mission in their country and the Ministry of Foreign Affairs, together with a video verification call. Send the funds through banking channels and keep the remittance record — it matters for tax and for any future repatriation of the proceeds.",
+        text: "You do not need to fly in. Overseas buyers complete the same transfer through a power of attorney attested by the Pakistani mission in their country and the Ministry of Foreign Affairs, together with a video verification call. Send the funds through banking channels and keep the remittance record, because it matters for tax and for any future repatriation of the proceeds.",
       },
       { type: "h2", text: "Common ways buyers lose money" },
       {
@@ -132,11 +132,11 @@ export const guides: Guide[] = [
       { type: "h2", text: "How we handle it" },
       {
         type: "p",
-        text: "We run every one of these checks before a client commits — seller verification, the NDC, the sector's transfer status, the plot's location and category, and the full cost breakdown in writing. If you are weighing a specific plot or file, send us the details and we will tell you exactly what we would do.",
+        text: "We run every one of these checks before a client commits: seller verification, the NDC, the sector's transfer status, the plot's location and category, and the full cost breakdown in writing. If you are weighing a specific plot or file, send us the details and we will tell you exactly what we would do.",
       },
       {
         type: "p",
-        text: "This guide is general information about how DHA Islamabad transactions work. Rules, fees, and tax rates vary by phase and change over time — confirm the specifics for your plot with DHA and a qualified advisor before you commit.",
+        text: "This guide is general information about how DHA Islamabad transactions work. Rules, fees, and tax rates vary by phase and change over time, so confirm the specifics for your plot with DHA and a qualified advisor before you commit.",
       },
     ],
     faqs: [
@@ -146,11 +146,11 @@ export const guides: Guide[] = [
       },
       {
         q: "What is a No Demand Certificate and why does it matter?",
-        a: "An NDC is issued by DHA and confirms that every charge on a plot — development charges, membership, instalments — has been paid. Without it, unpaid dues transfer to you along with the plot. Never complete a purchase before the seller produces a current NDC.",
+        a: "An NDC is issued by DHA and confirms that every charge on a plot, from development charges to membership to instalments, has been paid. Without it, unpaid dues transfer to you along with the plot. Never complete a purchase before the seller produces a current NDC.",
       },
       {
         q: "How long does a DHA Islamabad plot transfer take?",
-        a: "Once the documents are in order and the NDC is issued, the transfer itself is usually a single appointment at the DHA office. Getting to that point — verification, clearing dues, and arranging a power of attorney if needed — typically takes one to three weeks.",
+        a: "Once the documents are in order and the NDC is issued, the transfer itself is usually a single appointment at the DHA office. Getting to that point, which means verification, clearing dues, and arranging a power of attorney if needed, typically takes one to three weeks.",
       },
       {
         q: "Can I complete the purchase without travelling to Pakistan?",
@@ -168,8 +168,8 @@ export const guides: Guide[] = [
     title: "DHA Phase 5 vs Phase 6, Islamabad: Which to Buy",
     metaTitle: "DHA Phase 5 vs Phase 6 Islamabad: Which to Buy",
     description:
-      "Phase 5 is the settled choice, Phase 6 is the growth bet. How the two DHA Islamabad phases compare on development, price, risk and buyer fit — and why the sector matters more than the phase.",
-    dek: "Phase 5 is the settled choice; Phase 6 is the growth bet. The right answer depends on whether you want to build now or hold for appreciation — and, more than that, on the specific sector.",
+      "Phase 5 is the settled choice, Phase 6 is the growth bet. How the two DHA Islamabad phases compare on development, price, risk and buyer fit, and why the sector matters more than the phase.",
+    dek: "Phase 5 is the settled choice; Phase 6 is the growth bet. The right answer depends on whether you want to build now or hold for appreciation, and, more than that, on the specific sector.",
     category: "Buying guide",
     readingTime: "6 min read",
     date: "2026-09-05",
@@ -178,28 +178,28 @@ export const guides: Guide[] = [
       { type: "h2", text: "The short version" },
       {
         type: "p",
-        text: "Phase 5 is older, largely developed and lived in — you pay more, you get certainty, you can build today. Phase 6 is newer and far larger, development is uneven across its sectors, prices are lower, and the upside is bigger if you pick well and wait. Neither wins outright. It comes down to your timeline and the exact sector.",
+        text: "Phase 5 is older, largely developed and lived in. You pay more, you get certainty, you can build today. Phase 6 is newer and far larger, development is uneven across its sectors, prices are lower, and the upside is bigger if you pick well and wait. Neither wins outright. It comes down to your timeline and the exact sector.",
       },
       { type: "h2", text: "Phase 5: the settled option" },
       {
         type: "ul",
         items: [
-          "Development — most sectors are developed with possession handed over. Roads, utilities, parks and commercial areas are in place and in use.",
-          "Who is there — an established residential population, active construction, functioning markets.",
-          "Price — a higher entry cost than Phase 6, with steadier, slower appreciation.",
-          "Best for — end-users who want to build and move in now, and investors who prioritise low risk and rental potential over maximum capital gain.",
-          "Watch for — the premium is already priced in, and corner, park-facing and boulevard plots carry a further premium on top.",
+          "Development: most sectors are developed with possession handed over. Roads, utilities, parks and commercial areas are in place and in use.",
+          "Who is there: an established residential population, active construction, functioning markets.",
+          "Price: a higher entry cost than Phase 6, with steadier, slower appreciation.",
+          "Best for: end users who want to build and move in now, and investors who prioritise low risk and rental potential over maximum capital gain.",
+          "Watch for: the premium is already priced in, and corner, park-facing and boulevard plots carry a further premium on top.",
         ],
       },
       { type: "h2", text: "Phase 6: the growth option" },
       {
         type: "ul",
         items: [
-          "Development — Phase 6 is much larger and progress is uneven. Some sectors are developed with possession; others are still developing or remain files only. Its development timeline was extended for years by land-acquisition and legal matters, and different blocks moved at very different speeds.",
-          "Who is there — fewer built houses so far. In most sectors there are more plots than people.",
-          "Price — a lower entry cost, with more room for appreciation as development completes, and more downside if a sector stalls.",
-          "Best for — investors with a multi-year horizon who can research sectors and wait.",
-          "Watch for — large differences between sectors. On its own, “a Phase 6 plot” tells you very little.",
+          "Development: Phase 6 is much larger and progress is uneven. Some sectors are developed with possession; others are still developing or remain files only. Its development timeline was extended for years by land acquisition and legal matters, and different blocks moved at very different speeds.",
+          "Who is there: fewer built houses so far. In most sectors there are more plots than people.",
+          "Price: a lower entry cost, with more room for appreciation as development completes, and more downside if a sector stalls.",
+          "Best for: investors with a multi-year horizon who can research sectors and wait.",
+          "Watch for: large differences between sectors. On its own, “a Phase 6 plot” tells you very little.",
         ],
       },
       {
@@ -214,7 +214,7 @@ export const guides: Guide[] = [
       {
         type: "ol",
         items: [
-          "What is my horizon — building within a year or two, or holding for five years or more?",
+          "What is my horizon: building within a year or two, or holding for five years or more?",
           "Do I need possession now, or can I wait for development to reach the plot?",
           "What is my risk tolerance if a sector's timeline slips?",
           "For this specific plot: developed or file, possession or not, dues cleared, transferable now?",
@@ -224,11 +224,11 @@ export const guides: Guide[] = [
       { type: "h2", text: "How we help" },
       {
         type: "p",
-        text: "We work in both phases every week. For a specific plot or a budget, we can tell you which sectors are worth looking at and which to avoid right now — based on current development status, transfer rules and what is actually selling. Send us your budget and timeline and we will point you at the right shortlist.",
+        text: "We work in both phases every week. For a specific plot or a budget, we can tell you which sectors are worth looking at and which to avoid right now, based on current development status, transfer rules and what is actually selling. Send us your budget and timeline and we will point you at the right shortlist.",
       },
       {
         type: "p",
-        text: "This guide is general information. Development status, transfer rules and prices vary by sector and change over time — confirm the current position for any plot with DHA and a qualified advisor before you commit.",
+        text: "This guide is general information. Development status, transfer rules and prices vary by sector and change over time, so confirm the current position for any plot with DHA and a qualified advisor before you commit.",
       },
     ],
     faqs: [
@@ -246,7 +246,7 @@ export const guides: Guide[] = [
       },
       {
         q: "Which phase is better for overseas buyers?",
-        a: "Both work. Overseas buyers who want a low-maintenance hold often prefer a developed sector with possession — in either phase — so there is less uncertainty to manage from abroad. The transfer is handled remotely either way.",
+        a: "Both work. Overseas buyers who want a low-maintenance hold often prefer a developed sector with possession, in either phase, so there is less uncertainty to manage from abroad. The transfer is handled remotely either way.",
       },
       {
         q: "How do I check the development status of a DHA sector?",
@@ -260,8 +260,8 @@ export const guides: Guide[] = [
     title: "Buying DHA Islamabad Property as an Overseas Pakistani",
     metaTitle: "Overseas Pakistani Guide: Buying DHA Islamabad Property",
     description:
-      "Buy, transfer and hold a DHA Islamabad plot without flying home. The process for overseas buyers — the power of attorney, video verification, moving the money, and the tax to plan for.",
-    dek: "You can buy, transfer and hold a DHA Islamabad plot without flying home. Here is the process for overseas buyers — the power of attorney, the verification, moving the money, and the tax you need to plan for.",
+      "Buy, transfer and hold a DHA Islamabad plot without flying home. The process for overseas buyers: the power of attorney, video verification, moving the money, and the tax to plan for.",
+    dek: "You can buy, transfer and hold a DHA Islamabad plot without flying home. Here is the process for overseas buyers: the power of attorney, the verification, moving the money, and the tax you need to plan for.",
     category: "Buying guide",
     readingTime: "6 min read",
     date: "2026-09-05",
@@ -275,12 +275,12 @@ export const guides: Guide[] = [
       { type: "h2", text: "Step 1: Appoint a power of attorney" },
       {
         type: "p",
-        text: "You choose someone in Pakistan you trust — a family member, or your advisor's nominated representative — to sign and attend the DHA office on your behalf.",
+        text: "You choose someone in Pakistan you trust, a family member or your advisor's nominated representative, to sign and attend the DHA office on your behalf.",
       },
       {
         type: "ul",
         items: [
-          "Draft the power of attorney specifically for this transaction — property purchase and transfer, naming the plot if it is known.",
+          "Draft the power of attorney specifically for this transaction, meaning property purchase and transfer, naming the plot if it is known.",
           "Have it attested by the Pakistani embassy or consulate in your country of residence.",
           "Then have it attested by the Ministry of Foreign Affairs in Islamabad and, where required, registered locally.",
           "A general power of attorney is not always accepted. A special power of attorney that names the transaction is the safer choice.",
@@ -289,21 +289,21 @@ export const guides: Guide[] = [
       { type: "h2", text: "Step 2: Verification" },
       {
         type: "p",
-        text: "DHA and the seller's side will confirm you are who you say you are and that you consent to the purchase. Expect a video verification call, copies of your passport and NICOP or POC, and photographs. Keep your NICOP current — an expired card stalls the transfer.",
+        text: "DHA and the seller's side will confirm you are who you say you are and that you consent to the purchase. Expect a video verification call, copies of your passport and NICOP or POC, and photographs. Keep your NICOP current, because an expired card stalls the transfer.",
       },
       { type: "h2", text: "Step 3: Move the money the right way" },
       {
         type: "ul",
         items: [
-          "Send funds from your own account abroad to a Pakistani account through normal banking channels — not through informal transfer.",
+          "Send funds from your own account abroad to a Pakistani account through normal banking channels, not through informal transfer.",
           "Keep every remittance advice and bank record. This proves the source of funds for tax, and it is what allows you to repatriate the proceeds if you sell later.",
-          "Pay the seller only after DHA has verified the file — never before.",
+          "Pay the seller only after DHA has verified the file, never before.",
         ],
       },
       { type: "h2", text: "Step 4: The transfer itself" },
       {
         type: "p",
-        text: "Your attorney attends the DHA office with the original documents, the No Demand Certificate, the attested power of attorney, and ID. DHA cancels the seller's allocation and issues a new transfer letter in your name. Your attorney collects it — arrange to get the original to you or into safe keeping.",
+        text: "Your attorney attends the DHA office with the original documents, the No Demand Certificate, the attested power of attorney, and ID. DHA cancels the seller's allocation and issues a new transfer letter in your name. Your attorney collects it, so arrange to get the original to you or into safe keeping.",
       },
       { type: "h2", text: "Tax you need to plan for" },
       {
@@ -313,10 +313,10 @@ export const guides: Guide[] = [
       {
         type: "ul",
         items: [
-          "Federal advance tax on the purchase — the rate is lower for those on the Active Taxpayer List. Overseas Pakistanis may be exempt from the higher non-filer rate on the basis of their NICOP or POC. Confirm your status before the transfer, as it can materially change the amount.",
+          "Federal advance tax on the purchase, at a rate that is lower for those on the Active Taxpayer List. Overseas Pakistanis may be exempt from the higher non-filer rate on the basis of their NICOP or POC. Confirm your status before the transfer, as it can materially change the amount.",
           "Capital Value Tax, and provincial stamp duty and registration where applicable.",
           "On a future sale, capital gains tax may apply depending on how long you held the plot.",
-          "Keep your remittance records — they support both the source of funds and any later repatriation.",
+          "Keep your remittance records, as they support both the source of funds and any later repatriation.",
         ],
       },
       { type: "h2", text: "What usually goes wrong" },
@@ -337,7 +337,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "This guide is general information. Attestation requirements and tax rules change and vary by country and province — confirm the current requirements with the Pakistani mission in your country and a qualified tax advisor before you proceed.",
+        text: "This guide is general information. Attestation requirements and tax rules change and vary by country and province, so confirm the current requirements with the Pakistani mission in your country and a qualified tax advisor before you proceed.",
       },
     ],
     faqs: [
@@ -355,7 +355,7 @@ export const guides: Guide[] = [
       },
       {
         q: "Do overseas Pakistanis pay more tax when buying property?",
-        a: "Not automatically. The main variable is filer status — advance tax is lower for those on the Active Taxpayer List, and overseas Pakistanis may be exempt from the higher non-filer rate on the basis of their NICOP or POC. Confirm your status before the transfer.",
+        a: "Not automatically. The main variable is filer status. Advance tax is lower for those on the Active Taxpayer List, and overseas Pakistanis may be exempt from the higher non-filer rate on the basis of their NICOP or POC. Confirm your status before the transfer.",
       },
       {
         q: "Can I sell the plot later and send the money back abroad?",

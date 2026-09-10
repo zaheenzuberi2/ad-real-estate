@@ -78,6 +78,6 @@ export async function submitChatLead(
 
   return {
     ok: true,
-    message: `Thanks ${lead.name.split(" ")[0]} — an advisor has everything you told me and will message you on WhatsApp within one business day.`,
+    message: `Thanks ${lead.name.split(" ")[0]}, an advisor has everything you told me and will message you on WhatsApp within one business day.`,
   };
 }

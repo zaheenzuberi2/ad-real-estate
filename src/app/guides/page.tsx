@@ -8,7 +8,7 @@ import { Icon } from "@/components/ui/Icon";
 export const metadata: Metadata = {
   title: "Property Guides: Buying in DHA, Islamabad",
   description:
-    "Practical guides to buying, transferring and investing in DHA Islamabad property — the process, the paperwork and the pitfalls, from a registered advisory.",
+    "Practical guides to buying, transferring and investing in DHA Islamabad property: the process, the paperwork and the pitfalls, from a registered advisory.",
   alternates: { canonical: "/guides" },
   openGraph: {
     title: "DHA Islamabad Property Guides",
@@ -47,7 +47,7 @@ export default function GuidesPage() {
             Property guides for DHA, Islamabad
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
-            Straight answers on how DHA Islamabad transactions actually work —
+            Straight answers on how DHA Islamabad transactions actually work:
             the routes to market, the paperwork, the taxes, and the checks that
             protect your money. Written by a registered advisory, not a
             brokerage.

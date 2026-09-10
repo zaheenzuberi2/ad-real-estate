@@ -37,7 +37,7 @@ const whatsapp: FlowStep = {
   allowText: true,
   validate: (v) => {
     const t = v.trim();
-    if (t.length < 7) return "That number looks too short — include the area code.";
+    if (t.length < 7) return "That number looks too short. Include the area code.";
     if (!/^[0-9+\-\s()]+$/.test(t)) return "Digits only, e.g. 0300 1234567.";
     return null;
   },
@@ -50,7 +50,7 @@ const whatsapp: FlowStep = {
 export const LEAD_FLOW: FlowStep[] = [
   {
     key: "intent",
-    question: "Happy to set that up. First — what brings you in today?",
+    question: "Happy to set that up. First, what brings you in today?",
     options: [
       "Buy a home",
       "Buy a plot",
@@ -71,7 +71,7 @@ export const LEAD_FLOW: FlowStep[] = [
     options: [
       "DHA Phase 5",
       "DHA Phase 6",
-      "DHA Phase 1–4",
+      "DHA Phase 1 to 4",
       "DHA Valley",
       "Open to suggestions",
     ],
@@ -89,8 +89,8 @@ export const LEAD_FLOW: FlowStep[] = [
     question: "When are you looking to move on this?",
     options: [
       "Ready now",
-      "In 1–3 months",
-      "In 3–6 months",
+      "In 1 to 3 months",
+      "In 3 to 6 months",
       "Just exploring",
     ],
     allowText: true,

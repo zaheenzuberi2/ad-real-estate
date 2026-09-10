@@ -58,7 +58,7 @@ export default async function ListingEditPage({
         ← All listings
       </Link>
       <h1 className="mt-3 font-display text-2xl font-semibold">
-        {isNew ? "New listing" : `Edit — ${p?.title}`}
+        {isNew ? "New listing" : `Edit ${p?.title}`}
       </h1>
 
       <form action={saveListing} className="mt-6 space-y-5">
@@ -88,7 +88,7 @@ export default async function ListingEditPage({
           </Field>
           <Field label="Phase / sector">
             <select name="phase" defaultValue={p?.phase ?? ""} className={inputCls}>
-              <option value="">—</option>
+              <option value="">Select a phase</option>
               {phases.map((ph) => (
                 <option key={ph} value={ph}>
                   {ph}
@@ -102,7 +102,7 @@ export default async function ListingEditPage({
               defaultValue={p?.propertyType ?? ""}
               className={inputCls}
             >
-              <option value="">—</option>
+              <option value="">Select a type</option>
               {propertyTypes.map((t) => (
                 <option key={t} value={t}>
                   {t}
@@ -192,7 +192,7 @@ export default async function ListingEditPage({
 
         <Field
           label="Key features"
-          hint={`one per line as "icon | label" — icons: ${FEATURE_ICONS.join(", ")}`}
+          hint={`one per line as "icon | label". Icons: ${FEATURE_ICONS.join(", ")}`}
         >
           <textarea
             name="features"

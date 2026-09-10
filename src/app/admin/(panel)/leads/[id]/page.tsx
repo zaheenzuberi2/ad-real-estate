@@ -25,7 +25,7 @@ export default async function LeadDetailPage({
   const digits = (lead.whatsapp ?? "").replace(/\D/g, "");
   const received = lead.submittedAt
     ? new Date(lead.submittedAt).toLocaleString("en-PK")
-    : "—";
+    : "Not recorded";
 
   return (
     <div>

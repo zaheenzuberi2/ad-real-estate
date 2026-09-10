@@ -30,10 +30,10 @@ export function Hero() {
             </h1>
 
             <p className="mt-5 max-w-[46ch] text-[0.95rem] leading-relaxed text-slate-300 sm:mt-6 sm:text-lg">
-              Plots, villas and commercial property in DHA, Islamabad &mdash; the
-              capital&apos;s most guarded address &mdash; navigated for you by a
-              team that has handled site visits, title verification and transfer
-              of possession for families and overseas investors, from the first
+              Plots, villas and commercial property in DHA, Islamabad, the
+              capital&apos;s most guarded address, navigated for you by a team
+              that has handled site visits, title verification and transfer of
+              possession for families and overseas investors, from the first
               call to the last signature.
             </p>
 

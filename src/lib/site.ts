@@ -43,7 +43,7 @@ export const site = {
     lat: 33.5340,
     lng: 73.0951,
   },
-  hours: "Mon – Sat · 10:00 AM – 8:00 PM",
+  hours: "Mon to Sat · 10:00 AM to 8:00 PM",
   openingHoursSpec: {
     days: [
       "Monday",

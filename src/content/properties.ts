@@ -2,10 +2,10 @@ import type { Property } from "@/lib/types";
 
 /**
  * Seed inventory. This is the payload the Sanity import script pushes, and the
- * shape the Studio schema mirrors — once the CMS is connected, staff edit there
+ * shape the Studio schema mirrors. Once the CMS is connected, staff edit there
  * and this file stops being the source of truth.
  *
- * UNVERIFIED CONTENT — do not publish as-is:
+ * UNVERIFIED CONTENT, do not publish as-is:
  *  · Every `priceFrom` is null on purpose. Real figures were not supplied, and
  *    an invented price on a live listing is false advertising. Listings show
  *    "On Request" until the client confirms actual numbers.
@@ -33,7 +33,7 @@ export const properties: Property[] = [
     priceNote: "Price varies by sector, size and possession status, and is confirmed per plot.",
     sizes: ["5 Marla", "10 Marla", "1 Kanal"],
     features: [
-      { icon: "ruler", label: "5 Marla – 1 Kanal Plots" },
+      { icon: "ruler", label: "5 Marla to 1 Kanal Plots" },
       { icon: "route", label: "Direct Expressway Frontage" },
       { icon: "map-pin", label: "Phase 5 & 6, DHA Islamabad" },
     ],
@@ -92,7 +92,7 @@ export const properties: Property[] = [
     sizes: ["5 Marla", "7 Marla", "10 Marla"],
     features: [
       { icon: "calendar-clock", label: "36-Month Installment Plans" },
-      { icon: "ruler", label: "5 Marla – 10 Marla Options" },
+      { icon: "ruler", label: "5 Marla to 10 Marla Options" },
       { icon: "map-pin", label: "Park Road, Islamabad" },
     ],
     badge: { text: "3-Year Installment Plans Available", highlight: true },
@@ -120,7 +120,7 @@ export const properties: Property[] = [
       },
       {
         q: "Is there a lump sum due at the end of the plan?",
-        a: "No. The structure is designed without a final balloon payment — the monthly instalments complete the plan. Always confirm the current terms in writing before you sign.",
+        a: "No. The structure is designed without a final balloon payment, and the monthly instalments complete the plan. Always confirm the current terms in writing before you sign.",
       },
       {
         q: "Who is a new launch like this suitable for?",
@@ -167,7 +167,7 @@ export const properties: Property[] = [
     faqs: [
       {
         q: "What does grey structure mean?",
-        a: "The structure, roof and blockwork are complete; the interior finish — flooring, kitchen, bathrooms, paint, fixtures — is left for the buyer to do. You control the fit-out rather than paying for someone else's finish.",
+        a: "The structure, roof and blockwork are complete; the interior finish, meaning flooring, kitchen, bathrooms, paint and fixtures, is left for the buyer to do. You control the fit-out rather than paying for someone else's finish.",
       },
       {
         q: "How much does it cost to finish a grey-structure villa?",
@@ -213,8 +213,8 @@ export function bedsToMin(value: string): number | null {
 export const budgetBands = [
   { label: "Any Budget", min: 0, max: Infinity },
   { label: "Under PKR 50 Lac", min: 0, max: 5_000_000 },
-  { label: "PKR 50 Lac – 1 Crore", min: 5_000_000, max: 10_000_000 },
-  { label: "PKR 1 – 3 Crore", min: 10_000_000, max: 30_000_000 },
-  { label: "PKR 3 – 5 Crore", min: 30_000_000, max: 50_000_000 },
+  { label: "PKR 50 Lac to 1 Crore", min: 5_000_000, max: 10_000_000 },
+  { label: "PKR 1 to 3 Crore", min: 10_000_000, max: 30_000_000 },
+  { label: "PKR 3 to 5 Crore", min: 30_000_000, max: 50_000_000 },
   { label: "PKR 5 Crore+", min: 50_000_000, max: Infinity },
 ];

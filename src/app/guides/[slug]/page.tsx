@@ -164,7 +164,7 @@ export default async function GuidePage(props: {
             </h2>
             <p className="mt-3 text-base leading-relaxed text-slate-600">
               Send us the file or the location and we will run the checks in
-              this guide before you commit — seller verification, the NDC, the
+              this guide before you commit: seller verification, the NDC, the
               sector&apos;s transfer status, and the full cost breakdown in
               writing.
             </p>
@@ -259,7 +259,7 @@ export default async function GuidePage(props: {
 
           <p className="mt-12 text-xs leading-relaxed text-slate-500">
             This guide is general information. Rules, fees and tax rates vary by
-            phase and change over time — confirm the specifics for your plot
+            phase and change over time, so confirm the specifics for your plot
             with DHA and a qualified advisor before you commit.
           </p>
         </div>

@@ -4,7 +4,7 @@ import { StudioClient } from "./StudioClient";
 export const dynamic = "force-static";
 
 export const metadata = {
-  title: "AD Real Estate — Admin",
+  title: "AD Real Estate Admin",
   robots: { index: false, follow: false },
 };
 

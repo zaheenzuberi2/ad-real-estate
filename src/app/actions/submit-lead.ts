@@ -79,7 +79,7 @@ export async function submitLead(
   return {
     status: "success",
     message:
-      "Thank you — your enquiry has reached our team. An advisor will contact you on WhatsApp within one business day.",
+      "Thank you. Your enquiry has reached our team. An advisor will contact you on WhatsApp within one business day.",
   };
 }
 
@@ -104,7 +104,7 @@ async function notifyTeam(lead: LeadInput, submittedAt: string) {
       from,
       to: to.split(",").map((s) => s.trim()),
       replyTo: lead.email,
-      subject: `New enquiry — ${lead.name} — ${lead.project}`,
+      subject: `New enquiry: ${lead.name} (${lead.project})`,
       text: [
         `Name:     ${lead.name}`,
         `WhatsApp: ${lead.whatsapp}`,

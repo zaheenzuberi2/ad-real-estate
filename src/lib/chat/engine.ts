@@ -81,7 +81,7 @@ function propertyReply(e: Entities): BotReply {
   if (matches.length > 0) {
     return {
       text: criteria
-        ? `Here is what we currently list matching ${criteria}. This is only what is posted publicly — we hold more off-market, so leave your details and an advisor can send the full picture.`
+        ? `Here is what we currently list matching ${criteria}. This is only what is posted publicly. We hold more off-market, so leave your details and an advisor can send the full picture.`
         : "Here is what we currently have listed publicly. We hold more off-market, so leave your details and an advisor can send the full picture.",
       cards: toCards(matches),
       actions: [
@@ -94,7 +94,7 @@ function propertyReply(e: Entities): BotReply {
 
   return {
     text: criteria
-      ? `We do not have a published listing for ${criteria} right now — but a lot of what we handle in DHA never gets posted. Leave your requirement and number and an advisor will come back to you with options that fit, usually the same day.`
+      ? `We do not have a published listing for ${criteria} right now, but a lot of what we handle in DHA never gets posted. Leave your requirement and number and an advisor will come back to you with options that fit, usually the same day.`
       : "I could not match that to a published listing, and plenty of our inventory is never posted. Tell me the area, size, budget and timeline you have in mind plus your number, and an advisor will come back with options.",
     actions: [
       { kind: "flow", label: "Share my requirement" },
@@ -174,7 +174,7 @@ const INTENTS: Intent[] = [
     keywords: ["sell", "selling", "resale", "dispose"],
     answer: () => ({
       text:
-        "Yes, we handle sales and resale as well as purchases. An advisor will value your plot or property against current sector rates, list it through our buyer network — including deals that never go public — and manage the verification and transfer through to possession. Leave your details and someone will call you back.",
+        "Yes, we handle sales and resale as well as purchases. An advisor will value your plot or property against current sector rates, list it through our buyer network, including deals that never go public, and manage the verification and transfer through to possession. Leave your details and someone will call you back.",
       actions: [
         callbackAction,
         {
@@ -259,7 +259,7 @@ const INTENTS: Intent[] = [
     name: "contact",
     keywords: ["contact", "advisor", "whatsapp"],
     answer: () => ({
-      text: `You can reach us on ${site.phone.display}, email ${site.email}, or walk into the DHA Phase 5 office. Our advisors answer WhatsApp fastest — or leave your details here and one will call you.`,
+      text: `You can reach us on ${site.phone.display}, email ${site.email}, or walk into the DHA Phase 5 office. Our advisors answer WhatsApp fastest, or leave your details here and one will call you.`,
       actions: [
         callbackAction,
         advisorAction,
@@ -298,7 +298,7 @@ const INTENTS: Intent[] = [
     name: "fee",
     keywords: ["fee", "fees", "commission", "charges", "charge"],
     answer: () => ({
-      text: "Our consultancy fee depends on the transaction type and the project, and we confirm it in writing before any work begins — no hidden charges. An advisor will give you the exact figure for what you have in mind.",
+      text: "Our consultancy fee depends on the transaction type and the project, and we confirm it in writing before any work begins, with no hidden charges. An advisor will give you the exact figure for what you have in mind.",
       actions: [callbackAction, advisorAction],
     }),
   },
@@ -316,9 +316,9 @@ const INTENTS: Intent[] = [
     answer: () => ({
       text:
         `A few concrete reasons people work with us:\n` +
-        `• Registered firm — ${site.legalName}, licensed under the 1980 Real Estate Regulation Ordinance, with a Zameen.com "Trusted Agency" award and Rawalpindi Chamber membership.\n` +
+        `• Registered firm: ${site.legalName}, licensed under the 1980 Real Estate Regulation Ordinance, with a Zameen.com "Trusted Agency" award and Rawalpindi Chamber membership.\n` +
         `• We focus on DHA Islamabad, especially Phase 5 and 6, rather than spreading across every society.\n` +
-        `• An advisor handles your site visits, ownership verification and possession personally — you are not passed around.\n` +
+        `• An advisor handles your site visits, ownership verification and possession personally, so you are not passed around.\n` +
         `• Overseas buyers are handled end to end with power of attorney and video verification.\n` +
         `• Our fee is agreed in writing up front, with no hidden charges, and our Google rating is ${site.rating.value.toFixed(1)} from ${site.rating.count} reviews.`,
       actions: [
@@ -414,7 +414,7 @@ export function respond(message: string): BotReply {
 }
 
 export const OPENING: BotReply = {
-  text: "Hello. I am an automated assistant for AD Real Estate, not a person. I can search our listings, answer the common questions and work out installment numbers — or take a few details and have an advisor call you.",
+  text: "Hello. I am an automated assistant for AD Real Estate, not a person. I can search our listings, answer the common questions and work out installment numbers, or take a few details and have an advisor call you.",
   actions: [
     callbackAction,
     { kind: "reply", label: "Show me properties" },
