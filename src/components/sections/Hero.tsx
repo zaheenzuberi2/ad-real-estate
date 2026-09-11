@@ -23,18 +23,18 @@ export function Hero() {
           {/* Copy + calls to action */}
           <div className="order-1 max-w-[36rem]">
             <h1 className="font-display text-[2.2rem] font-semibold leading-[1.08] tracking-[-0.02em] text-white [@media(min-width:400px)]:text-[2.6rem] sm:text-[3.5rem] sm:leading-[1.04] lg:text-[4rem] lg:tracking-[-0.03em]">
-              Your foothold in
+              A real estate agency
               <span className="mt-1 block italic font-medium text-gold">
-                DHA, Islamabad
+                for DHA, Islamabad
               </span>
             </h1>
 
             <p className="mt-5 max-w-[46ch] text-[0.95rem] leading-relaxed text-slate-300 sm:mt-6 sm:text-lg">
-              Plots, villas and commercial property in DHA, Islamabad, the
-              capital&apos;s most guarded address, navigated for you by a team
-              that has handled site visits, title verification and transfer of
-              possession for families and overseas investors, from the first
-              call to the last signature.
+              We help you buy, sell and invest in plots, villas and commercial
+              property across DHA, Islamabad, the capital&apos;s most guarded
+              address. Our team handles site visits, title verification and
+              transfer of possession for families and overseas investors,
+              from the first call to the last signature.
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
