@@ -94,6 +94,10 @@ export function realEstateAgentSchema() {
     logo: `${site.url}/icon`,
     areaServed: [
       { "@type": "Place", name: "DHA Islamabad" },
+      { "@type": "Place", name: "DHA Phase 1, Islamabad" },
+      { "@type": "Place", name: "DHA Phase 2, Islamabad" },
+      { "@type": "Place", name: "DHA Phase 3, Islamabad" },
+      { "@type": "Place", name: "DHA Phase 4, Islamabad" },
       { "@type": "Place", name: "DHA Phase 5, Islamabad" },
       { "@type": "Place", name: "DHA Phase 6, Islamabad" },
       { "@type": "City", name: "Islamabad" },
@@ -239,6 +243,42 @@ export function articleSchema(guide: Guide) {
     about: [
       { "@type": "Place", name: "DHA Islamabad" },
       { "@type": "Thing", name: "Real estate" },
+    ],
+  };
+}
+
+/** A service-area page for one DHA phase, so it can carry its own local schema. */
+export function areaServiceSchema(phase: string, slug: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${site.url}/areas/${slug}#service`,
+    serviceType: "Real estate agency services",
+    provider: { "@id": ORG_ID },
+    areaServed: { "@type": "Place", name: `${phase}, Islamabad` },
+    name: `Real estate agency in ${phase}, Islamabad`,
+  };
+}
+
+/** Home > Areas We Serve > {phase} */
+export function areaBreadcrumbSchema(phase: string, slug: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Areas We Serve",
+        item: `${site.url}/areas`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: phase,
+        item: `${site.url}/areas/${slug}`,
+      },
     ],
   };
 }

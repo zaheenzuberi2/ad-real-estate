@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getProperties } from "@/lib/properties-data";
 import { guides } from "@/content/guides";
+import { dhaLocations } from "@/content/locations";
 import { site } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -10,6 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes = [
     { path: "", priority: 1, changeFrequency: "weekly" as const },
     { path: "/properties", priority: 0.9, changeFrequency: "daily" as const },
+    { path: "/areas", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/guides", priority: 0.7, changeFrequency: "weekly" as const },
     { path: "/about", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/contact", priority: 0.8, changeFrequency: "monthly" as const },
@@ -35,6 +37,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(g.date),
       changeFrequency: "monthly" as const,
       priority: 0.6,
+    })),
+    ...dhaLocations.map((l) => ({
+      url: `${site.url}/areas/${l.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
   ];
 }

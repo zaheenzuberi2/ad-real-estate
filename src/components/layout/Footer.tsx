@@ -3,6 +3,7 @@ import { site, navLinks, fullAddress, developer } from "@/lib/site";
 import { LogoMark } from "@/components/ui/Logo";
 import { Icon } from "@/components/ui/Icon";
 import { getProperties } from "@/lib/properties-data";
+import { dhaLocations } from "@/content/locations";
 import { FacebookGlyph, InstagramGlyph, YouTubeGlyph } from "@/components/ui/SocialGlyphs";
 
 export async function Footer() {
@@ -10,7 +11,7 @@ export async function Footer() {
 
   return (
     <footer className="bg-navy-deep text-slate-300">
-      <div className="shell grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
+      <div className="shell grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-2">
           <Link href="/" className="flex items-center gap-3">
             <LogoMark size={40} />
@@ -86,6 +87,22 @@ export async function Footer() {
                   className="tap flex items-center text-sm text-slate-300 transition-colors hover:text-white"
                 >
                   {p.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="eyebrow text-gold">Areas We Serve</h2>
+          <ul className="mt-2">
+            {dhaLocations.map((l) => (
+              <li key={l.slug}>
+                <Link
+                  href={`/areas/${l.slug}`}
+                  className="tap flex items-center text-sm text-slate-300 transition-colors hover:text-white"
+                >
+                  {l.phase}
                 </Link>
               </li>
             ))}
