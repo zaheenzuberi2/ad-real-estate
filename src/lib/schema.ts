@@ -283,6 +283,36 @@ export function areaBreadcrumbSchema(phase: string, slug: string) {
   };
 }
 
+/** The commercial-plots service page, so it can carry its own local schema. */
+export function commercialServiceSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${site.url}/commercial#service`,
+    serviceType: "Commercial real estate agency services",
+    provider: { "@id": ORG_ID },
+    areaServed: { "@type": "Place", name: "DHA Islamabad" },
+    name: "Commercial plots and property for sale in DHA Islamabad",
+  };
+}
+
+/** Home > Commercial Plots */
+export function commercialBreadcrumbSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Commercial Plots",
+        item: `${site.url}/commercial`,
+      },
+    ],
+  };
+}
+
 /** Home > Guides > {guide} */
 export function guideBreadcrumbSchema(guide: Guide) {
   return {

@@ -40,6 +40,24 @@ export default function AreasPage() {
       <section className="bg-ivory py-14 sm:py-20">
         <div className="shell">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <Link
+              href="/commercial"
+              className="group flex items-center justify-between gap-4 rounded-2xl border border-hairline bg-white p-6 shadow-[0_1px_2px_rgba(11,27,51,0.06)] transition-all duration-300 ease-brand hover:-translate-y-1 hover:shadow-[0_18px_36px_-16px_rgba(11,27,51,0.24)]"
+            >
+              <span>
+                <span className="flex items-center gap-2.5 font-display text-lg font-semibold text-navy-deep">
+                  <Icon name="building" className="h-4 w-4 shrink-0 text-gold" />
+                  Commercial Plots
+                </span>
+                <span className="mt-1 block text-xs text-slate-500">
+                  Across DHA Islamabad
+                </span>
+              </span>
+              <Icon
+                name="arrow-right"
+                className="h-4 w-4 shrink-0 text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-gold"
+              />
+            </Link>
             {dhaLocations.map((l) => (
               <Link
                 key={l.slug}
