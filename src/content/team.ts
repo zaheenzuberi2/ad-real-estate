@@ -23,7 +23,7 @@ export const team: TeamMember[] = [
   },
   {
     name: "Sajeel Malik",
-    role: "Director",
+    role: "Director, Sales & Operations",
     photo: "/images/sajeel-malik.jpg",
     phoneDisplay: "0345-5664266",
     phoneIntl: "923455664266",
