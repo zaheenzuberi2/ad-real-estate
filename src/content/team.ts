@@ -19,18 +19,18 @@ export const team: TeamMember[] = [
     email: "info@adgroupofcompanies.pk",
   },
   {
-    name: "Sajeel Malik",
-    role: "Director, Sales & Operations",
-    photo: "/images/sajeel-malik.jpg",
-    phoneDisplay: "0345-5664266",
-    phoneIntl: "923455664266",
-  },
-  {
     name: "Maj (R) Ali Warraich",
     role: "Executive Director",
     photo: "/images/maj-ali-warraich.jpg",
     phoneDisplay: "0324-6577364",
     phoneIntl: "923246577364",
+  },
+  {
+    name: "Sajeel Malik",
+    role: "Director, Sales & Operations",
+    photo: "/images/sajeel-malik.jpg",
+    phoneDisplay: "0345-5664266",
+    phoneIntl: "923455664266",
   },
   {
     name: "Abdullah Sarwar",
