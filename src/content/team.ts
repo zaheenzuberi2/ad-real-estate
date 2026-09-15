@@ -7,10 +7,6 @@ export type TeamMember = {
   email?: string;
 };
 
-/**
- * TODO before launch: Sajeel Malik's title is still unconfirmed. The other
- * four were confirmed with the client on 2026-09-15.
- */
 export const team: TeamMember[] = [
   {
     name: "Adeel Malik",
@@ -27,7 +23,7 @@ export const team: TeamMember[] = [
   },
   {
     name: "Sajeel Malik",
-    role: "Director, Sales & Operations",
+    role: "Director",
     photo: "/images/sajeel-malik.jpg",
     phoneDisplay: "0345-5664266",
     phoneIntl: "923455664266",
@@ -41,7 +37,7 @@ export const team: TeamMember[] = [
   },
   {
     name: "Shumail Malik",
-    role: "Director of Sales",
+    role: "Director",
     photo: "/images/shumail-malik.jpg",
     phoneDisplay: "0336-8888688",
     phoneIntl: "923368888688",
