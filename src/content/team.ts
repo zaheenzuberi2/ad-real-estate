@@ -8,9 +8,8 @@ export type TeamMember = {
 };
 
 /**
- * TODO before launch: only Adeel Malik's title was confirmed from client
- * material. Confirm the other four designations with the client — publishing
- * invented job titles undermines the trust the page is built on.
+ * TODO before launch: Sajeel Malik's title is still unconfirmed. The other
+ * four were confirmed with the client on 2026-09-15.
  */
 export const team: TeamMember[] = [
   {
@@ -27,22 +26,22 @@ export const team: TeamMember[] = [
     phoneIntl: "923455664266",
   },
   {
-    name: "Maj Ali Warraich",
-    role: "Senior Sales Consultant",
+    name: "Maj (R) Ali Warraich",
+    role: "Executive Director",
     photo: "/images/maj-ali-warraich.jpg",
     phoneDisplay: "0324-6577364",
     phoneIntl: "923246577364",
   },
   {
     name: "Abdullah Sarwar",
-    role: "Senior Sales Consultant",
+    role: "Head of Sales",
     photo: "/images/abdullah-sarwar.jpg",
     phoneDisplay: "0320-5855553",
     phoneIntl: "923205855553",
   },
   {
     name: "Shumail Malik",
-    role: "Senior Sales Consultant",
+    role: "Director of Sales",
     photo: "/images/shumail-malik.jpg",
     phoneDisplay: "0336-8888688",
     phoneIntl: "923368888688",
