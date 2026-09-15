@@ -145,7 +145,6 @@ async function fetchProperties(): Promise<Property[]> {
     const docs = await sanityClient.fetch<SanityProperty[]>(
       `*[_type == "property"] | order(order asc) ${PROPERTY_PROJECTION}`
     );
-    if (docs.length === 0) return staticProperties;
     return docs.map(toProperty);
   } catch (err) {
     console.error("[properties-data] Sanity fetch failed, using seed data:", err);
