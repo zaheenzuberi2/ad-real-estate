@@ -102,7 +102,7 @@ function propertyReply(e: Entities): BotReply {
         kind: "external",
         label: "Ask an advisor on WhatsApp",
         href: WHATSAPP(
-          `Hi, I am looking for ${criteria || "a property"} in DHA, Islamabad. What do you have available?`
+          `Hi, I am looking for ${criteria || "a property"} in DHA, Islamabad-Rawalpindi. What do you have available?`
         ),
       },
       { kind: "link", label: "Browse all listings", href: "/properties" },
@@ -149,7 +149,7 @@ const INTENTS: Intent[] = [
     name: "greeting",
     keywords: ["greeting", "hi", "hello", "salam", "hey"],
     answer: () => ({
-      text: "Hello. I can look up our listings, explain how buying in DHA Islamabad works, and work out installment numbers. What are you after?",
+      text: "Hello. I can look up our listings, explain how buying in DHA Islamabad-Rawalpindi works, and work out installment numbers. What are you after?",
       actions: [
         callbackAction,
         { kind: "reply", label: "Show me properties" },
@@ -180,7 +180,7 @@ const INTENTS: Intent[] = [
         {
           kind: "external",
           label: "Discuss a sale on WhatsApp",
-          href: WHATSAPP("Hi, I would like to sell a property in DHA, Islamabad. Can an advisor help with valuation and listing?"),
+          href: WHATSAPP("Hi, I would like to sell a property in DHA, Islamabad-Rawalpindi. Can an advisor help with valuation and listing?"),
         },
       ],
     }),
@@ -317,7 +317,7 @@ const INTENTS: Intent[] = [
       text:
         `A few concrete reasons people work with us:\n` +
         `• Registered firm: ${site.legalName}, licensed under the 1980 Real Estate Regulation Ordinance, with a Zameen.com "Trusted Agency" award and Rawalpindi Chamber membership.\n` +
-        `• We focus on DHA Islamabad, especially Phase 5 and 6, rather than spreading across every society.\n` +
+        `• We focus on DHA Islamabad-Rawalpindi, especially Phase 5 and 6, rather than spreading across every society.\n` +
         `• An advisor handles your site visits, ownership verification and possession personally, so you are not passed around.\n` +
         `• Overseas buyers are handled end to end with power of attorney and video verification.\n` +
         `• Our fee is agreed in writing up front, with no hidden charges, and our Google rating is ${site.rating.value.toFixed(1)} from ${site.rating.count} reviews.`,

@@ -2,8 +2,8 @@ export type Faq = { q: string; a: string };
 
 export const faqs: Faq[] = [
   {
-    q: "Is property in DHA Islamabad freehold?",
-    a: "Most residential and commercial plots in DHA Islamabad are sold on a freehold or long-term leasehold basis, depending on the phase and sector. We confirm the exact ownership structure of a plot before you commit, and we recommend an independent legal review on any high-value purchase.",
+    q: "Is property in DHA Islamabad-Rawalpindi freehold?",
+    a: "Most residential and commercial plots in DHA Islamabad-Rawalpindi are sold on a freehold or long-term leasehold basis, depending on the phase and sector. We confirm the exact ownership structure of a plot before you commit, and we recommend an independent legal review on any high-value purchase.",
   },
   {
     q: "What documents do I need to buy a plot?",

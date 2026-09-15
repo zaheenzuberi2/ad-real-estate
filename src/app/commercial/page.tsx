@@ -12,9 +12,9 @@ import {
   jsonLd,
 } from "@/lib/schema";
 
-const title = "Commercial Plots & Property for Sale in DHA Islamabad";
+const title = "Commercial Plots & Property for Sale in DHA Islamabad-Rawalpindi";
 const description =
-  "AD Real Estate helps buyers and investors find, verify and transfer commercial plots for sale in DHA Islamabad, from corner shops to main boulevard sites. Title and dues checked before you commit.";
+  "AD Real Estate helps buyers and investors find, verify and transfer commercial plots for sale in DHA Islamabad-Rawalpindi, from corner shops to main boulevard sites. Title and dues checked before you commit.";
 
 export const metadata: Metadata = {
   title,
@@ -25,10 +25,10 @@ export const metadata: Metadata = {
 
 const faqs = (hasListings: boolean) => [
   {
-    q: "Do you have commercial plots for sale in DHA Islamabad?",
+    q: "Do you have commercial plots for sale in DHA Islamabad-Rawalpindi?",
     a: hasListings
       ? "Yes, see our current commercial listing below."
-      : "Not always publicly listed. We source and verify commercial plots across DHA Islamabad on request, so tell an advisor what you're looking for and we'll check current availability.",
+      : "Not always publicly listed. We source and verify commercial plots across DHA Islamabad-Rawalpindi on request, so tell an advisor what you're looking for and we'll check current availability.",
   },
   {
     q: "What should I check before buying a commercial plot in DHA?",
@@ -80,7 +80,7 @@ export default async function CommercialPage() {
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
             AD Real Estate is a registered property advisory based in DHA
             Phase 5, working with buyers and investors on commercial plots
-            across DHA Islamabad. Whether you&apos;re after a corner shop, a
+            across DHA Islamabad-Rawalpindi. Whether you&apos;re after a corner shop, a
             main boulevard site, or an office plot, our advisors can help you
             find and verify one.
           </p>

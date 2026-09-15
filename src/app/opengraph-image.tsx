@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { readFile } from "node:fs/promises";
 import { site } from "@/lib/site";
 
-export const alt = `${site.name}: Property Advisory in DHA, Islamabad`;
+export const alt = `${site.name}: Property Advisory in DHA, Islamabad-Rawalpindi`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -66,7 +66,7 @@ export default async function OpengraphImage() {
               letterSpacing: -1.5,
             }}
           >
-            A real estate agency for DHA, Islamabad
+            A real estate agency for DHA, Islamabad-Rawalpindi
           </span>
         </div>
 

@@ -93,7 +93,7 @@ export function realEstateAgentSchema() {
     image: `${site.url}/opengraph-image`,
     logo: `${site.url}/icon`,
     areaServed: [
-      { "@type": "Place", name: "DHA Islamabad" },
+      { "@type": "Place", name: "DHA Islamabad-Rawalpindi" },
       { "@type": "Place", name: "DHA Phase 1, Islamabad" },
       { "@type": "Place", name: "DHA Phase 2, Islamabad" },
       { "@type": "Place", name: "DHA Phase 3, Islamabad" },
@@ -241,7 +241,7 @@ export function articleSchema(guide: Guide) {
     publisher: { "@id": ORG_ID },
     mainEntityOfPage: `${site.url}/guides/${guide.slug}`,
     about: [
-      { "@type": "Place", name: "DHA Islamabad" },
+      { "@type": "Place", name: "DHA Islamabad-Rawalpindi" },
       { "@type": "Thing", name: "Real estate" },
     ],
   };
@@ -291,8 +291,8 @@ export function commercialServiceSchema() {
     "@id": `${site.url}/commercial#service`,
     serviceType: "Commercial real estate agency services",
     provider: { "@id": ORG_ID },
-    areaServed: { "@type": "Place", name: "DHA Islamabad" },
-    name: "Commercial plots and property for sale in DHA Islamabad",
+    areaServed: { "@type": "Place", name: "DHA Islamabad-Rawalpindi" },
+    name: "Commercial plots and property for sale in DHA Islamabad-Rawalpindi",
   };
 }
 

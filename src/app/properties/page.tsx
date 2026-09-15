@@ -7,14 +7,14 @@ import { site } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Plots & Property for Sale in DHA, Islamabad",
+  title: "Plots & Property for Sale in DHA, Islamabad-Rawalpindi",
   description:
-    "Browse verified plots, villas and commercial units for sale across DHA, Islamabad. Every listing title-checked before it reaches you.",
+    "Browse verified plots, villas and commercial units for sale across DHA, Islamabad-Rawalpindi. Every listing title-checked before it reaches you.",
   alternates: { canonical: "/properties" },
   openGraph: {
-    title: "Plots & Property for Sale in DHA, Islamabad",
+    title: "Plots & Property for Sale in DHA, Islamabad-Rawalpindi",
     description:
-      "Browse verified plots, villas and commercial units for sale across DHA, Islamabad.",
+      "Browse verified plots, villas and commercial units for sale across DHA, Islamabad-Rawalpindi.",
     url: `${site.url}/properties`,
   },
 };
@@ -57,7 +57,7 @@ export default async function PropertiesPage(props: {
             Our Inventory
           </p>
           <h1 className="mt-4 max-w-3xl font-display text-4xl font-medium leading-tight text-white sm:text-5xl">
-            Plots &amp; Property for Sale in DHA, Islamabad
+            Plots &amp; Property for Sale in DHA, Islamabad-Rawalpindi
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
             Every listing below has had its title, dues, and transfer history

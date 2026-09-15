@@ -25,13 +25,13 @@ export function Hero() {
             <h1 className="font-display text-[2.2rem] font-semibold leading-[1.08] tracking-[-0.02em] text-white [@media(min-width:400px)]:text-[2.6rem] sm:text-[3.5rem] sm:leading-[1.04] lg:text-[4rem] lg:tracking-[-0.03em]">
               A real estate agency
               <span className="mt-1 block italic font-medium text-gold">
-                for DHA, Islamabad
+                for DHA, Islamabad-Rawalpindi
               </span>
             </h1>
 
             <p className="mt-5 max-w-[46ch] text-[0.95rem] leading-relaxed text-slate-300 sm:mt-6 sm:text-lg">
               We help you buy, sell and invest in plots, villas and commercial
-              property across DHA, Islamabad, the capital&apos;s most guarded
+              property across DHA, Islamabad-Rawalpindi, the capital&apos;s most guarded
               address. Our team handles site visits, title verification and
               transfer of possession for families and overseas investors,
               from the first call to the last signature.

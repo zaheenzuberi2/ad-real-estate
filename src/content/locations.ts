@@ -1,7 +1,7 @@
 import { phases } from "@/content/site-content";
 
 /**
- * DHA Islamabad numbered phases we publish a dedicated service page for, so
+ * DHA Islamabad-Rawalpindi numbered phases we publish a dedicated service page for, so
  * the site can rank for "real estate agency in DHA Phase N" style searches.
  * Pulled from the same `phases` list the property filters use, so this can't
  * drift into a phase the site doesn't already recognise.

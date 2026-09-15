@@ -18,7 +18,7 @@ export const properties: Property[] = [
     slug: "dha-phase-5-6-plots",
     title: "DHA Phase 5 & 6",
     eyebrow: "Residential & Commercial Plots",
-    location: "Islamabad Expressway, DHA Islamabad",
+    location: "Islamabad Expressway, DHA Islamabad-Rawalpindi",
     phase: "DHA Phase 5",
     propertyType: "Residential Plot",
     status: "Available",
@@ -35,7 +35,7 @@ export const properties: Property[] = [
     features: [
       { icon: "ruler", label: "5 Marla to 1 Kanal Plots" },
       { icon: "route", label: "Direct Expressway Frontage" },
-      { icon: "map-pin", label: "Phase 5 & 6, DHA Islamabad" },
+      { icon: "map-pin", label: "Phase 5 & 6, DHA Islamabad-Rawalpindi" },
     ],
     badge: { text: "Direct Expressway Access" },
     gradient: "linear-gradient(135deg, #060D1A 0%, #13294B 60%, #1E3D66 100%)",

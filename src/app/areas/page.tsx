@@ -5,14 +5,14 @@ import { Icon } from "@/components/ui/Icon";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Real Estate Agency in DHA Islamabad: Areas We Serve",
+  title: "Real Estate Agency in DHA Islamabad-Rawalpindi: Areas We Serve",
   description:
-    "AD Real Estate advises buyers, sellers and investors across every phase of DHA Islamabad, from DHA Phase 1 to DHA Phase 6. See the phase you're interested in.",
+    "AD Real Estate advises buyers, sellers and investors across every phase of DHA Islamabad-Rawalpindi, from DHA Phase 1 to DHA Phase 6. See the phase you're interested in.",
   alternates: { canonical: "/areas" },
   openGraph: {
-    title: "Real Estate Agency in DHA Islamabad: Areas We Serve",
+    title: "Real Estate Agency in DHA Islamabad-Rawalpindi: Areas We Serve",
     description:
-      "AD Real Estate advises buyers, sellers and investors across every phase of DHA Islamabad, from Phase 1 to Phase 6.",
+      "AD Real Estate advises buyers, sellers and investors across every phase of DHA Islamabad-Rawalpindi, from Phase 1 to Phase 6.",
     url: `${site.url}/areas`,
   },
 };
@@ -27,11 +27,11 @@ export default function AreasPage() {
             Areas We Serve
           </p>
           <h1 className="mt-4 max-w-3xl font-display text-4xl font-medium leading-tight text-white sm:text-5xl">
-            A real estate agency for every phase of DHA Islamabad
+            A real estate agency for every phase of DHA Islamabad-Rawalpindi
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
             We are based in DHA Phase 5, and our advisors work with buyers,
-            sellers and investors across the whole of DHA Islamabad. Pick your
+            sellers and investors across the whole of DHA Islamabad-Rawalpindi. Pick your
             phase below for what we can do there.
           </p>
         </div>
@@ -50,7 +50,7 @@ export default function AreasPage() {
                   Commercial Plots
                 </span>
                 <span className="mt-1 block text-xs text-slate-500">
-                  Across DHA Islamabad
+                  Across DHA Islamabad-Rawalpindi
                 </span>
               </span>
               <Icon

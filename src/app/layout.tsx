@@ -27,18 +27,18 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name}: DHA Islamabad Plots, Villas & Property Advisory`,
+    default: `${site.name}: DHA Islamabad-Rawalpindi Plots, Villas & Property Advisory`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
   applicationName: site.name,
   keywords: [
-    "DHA Islamabad plots",
+    "DHA Islamabad-Rawalpindi plots",
     "DHA Phase 5 plots for sale",
     "DHA Phase 6 plots for sale",
     "real estate agent Islamabad",
-    "DHA Islamabad villas",
-    "DHA Islamabad commercial plots",
+    "DHA Islamabad-Rawalpindi villas",
+    "DHA Islamabad-Rawalpindi commercial plots",
     "overseas Pakistani property investment",
   ],
   authors: [{ name: site.legalName }],
@@ -51,12 +51,12 @@ export const metadata: Metadata = {
     locale: site.locale,
     url: site.url,
     siteName: site.name,
-    title: `${site.name}: DHA Islamabad Property Advisory`,
+    title: `${site.name}: DHA Islamabad-Rawalpindi Property Advisory`,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name}: DHA Islamabad Property Advisory`,
+    title: `${site.name}: DHA Islamabad-Rawalpindi Property Advisory`,
     description: site.description,
   },
   robots: {

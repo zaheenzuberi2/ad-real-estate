@@ -42,7 +42,7 @@ const faqsFor = (phase: string, hasListings: boolean) => [
   },
   {
     q: `Can you help me sell a plot in ${phase}?`,
-    a: `Yes. We verify the title and dues, list qualifying plots, and market them to our buyer network across DHA Islamabad.`,
+    a: `Yes. We verify the title and dues, list qualifying plots, and market them to our buyer network across DHA Islamabad-Rawalpindi.`,
   },
   {
     q: `Do you handle transfers for overseas Pakistanis buying in ${phase}?`,
@@ -111,7 +111,7 @@ export default async function AreaPage({
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
             AD Real Estate is a registered property advisory based in DHA
             Phase 5, working with buyers, sellers and investors across DHA
-            Islamabad, including {phase}. Whether you want to buy a plot,
+            Islamabad-Rawalpindi, including {phase}. Whether you want to buy a plot,
             sell one, or get a second opinion on a file someone has offered
             you in {phase}, our advisors can help.
           </p>

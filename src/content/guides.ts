@@ -44,11 +44,11 @@ export type Guide = {
 export const guides: Guide[] = [
   {
     slug: "buying-a-plot-in-dha-islamabad",
-    title: "Buying a Plot in DHA Islamabad: The Complete Process",
-    metaTitle: "Buying a Plot in DHA Islamabad: Full Process & Checklist",
+    title: "Buying a Plot in DHA Islamabad-Rawalpindi: The Complete Process",
+    metaTitle: "Buying a Plot in DHA Islamabad-Rawalpindi: Full Process & Checklist",
     description:
-      "How a DHA Islamabad plot actually changes hands. The routes to market, file versus possession, the pre-purchase checks, the transfer step by step, and the costs beyond the plot price.",
-    dek: "A DHA Islamabad plot changes hands through a documented transfer at the DHA office, not a handshake. Here is what the process involves, the paperwork you need, and the checks that protect your money.",
+      "How a DHA Islamabad-Rawalpindi plot actually changes hands. The routes to market, file versus possession, the pre-purchase checks, the transfer step by step, and the costs beyond the plot price.",
+    dek: "A DHA Islamabad-Rawalpindi plot changes hands through a documented transfer at the DHA office, not a handshake. Here is what the process involves, the paperwork you need, and the checks that protect your money.",
     category: "Buying guide",
     readingTime: "7 min read",
     date: "2026-09-05",
@@ -57,7 +57,7 @@ export const guides: Guide[] = [
       { type: "h2", text: "Three ways a plot comes to market" },
       {
         type: "p",
-        text: "Almost every DHA Islamabad plot reaches a buyer through one of three routes. Knowing which one you are in sets your price, your risk, and your timeline.",
+        text: "Almost every DHA Islamabad-Rawalpindi plot reaches a buyer through one of three routes. Knowing which one you are in sets your price, your risk, and your timeline.",
       },
       {
         type: "ul",
@@ -136,12 +136,12 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "This guide is general information about how DHA Islamabad transactions work. Rules, fees, and tax rates vary by phase and change over time, so confirm the specifics for your plot with DHA and a qualified advisor before you commit.",
+        text: "This guide is general information about how DHA Islamabad-Rawalpindi transactions work. Rules, fees, and tax rates vary by phase and change over time, so confirm the specifics for your plot with DHA and a qualified advisor before you commit.",
       },
     ],
     faqs: [
       {
-        q: "Should I buy a file or a possession plot in DHA Islamabad?",
+        q: "Should I buy a file or a possession plot in DHA Islamabad-Rawalpindi?",
         a: "A file is cheaper and easier to resell, but its value depends on the sector being transferable and the paperwork being clean. A possession plot costs more and gives you a known location you can build on. If you are investing and can hold, a clean file works well; if you want certainty, buy possession.",
       },
       {
@@ -149,7 +149,7 @@ export const guides: Guide[] = [
         a: "An NDC is issued by DHA and confirms that every charge on a plot, from development charges to membership to instalments, has been paid. Without it, unpaid dues transfer to you along with the plot. Never complete a purchase before the seller produces a current NDC.",
       },
       {
-        q: "How long does a DHA Islamabad plot transfer take?",
+        q: "How long does a DHA Islamabad-Rawalpindi plot transfer take?",
         a: "Once the documents are in order and the NDC is issued, the transfer itself is usually a single appointment at the DHA office. Getting to that point, which means verification, clearing dues, and arranging a power of attorney if needed, typically takes one to three weeks.",
       },
       {
@@ -168,7 +168,7 @@ export const guides: Guide[] = [
     title: "DHA Phase 5 vs Phase 6, Islamabad: Which to Buy",
     metaTitle: "DHA Phase 5 vs Phase 6 Islamabad: Which to Buy",
     description:
-      "Phase 5 is the settled choice, Phase 6 is the growth bet. How the two DHA Islamabad phases compare on development, price, risk and buyer fit, and why the sector matters more than the phase.",
+      "Phase 5 is the settled choice, Phase 6 is the growth bet. How the two DHA Islamabad-Rawalpindi phases compare on development, price, risk and buyer fit, and why the sector matters more than the phase.",
     dek: "Phase 5 is the settled choice; Phase 6 is the growth bet. The right answer depends on whether you want to build now or hold for appreciation, and, more than that, on the specific sector.",
     category: "Buying guide",
     readingTime: "6 min read",
@@ -233,7 +233,7 @@ export const guides: Guide[] = [
     ],
     faqs: [
       {
-        q: "Is Phase 5 or Phase 6 a better investment in DHA Islamabad?",
+        q: "Is Phase 5 or Phase 6 a better investment in DHA Islamabad-Rawalpindi?",
         a: "Phase 5 offers lower risk and steadier value because it is developed and populated. Phase 6 offers more appreciation potential, but over a longer horizon and with more variation between sectors. Which is better depends on your timeline and the specific sector you are looking at.",
       },
       {
@@ -257,11 +257,11 @@ export const guides: Guide[] = [
   },
   {
     slug: "buying-dha-property-overseas-pakistani",
-    title: "Buying DHA Islamabad Property as an Overseas Pakistani",
-    metaTitle: "Overseas Pakistani Guide: Buying DHA Islamabad Property",
+    title: "Buying DHA Islamabad-Rawalpindi Property as an Overseas Pakistani",
+    metaTitle: "Overseas Pakistani Guide: Buying DHA Islamabad-Rawalpindi Property",
     description:
-      "Buy, transfer and hold a DHA Islamabad plot without flying home. The process for overseas buyers: the power of attorney, video verification, moving the money, and the tax to plan for.",
-    dek: "You can buy, transfer and hold a DHA Islamabad plot without flying home. Here is the process for overseas buyers: the power of attorney, the verification, moving the money, and the tax you need to plan for.",
+      "Buy, transfer and hold a DHA Islamabad-Rawalpindi plot without flying home. The process for overseas buyers: the power of attorney, video verification, moving the money, and the tax to plan for.",
+    dek: "You can buy, transfer and hold a DHA Islamabad-Rawalpindi plot without flying home. Here is the process for overseas buyers: the power of attorney, the verification, moving the money, and the tax you need to plan for.",
     category: "Buying guide",
     readingTime: "6 min read",
     date: "2026-09-05",
@@ -342,7 +342,7 @@ export const guides: Guide[] = [
     ],
     faqs: [
       {
-        q: "Can an overseas Pakistani buy DHA Islamabad property without visiting?",
+        q: "Can an overseas Pakistani buy DHA Islamabad-Rawalpindi property without visiting?",
         a: "Yes. The purchase and transfer are completed by an attorney you appoint through a properly attested power of attorney, with you verifying by video call.",
       },
       {

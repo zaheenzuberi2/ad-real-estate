@@ -6,14 +6,14 @@ import { jsonLd } from "@/lib/schema";
 import { Icon } from "@/components/ui/Icon";
 
 export const metadata: Metadata = {
-  title: "Property Guides: Buying in DHA, Islamabad",
+  title: "Property Guides: Buying in DHA, Islamabad-Rawalpindi",
   description:
-    "Practical guides to buying, transferring and investing in DHA Islamabad property: the process, the paperwork and the pitfalls, from a registered advisory.",
+    "Practical guides to buying, transferring and investing in DHA Islamabad-Rawalpindi property: the process, the paperwork and the pitfalls, from a registered advisory.",
   alternates: { canonical: "/guides" },
   openGraph: {
-    title: "DHA Islamabad Property Guides",
+    title: "DHA Islamabad-Rawalpindi Property Guides",
     description:
-      "The process, the paperwork and the pitfalls of buying property in DHA, Islamabad.",
+      "The process, the paperwork and the pitfalls of buying property in DHA, Islamabad-Rawalpindi.",
     url: `${site.url}/guides`,
   },
 };
@@ -44,10 +44,10 @@ export default function GuidesPage() {
             Guides
           </p>
           <h1 className="mt-4 max-w-3xl font-display text-4xl font-medium leading-tight text-white sm:text-5xl">
-            Property guides for DHA, Islamabad
+            Property guides for DHA, Islamabad-Rawalpindi
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
-            Straight answers on how DHA Islamabad transactions actually work:
+            Straight answers on how DHA Islamabad-Rawalpindi transactions actually work:
             the routes to market, the paperwork, the taxes, and the checks that
             protect your money. Written by a registered advisory, not a
             brokerage.
