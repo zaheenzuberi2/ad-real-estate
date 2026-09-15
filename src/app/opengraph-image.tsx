@@ -1,9 +1,14 @@
 import { ImageResponse } from "next/og";
+import { join } from "node:path";
+import { readFile } from "node:fs/promises";
 import { site } from "@/lib/site";
 
 export const alt = `${site.name}: Property Advisory in DHA, Islamabad`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+const logoData = await readFile(join(process.cwd(), "public/images/logo-mark.png"), "base64");
+const logoSrc = `data:image/png;base64,${logoData}`;
 
 /**
  * Shared on WhatsApp far more than anywhere else for this audience, so the
@@ -39,20 +44,7 @@ export default async function OpengraphImage() {
         />
 
         <div style={{ display: "flex", alignItems: "center", gap: "22px" }}>
-          {/* The AD peaks, drawn to match the logo */}
-          <svg width="86" height="72" viewBox="0 0 120 100">
-            <defs>
-              <linearGradient id="g" x1="8" y1="8" x2="112" y2="94" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stopColor="#8A6A2F" />
-                <stop offset="0.4" stopColor="#D8B15F" />
-                <stop offset="0.65" stopColor="#F0D48A" />
-                <stop offset="1" stopColor="#B98F42" />
-              </linearGradient>
-            </defs>
-            <path d="M62 6 L112 92 H74 L43 38 Z" fill="url(#g)" />
-            <path d="M34 34 L74 92 H0 Z" fill="url(#g)" />
-            <path d="M34 52 L47 74 H21 Z" fill="#060D1A" />
-          </svg>
+          <img src={logoSrc} height={64} />
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: 38, fontWeight: 700, color: "#fff", letterSpacing: -0.5 }}>
               {site.name}
@@ -74,7 +66,7 @@ export default async function OpengraphImage() {
               letterSpacing: -1.5,
             }}
           >
-            Your foothold in DHA, Islamabad
+            A real estate agency for DHA, Islamabad
           </span>
         </div>
 

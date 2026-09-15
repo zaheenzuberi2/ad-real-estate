@@ -1,10 +1,15 @@
 import { ImageResponse } from "next/og";
+import { join } from "node:path";
+import { readFile } from "node:fs/promises";
 import { getProperty, getProperties } from "@/lib/properties-data";
 import { site } from "@/lib/site";
 
 export const alt = "Property at AD Real Estate";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+const logoData = await readFile(join(process.cwd(), "public/images/logo-mark.png"), "base64");
+const logoSrc = `data:image/png;base64,${logoData}`;
 
 export async function generateStaticParams() {
   const properties = await getProperties();
@@ -49,18 +54,7 @@ export default async function Image(props: {
         />
 
         <div style={{ display: "flex", alignItems: "center", gap: "18px" }}>
-          <svg width="58" height="48" viewBox="0 0 120 100">
-            <defs>
-              <linearGradient id="pg" x1="8" y1="8" x2="112" y2="94" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stopColor="#8A6A2F" />
-                <stop offset="0.42" stopColor="#D8B15F" />
-                <stop offset="1" stopColor="#B98F42" />
-              </linearGradient>
-            </defs>
-            <path d="M62 6 L112 92 H74 L43 38 Z" fill="url(#pg)" />
-            <path d="M34 34 L74 92 H0 Z" fill="url(#pg)" />
-            <path d="M34 52 L47 74 H21 Z" fill="#060D1A" />
-          </svg>
+          <img src={logoSrc} height={52} />
           <span style={{ fontSize: 24, fontWeight: 700, color: "#fff" }}>
             {site.name}
           </span>
