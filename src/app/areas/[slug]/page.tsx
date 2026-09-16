@@ -7,7 +7,12 @@ import { PropertyCard } from "@/components/ui/PropertyCard";
 import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
 import { site } from "@/lib/site";
-import { areaServiceSchema, areaBreadcrumbSchema, jsonLd } from "@/lib/schema";
+import {
+  areaServiceSchema,
+  areaBreadcrumbSchema,
+  faqPageSchema,
+  jsonLd,
+} from "@/lib/schema";
 
 export async function generateStaticParams() {
   return dhaLocations.map((l) => ({ slug: l.slug }));
@@ -79,6 +84,10 @@ export default async function AreaPage({
         dangerouslySetInnerHTML={{
           __html: jsonLd(areaBreadcrumbSchema(phase, slug)),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(faqs)) }}
       />
 
       <section className="bg-navy-deep pb-14 pt-16">

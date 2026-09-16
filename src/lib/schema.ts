@@ -234,6 +234,7 @@ export function articleSchema(guide: Guide) {
     headline: guide.title,
     description: guide.description,
     url: `${site.url}/guides/${guide.slug}`,
+    image: `${site.url}/opengraph-image`,
     datePublished: guide.date,
     dateModified: guide.date,
     inLanguage: "en-PK",

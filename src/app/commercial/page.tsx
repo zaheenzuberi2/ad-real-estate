@@ -9,6 +9,7 @@ import { site } from "@/lib/site";
 import {
   commercialServiceSchema,
   commercialBreadcrumbSchema,
+  faqPageSchema,
   jsonLd,
 } from "@/lib/schema";
 
@@ -54,6 +55,10 @@ export default async function CommercialPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(commercialBreadcrumbSchema()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(faqPageSchema(items)) }}
       />
 
       <section className="bg-navy-deep pb-14 pt-16">

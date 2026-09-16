@@ -5,6 +5,7 @@ import { PropertyCard } from "@/components/ui/PropertyCard";
 import { PropertyFilters } from "@/components/sections/PropertyFilters";
 import { site } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
+import { jsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Plots & Property for Sale in DHA, Islamabad-Rawalpindi",
@@ -48,8 +49,24 @@ export default async function PropertiesPage(props: {
 
   const filtered = Boolean(phase || type || beds || budget);
 
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: properties.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${site.url}/properties/${p.slug}`,
+      name: p.title,
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(itemListSchema) }}
+      />
+
       <section className="bg-navy-deep pb-14 pt-16">
         <div className="shell">
           <p className="eyebrow flex items-center gap-3 text-gold">

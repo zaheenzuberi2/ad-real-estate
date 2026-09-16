@@ -3,6 +3,7 @@ import Link from "next/link";
 import { dhaLocations } from "@/content/locations";
 import { Icon } from "@/components/ui/Icon";
 import { site } from "@/lib/site";
+import { jsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Areas We Serve in DHA Islamabad-Rawalpindi",
@@ -17,9 +18,28 @@ export const metadata: Metadata = {
   },
 };
 
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, url: `${site.url}/commercial`, name: "Commercial Plots" },
+    ...dhaLocations.map((l, i) => ({
+      "@type": "ListItem",
+      position: i + 2,
+      url: `${site.url}/areas/${l.slug}`,
+      name: l.phase,
+    })),
+  ],
+};
+
 export default function AreasPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(itemListSchema) }}
+      />
+
       <section className="bg-navy-deep pb-14 pt-16">
         <div className="shell">
           <p className="eyebrow flex items-center gap-3 text-gold">
