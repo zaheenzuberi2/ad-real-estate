@@ -88,6 +88,8 @@ export function IntroLoader() {
           <img
             src={LOGO_SRC}
             alt="AD Real Estate"
+            width={900}
+            height={308}
             className="h-auto w-[clamp(200px,44vw,340px)]"
           />
         ) : logo === "vector" ? (

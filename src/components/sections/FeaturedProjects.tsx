@@ -27,7 +27,7 @@ export async function FeaturedProjects() {
         <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
           {featured.map((p, i) => (
             <Reveal key={p.slug} delay={Math.min(i, 3) * 45}>
-              <PropertyCard property={p} />
+              <PropertyCard property={p} priority={i === 0} />
             </Reveal>
           ))}
         </div>

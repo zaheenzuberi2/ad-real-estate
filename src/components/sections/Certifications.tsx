@@ -27,7 +27,7 @@ export function Certifications() {
               />
             </div>
             <figcaption className="mt-3 text-center text-xs text-slate-500">
-              Original certificates on display at our Islamabad office
+              Ask to see the originals when you visit our DHA Phase 5 office
             </figcaption>
           </figure>
 

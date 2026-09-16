@@ -6,7 +6,13 @@ import { PropertyArt } from "@/components/ui/PropertyArt";
 import { formatPkr } from "@/lib/format";
 import { Button } from "@/components/ui/Button";
 
-export function PropertyCard({ property }: { property: Property }) {
+export function PropertyCard({
+  property,
+  priority,
+}: {
+  property: Property;
+  priority?: boolean;
+}) {
   const cover = property.photos?.[0];
 
   return (
@@ -24,6 +30,7 @@ export function PropertyCard({ property }: { property: Property }) {
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
             className="object-cover"
+            priority={priority}
           />
         ) : (
           <PropertyArt variant={property.art} />

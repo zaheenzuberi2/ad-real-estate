@@ -86,7 +86,10 @@ const PROPERTY_PROJECTION = `{
 function toProperty(doc: SanityProperty, index: number): Property {
   const photos = (doc.images ?? [])
     .filter((img) => img.asset)
-    .map((img) => ({ url: urlForImage(img)!, alt: img.alt ?? doc.title }))
+    .map((img, i) => ({
+      url: urlForImage(img)!,
+      alt: img.alt ?? `${doc.title} in ${doc.location}, photo ${i + 1}`,
+    }))
     .filter((p) => p.url);
 
   return {
