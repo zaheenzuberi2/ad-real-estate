@@ -49,6 +49,7 @@ export const properties: Property[] = [
     relatedGuides: [
       "buying-a-plot-in-dha-islamabad",
       "dha-phase-5-vs-phase-6",
+      "dha-plot-prices-what-drives-them",
     ],
     metaTitle: "DHA Phase 5 & 6 Plots for Sale, Islamabad",
     metaDescription:
@@ -105,7 +106,11 @@ export const properties: Property[] = [
       "At the base of the Margalla Hills, off Park Road",
     ],
     featured: true,
-    relatedGuides: ["buying-a-plot-in-dha-islamabad"],
+    relatedGuides: [
+      "buying-a-plot-in-dha-islamabad",
+      "dha-islamabad-rawalpindi-installment-plans",
+      "dha-plot-prices-what-drives-them",
+    ],
     metaTitle: "Margalla Orchard Installment Plots, Islamabad",
     metaDescription:
       "Newly launched 5 to 10 Marla plots on 36-month installment plans at the base of the Margalla Hills, off Park Road, Islamabad. Built for first-time buyers and investors.",
@@ -160,7 +165,10 @@ export const properties: Property[] = [
       "Realistic finishing budget provided upfront",
     ],
     featured: true,
-    relatedGuides: ["buying-a-plot-in-dha-islamabad"],
+    relatedGuides: [
+      "buying-a-plot-in-dha-islamabad",
+      "dha-vs-bahria-town-islamabad",
+    ],
     metaTitle: "Bahria Town Villas for Sale, Islamabad",
     metaDescription:
       "1 & 2 Kanal grey-structure villas for sale in Bahria Town Phase 7, Islamabad, beside the golf club. You control the interior finish; we give you a realistic completion budget.",

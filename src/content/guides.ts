@@ -45,7 +45,7 @@ export const guides: Guide[] = [
   {
     slug: "buying-a-plot-in-dha-islamabad",
     title: "Buying a Plot in DHA Islamabad-Rawalpindi: The Complete Process",
-    metaTitle: "Buying a Plot in DHA Islamabad-Rawalpindi: Full Process & Checklist",
+    metaTitle: "Buying a Plot in DHA Islamabad-Rawalpindi: Checklist",
     description:
       "How a DHA Islamabad-Rawalpindi plot actually changes hands. The routes to market, file versus possession, the pre-purchase checks, the transfer step by step, and the costs beyond the plot price.",
     dek: "A DHA Islamabad-Rawalpindi plot changes hands through a documented transfer at the DHA office, not a handshake. Here is what the process involves, the paperwork you need, and the checks that protect your money.",
@@ -363,6 +363,266 @@ export const guides: Guide[] = [
       },
     ],
     relatedProperties: ["dha-phase-5-6-plots", "margalla-orchard"],
+  },
+  {
+    slug: "dha-plot-prices-what-drives-them",
+    title: "DHA Islamabad-Rawalpindi Plot Prices: What Actually Drives Them",
+    metaTitle: "DHA Islamabad-Rawalpindi Plot Prices: What Drives Them",
+    description:
+      "There is no single per-marla rate for DHA Islamabad-Rawalpindi. Here is what actually moves the price of a plot: phase, sector, file versus possession, size and payment structure.",
+    dek: "There is no single per-marla rate for DHA Islamabad-Rawalpindi. Here is what actually moves the price of a specific plot, so you know what you are really paying for.",
+    category: "Pricing guide",
+    readingTime: "6 min read",
+    date: "2026-09-16",
+    dateLabel: "16 September 2026",
+    body: [
+      { type: "h2", text: "Why we don't quote a flat rate per marla" },
+      {
+        type: "p",
+        text: "Ask five different sellers the price of a 10 Marla plot in DHA and you will get five different numbers, because the plot on paper is not the whole story. Phase, sector, development stage, file status and even the direction the plot faces all move the number independently. A flat per-marla rate would be misleading the moment you moved to a real file, so we quote every plot individually rather than off a rate card.",
+      },
+      { type: "h2", text: "The phase and the sector move price first" },
+      {
+        type: "ul",
+        items: [
+          "Phase: an older, fully developed phase with possession handed over generally commands a premium over a newer phase still under development, because certainty costs more than potential.",
+          "Sector within the phase: development status varies block by block even inside one phase, and that difference matters more than the phase number on its own.",
+          "Position: corner plots, park-facing plots, and plots on a main boulevard or with expressway frontage carry a premium over an interior plot of the same size.",
+        ],
+      },
+      { type: "h2", text: "File or possession changes the structure, not just the number" },
+      {
+        type: "p",
+        text: "A file is a claim on a future plot and generally costs less, but its value depends on the sector being transferable and the paperwork being clean. A possession plot is developed and handed over, costs more, and carries far less uncertainty. Comparing a file price to a possession price for the same phase and calling one \"cheaper\" is comparing two different products, not the same product at two prices.",
+      },
+      { type: "h2", text: "Size, shape and frontage" },
+      {
+        type: "ul",
+        items: [
+          "Larger plots (1 Kanal and above) do not scale linearly from smaller sizes; per-marla value often shifts at the larger sizes.",
+          "An irregularly shaped or oddly dimensioned plot typically prices below a regular rectangular plot of the same area.",
+          "Extra road frontage, especially onto the Islamabad Expressway or a main boulevard, adds value beyond the plot's raw size.",
+        ],
+      },
+      { type: "h2", text: "How you pay changes what you pay" },
+      {
+        type: "p",
+        text: "A lump-sum purchase and an instalment plan are not the same offer at different speeds. A new-launch instalment structure, like the 36-month plan on a project such as Margalla Orchard, is usually priced to reflect the early-stage entry point and the fact that you are paying over time rather than up front. Model the down payment and monthly figure with the calculator on our homepage before you compare it to a lump-sum price elsewhere.",
+      },
+      { type: "h2", text: "Costs beyond the headline price" },
+      {
+        type: "p",
+        text: "Whatever price you agree, budget separately for the DHA transfer fee, membership fee on first transfer, Capital Value Tax, federal advance tax, stamp duty where applicable, and any development charges the seller has not already cleared. Our guide on buying a plot in DHA Islamabad-Rawalpindi covers each of these in full.",
+      },
+      { type: "h2", text: "How to get an actual number" },
+      {
+        type: "p",
+        text: "Prices move with the market and with the specific file, so anything published today can be out of date by the time you read it. The reliable way to get a current number is to tell us the phase, sector or budget you have in mind and we will come back with what is actually available and what it costs, including the file's development and transfer status.",
+      },
+      { type: "h2", text: "How we help" },
+      {
+        type: "p",
+        text: "We do not quote off a rate card. For every plot we present, we confirm the current asking price, the file's transfer status, and the full cost breakdown in writing before you decide anything.",
+      },
+      {
+        type: "p",
+        text: "This guide is general information about what drives price, not a price list. Actual figures vary by phase, sector and file, and change over time, so confirm current pricing for any specific plot with an advisor.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How much does a plot cost in DHA Phase 5 or 6?",
+        a: "There is no single figure. Price depends on the sector, the plot's size and position, whether it is a file or a possession plot, and current market conditions. Tell us your budget and what you are looking for and we will come back with current options and prices.",
+      },
+      {
+        q: "Why do two plots in the same phase cost different amounts?",
+        a: "Sector development status, position (corner, park-facing, boulevard), size, shape, and file versus possession status all move the price independently, even within the same phase.",
+      },
+      {
+        q: "Is a file always cheaper than a possession plot?",
+        a: "Usually, but they are different products, not the same product at different prices. A file's value depends on the sector being transferable and the paperwork being clean; a possession plot costs more for the certainty of a known, developed location.",
+      },
+      {
+        q: "Do installment plans cost more overall than paying in full?",
+        a: "It depends on the specific project and its terms. Some new-launch instalment structures price in the early-stage entry point rather than adding a markup. Always ask for the full schedule in writing and compare it to any lump-sum alternative before deciding.",
+      },
+      {
+        q: "Can I estimate my own monthly payment before speaking to an advisor?",
+        a: "Yes. Use the installment plan calculator on our homepage to model a down payment and monthly figure for a given price and tenure. It is indicative only; confirm the actual schedule for a specific plot with an advisor.",
+      },
+    ],
+    relatedProperties: ["dha-phase-5-6-plots", "margalla-orchard"],
+  },
+  {
+    slug: "dha-vs-bahria-town-islamabad",
+    title: "DHA vs Bahria Town, Islamabad-Rawalpindi: Which to Choose",
+    metaTitle: "DHA vs Bahria Town Islamabad-Rawalpindi: Which to Pick",
+    description:
+      "DHA and Bahria Town are run on different models, not just different addresses. How they compare on development, amenities and buyer fit, and how to choose between them.",
+    dek: "DHA and Bahria Town are built on different models, not just different addresses. Here is how they actually compare, and how to decide which fits you.",
+    category: "Comparison guide",
+    readingTime: "7 min read",
+    date: "2026-09-16",
+    dateLabel: "16 September 2026",
+    body: [
+      { type: "h2", text: "Two different models, not just two addresses" },
+      {
+        type: "p",
+        text: "DHA Islamabad-Rawalpindi is developed and regulated by the Defence Housing Authority, a body originally set up to house armed forces personnel that now also sells and transfers plots to the general public through its own membership and balloting system. Bahria Town is a privately developed, master-planned community built and marketed by a private real estate developer. That structural difference runs through everything else: how plots are allotted, how records are kept, and how amenities get funded and built.",
+      },
+      { type: "h2", text: "Location and layout" },
+      {
+        type: "p",
+        text: "Both communities sit along the same broad corridor between Islamabad and Rawalpindi and are organised into numbered phases developed in stages. DHA's phases run along the Islamabad Expressway; Bahria Town Islamabad-Rawalpindi has its own numbered phases and enclaves nearby. Development stage varies by phase and sector in both, so the specific phase matters more than which society it belongs to.",
+      },
+      { type: "h2", text: "Development style and amenities" },
+      {
+        type: "ul",
+        items: [
+          "DHA phases develop progressively as an extension of the wider city, with a mix of established and newer sectors, and no single unifying amenity theme.",
+          "Bahria Town is known for concentrating branded amenities, such as golf facilities and sports and leisure complexes, within its master plan as part of the sales proposition.",
+          "Both run separate societies for commercial, residential and villa-style development, so compare the specific sector or scheme rather than the brand as a whole.",
+        ],
+      },
+      { type: "h2", text: "Price positioning" },
+      {
+        type: "p",
+        text: "Neither society is uniformly cheaper or more expensive than the other. Entry price in both depends on the phase, the sector's development stage, and whether you are buying a file or a developed, possession-ready plot. A developed sector in one society can cost more than an early-stage sector in the other, and the reverse is also true. Compare specific sectors against each other, not the society names.",
+      },
+      { type: "h2", text: "Who tends to prefer each" },
+      {
+        type: "ul",
+        items: [
+          "Buyers who value DHA's authority-run allotment structure and its established sectors along the Expressway often lean toward DHA.",
+          "Buyers drawn to resort-style, single-developer amenities and newer master-planned enclaves often lean toward Bahria Town.",
+          "Investors comfortable researching sector-level detail can find opportunities in either, since the phase and sector matter more than the brand.",
+        ],
+      },
+      { type: "h2", text: "The same checks apply either way" },
+      {
+        type: "p",
+        text: "Whichever society you choose, the discipline is identical: confirm the seller is the recorded allottee, get a current No Demand Certificate, check the sector's transfer status, and verify the plot's exact location and category before any money moves. Our guide on buying a plot in DHA Islamabad-Rawalpindi walks through each of these checks in detail, and the same logic applies in Bahria Town.",
+      },
+      { type: "h2", text: "How we help" },
+      {
+        type: "p",
+        text: "We work across both DHA and Bahria Town Islamabad-Rawalpindi. Tell us your budget, purpose and timeline and we will point you at the specific phases and sectors worth looking at in each, rather than a blanket recommendation for one society over the other.",
+      },
+      {
+        type: "p",
+        text: "This guide is general information based on the well-known structure of each society. Specific pricing, development status and amenities vary by phase and sector and change over time, so confirm current details for any plot with an advisor before you commit.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is DHA or Bahria Town a better investment in Islamabad-Rawalpindi?",
+        a: "Neither wins outright. It depends on the specific phase and sector, your budget, and your timeline. We compare like-for-like sectors across both societies rather than recommending one brand over the other by default.",
+      },
+      {
+        q: "What is the difference between how DHA and Bahria Town are run?",
+        a: "DHA is developed and regulated by the Defence Housing Authority, a body originally established for armed forces personnel that also sells to the general public. Bahria Town is a privately developed and marketed master-planned community. This affects allotment, records and how amenities are funded.",
+      },
+      {
+        q: "Are prices higher in DHA or Bahria Town?",
+        a: "Neither is uniformly higher. Price depends on the phase, the sector's development stage, and file versus possession status in both societies. Compare specific sectors rather than the society names.",
+      },
+      {
+        q: "Do you help buyers in both DHA and Bahria Town?",
+        a: "Yes. We work across both and can point you at the phases and sectors that fit your budget and purpose in either.",
+      },
+      {
+        q: "Which is better for rental income, DHA or Bahria Town?",
+        a: "It depends on the specific sector's population, development status and proximity to amenities, in either society. We can walk you through the rental picture for the sectors you are considering.",
+      },
+    ],
+    relatedProperties: ["dha-phase-5-6-plots", "bahria-town-villas"],
+  },
+  {
+    slug: "dha-islamabad-rawalpindi-installment-plans",
+    title: "Installment Plans for DHA Islamabad-Rawalpindi Plots, Explained",
+    metaTitle: "DHA Islamabad-Rawalpindi Installment Plans Explained",
+    description:
+      "Not all 'installment plans' in DHA Islamabad-Rawalpindi mean the same thing. How DHA's own membership instalments differ from a developer's new-launch plan, and what to check before you sign.",
+    dek: "Not every 'installment plan' in DHA Islamabad-Rawalpindi means the same thing. Here is how the two common structures work, and what to check before you sign either one.",
+    category: "Buying guide",
+    readingTime: "6 min read",
+    date: "2026-09-16",
+    dateLabel: "16 September 2026",
+    body: [
+      { type: "h2", text: "Two different things get called \"installments\"" },
+      {
+        type: "p",
+        text: "Buyers often assume every instalment plan works the same way. In practice there are two distinct structures in DHA Islamabad-Rawalpindi, and confusing them is a common way to misjudge what you are actually signing up for.",
+      },
+      { type: "h2", text: "DHA's own membership and balloting instalments" },
+      {
+        type: "p",
+        text: "When DHA opens a new scheme, members pay a down payment followed by periodic instalments directly to the authority over the period set for that scheme, before a plot number is assigned by ballot. This is the original route into DHA membership, is paid to DHA itself rather than a private seller, and missing instalments can put your membership and allotment at risk. It is separate from buying an already-allotted file or plot from an existing owner.",
+      },
+      { type: "h2", text: "Developer instalment plans on a new launch" },
+      {
+        type: "p",
+        text: "A newly launched private development, such as Margalla Orchard, offers its own instalment structure to the buyer: a down payment, then fixed monthly instalments over a set tenure, sometimes with no balloon payment at the end. This is an agreement with the developer or seller, not with DHA directly, so the terms, protections and what happens if you miss a payment are set out in that specific contract.",
+      },
+      { type: "h2", text: "What to check before you sign either one" },
+      {
+        type: "ol",
+        items: [
+          "Get the full payment schedule in writing: every instalment amount and due date, not just the headline down payment and monthly figure.",
+          "Confirm what happens if you miss a payment. Some agreements charge a penalty; others can cancel the allotment and forfeit instalments already paid.",
+          "Confirm whether the price is fixed for the full tenure or can escalate partway through.",
+          "Confirm exactly what you own during the instalment period. In many structures a file only converts to a transferable allotment once it is fully paid.",
+          "Keep every payment receipt. It is your proof of payment if a dispute ever arises over how much you have paid.",
+        ],
+      },
+      { type: "h2", text: "Modelling your own numbers" },
+      {
+        type: "p",
+        text: "Use the installment plan calculator on our homepage to estimate a down payment and monthly figure for a given price and tenure of 12 to 60 months. The figures are indicative only and assume equal monthly instalments with no markup; always confirm the actual schedule for a specific project with an advisor before committing.",
+      },
+      { type: "h2", text: "What goes wrong with instalment purchases" },
+      {
+        type: "ul",
+        items: [
+          "Stopping payments partway through without checking the contract's cancellation and refund terms first.",
+          "Assuming instalments already paid are automatically refundable if you cannot continue. Confirm this in writing before you sign, not after.",
+          "Not confirming whether taxes and dues are included in the monthly figure or billed separately.",
+          "Treating a developer's instalment plan as equivalent to DHA's own membership instalments, when the protections and process differ.",
+        ],
+      },
+      { type: "h2", text: "How we help" },
+      {
+        type: "p",
+        text: "Before you commit to any instalment plan, we confirm the full schedule, the cancellation terms, and exactly what you own at each stage, in writing, so there are no surprises partway through.",
+      },
+      {
+        type: "p",
+        text: "This guide is general information about how instalment structures typically work. Terms vary by scheme and by developer and change over time, so confirm the current terms for a specific project with an advisor before you sign.",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the difference between a DHA installment plan and a developer's installment plan?",
+        a: "A DHA membership instalment is paid directly to the authority as part of joining and being balloted a plot. A developer's instalment plan, like Margalla Orchard's, is a payment agreement with a private seller for an already-launched project. The terms and protections differ, so check which one you are actually being offered.",
+      },
+      {
+        q: "Is there always a down payment on an installment plan?",
+        a: "Typically yes, followed by fixed monthly instalments over an agreed tenure. The exact down payment percentage and tenure vary by scheme, so confirm the specific terms in writing before committing.",
+      },
+      {
+        q: "What happens if I miss an installment?",
+        a: "It depends on the contract. Some agreements apply a penalty; others can cancel the allotment and forfeit instalments already paid. Confirm this in writing before you sign, since it varies by scheme.",
+      },
+      {
+        q: "Can I use your calculator to estimate my payments?",
+        a: "Yes. The installment plan calculator on our homepage estimates a down payment and monthly figure for tenures from 12 to 60 months. It is indicative only, so confirm the actual schedule for a specific project with an advisor.",
+      },
+      {
+        q: "Do installment plans include markup or interest?",
+        a: "It depends on the project. Our calculator assumes equal monthly instalments with no markup as a baseline estimate, but always confirm whether a specific plan includes any markup or additional charges before you sign.",
+      },
+    ],
+    relatedProperties: ["margalla-orchard", "dha-phase-5-6-plots"],
   },
 ];
 
