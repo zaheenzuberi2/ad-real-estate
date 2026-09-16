@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { dhaLocations, getLocation, phaseNumbersIn } from "@/content/locations";
 import { getProperties } from "@/lib/properties-data";
+import { guides } from "@/content/guides";
 import { PropertyCard } from "@/components/ui/PropertyCard";
 import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
@@ -38,6 +39,36 @@ export async function generateMetadata({
   };
 }
 
+/**
+ * Real differentiators, not invented ones: only Phase 5 and 6 have
+ * established facts elsewhere on the site (the phase comparison guide,
+ * the Expressway-frontage listing). Phases 1-4 get no fabricated claims
+ * until the client supplies real per-phase detail.
+ */
+function phaseNote(phaseNumber: number): string | null {
+  if (phaseNumber === 5) {
+    return "Phase 5 is one of DHA's more settled, developed sectors, with direct frontage onto the Islamabad Expressway.";
+  }
+  if (phaseNumber === 6) {
+    return "Phase 6 is a newer, larger phase still developing in parts, also fronting the Islamabad Expressway, with more room for appreciation in sectors that are further along.";
+  }
+  return null;
+}
+
+function relatedGuidesFor(phaseNumber: number) {
+  const slugs =
+    phaseNumber === 5 || phaseNumber === 6
+      ? [
+          "buying-a-plot-in-dha-islamabad",
+          "dha-phase-5-vs-phase-6",
+          "dha-plot-prices-what-drives-them",
+        ]
+      : ["buying-a-plot-in-dha-islamabad"];
+  return slugs
+    .map((slug) => guides.find((g) => g.slug === slug))
+    .filter((g): g is (typeof guides)[number] => Boolean(g));
+}
+
 const faqsFor = (phase: string, hasListings: boolean) => [
   {
     q: `Do you have plots for sale in ${phase}?`,
@@ -70,6 +101,8 @@ export default async function AreaPage({
     phaseNumbersIn(`${p.title} ${p.phase} ${p.location}`).includes(phaseNumber),
   );
   const faqs = faqsFor(phase, matches.length > 0);
+  const note = phaseNote(phaseNumber);
+  const relatedGuides = relatedGuidesFor(phaseNumber);
 
   return (
     <>
@@ -124,6 +157,11 @@ export default async function AreaPage({
             sell one, or get a second opinion on a file someone has offered
             you in {phase}, our advisors can help.
           </p>
+          {note && (
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-400">
+              {note}
+            </p>
+          )}
         </div>
       </section>
 
@@ -213,6 +251,30 @@ export default async function AreaPage({
                 ))}
               </div>
             </section>
+
+            {relatedGuides.length > 0 && (
+              <section className="mt-14">
+                <h2 className="eyebrow text-gold-ink">Guides for {phase}</h2>
+                <ul className="mt-4 space-y-3">
+                  {relatedGuides.map((g) => (
+                    <li key={g.slug}>
+                      <Link
+                        href={`/guides/${g.slug}`}
+                        className="tap group flex items-center justify-between gap-4 border-b border-hairline py-3 text-navy-deep transition-colors hover:text-gold-ink"
+                      >
+                        <span className="font-display text-lg font-medium">
+                          {g.title}
+                        </span>
+                        <Icon
+                          name="arrow-right"
+                          className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5"
+                        />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
           </div>
 
           <aside className="h-fit rounded-2xl border border-hairline bg-white p-7">

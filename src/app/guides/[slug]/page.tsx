@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { guides, getGuide, type GuideBlock } from "@/content/guides";
 import { getProperties } from "@/lib/properties-data";
+import { dhaLocations } from "@/content/locations";
 import { site } from "@/lib/site";
 import {
   jsonLd,
@@ -94,6 +95,10 @@ export default async function GuidePage(props: {
   const relatedProperties = (guide.relatedProperties ?? [])
     .map((slug) => allProperties.find((p) => p.slug === slug))
     .filter((p): p is (typeof allProperties)[number] => Boolean(p));
+
+  const relatedAreas = (guide.relatedAreas ?? [])
+    .map((areaSlug) => dhaLocations.find((l) => l.slug === areaSlug))
+    .filter((l): l is (typeof dhaLocations)[number] => Boolean(l));
 
   return (
     <>
@@ -221,6 +226,30 @@ export default async function GuidePage(props: {
                         <span className="mt-0.5 block text-sm text-slate-500">
                           {p.location}
                         </span>
+                      </span>
+                      <Icon
+                        name="arrow-right"
+                        className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5"
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {relatedAreas.length > 0 && (
+            <section className="mt-14">
+              <h2 className="eyebrow text-gold-ink">Areas this applies to</h2>
+              <ul className="mt-4 space-y-3">
+                {relatedAreas.map((l) => (
+                  <li key={l.slug}>
+                    <Link
+                      href={`/areas/${l.slug}`}
+                      className="tap group flex items-center justify-between gap-4 border-b border-hairline py-3 text-navy-deep transition-colors hover:text-gold-ink"
+                    >
+                      <span className="font-display text-lg font-medium">
+                        Real Estate Agency in {l.phase}
                       </span>
                       <Icon
                         name="arrow-right"

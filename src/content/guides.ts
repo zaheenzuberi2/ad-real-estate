@@ -39,6 +39,8 @@ export type Guide = {
   faqs: Faq[];
   /** Listing slugs this guide directly applies to. Cross-linked on the page. */
   relatedProperties?: string[];
+  /** DHA phase area-page slugs (src/content/locations.ts) this guide directly applies to. */
+  relatedAreas?: string[];
 };
 
 export const guides: Guide[] = [
@@ -162,6 +164,7 @@ export const guides: Guide[] = [
       },
     ],
     relatedProperties: ["dha-phase-5-6-plots"],
+    relatedAreas: ["dha-phase-5", "dha-phase-6"],
   },
   {
     slug: "dha-phase-5-vs-phase-6",
@@ -254,6 +257,7 @@ export const guides: Guide[] = [
       },
     ],
     relatedProperties: ["dha-phase-5-6-plots"],
+    relatedAreas: ["dha-phase-5", "dha-phase-6"],
   },
   {
     slug: "buying-dha-property-overseas-pakistani",
@@ -452,6 +456,7 @@ export const guides: Guide[] = [
       },
     ],
     relatedProperties: ["dha-phase-5-6-plots", "margalla-orchard"],
+    relatedAreas: ["dha-phase-5", "dha-phase-6"],
   },
   {
     slug: "dha-vs-bahria-town-islamabad",
