@@ -12,7 +12,7 @@ import {
   jsonLd,
 } from "@/lib/schema";
 
-const title = "Commercial Plots & Property for Sale in DHA Islamabad-Rawalpindi";
+const title = "Commercial Plots for Sale in DHA Islamabad-Rawalpindi";
 const description =
   "AD Real Estate helps buyers and investors find, verify and transfer commercial plots for sale in DHA Islamabad-Rawalpindi, from corner shops to main boulevard sites. Title and dues checked before you commit.";
 

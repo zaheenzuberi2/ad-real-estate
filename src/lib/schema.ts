@@ -94,12 +94,12 @@ export function realEstateAgentSchema() {
     logo: `${site.url}/icon`,
     areaServed: [
       { "@type": "Place", name: "DHA Islamabad-Rawalpindi" },
-      { "@type": "Place", name: "DHA Phase 1, Islamabad" },
-      { "@type": "Place", name: "DHA Phase 2, Islamabad" },
-      { "@type": "Place", name: "DHA Phase 3, Islamabad" },
-      { "@type": "Place", name: "DHA Phase 4, Islamabad" },
-      { "@type": "Place", name: "DHA Phase 5, Islamabad" },
-      { "@type": "Place", name: "DHA Phase 6, Islamabad" },
+      { "@type": "Place", name: "DHA Phase 1, Islamabad-Rawalpindi" },
+      { "@type": "Place", name: "DHA Phase 2, Islamabad-Rawalpindi" },
+      { "@type": "Place", name: "DHA Phase 3, Islamabad-Rawalpindi" },
+      { "@type": "Place", name: "DHA Phase 4, Islamabad-Rawalpindi" },
+      { "@type": "Place", name: "DHA Phase 5, Islamabad-Rawalpindi" },
+      { "@type": "Place", name: "DHA Phase 6, Islamabad-Rawalpindi" },
       { "@type": "City", name: "Islamabad" },
     ],
     address: {
@@ -255,8 +255,8 @@ export function areaServiceSchema(phase: string, slug: string) {
     "@id": `${site.url}/areas/${slug}#service`,
     serviceType: "Real estate agency services",
     provider: { "@id": ORG_ID },
-    areaServed: { "@type": "Place", name: `${phase}, Islamabad` },
-    name: `Real estate agency in ${phase}, Islamabad`,
+    areaServed: { "@type": "Place", name: `${phase}, Islamabad-Rawalpindi` },
+    name: `Real estate agency in ${phase}, Islamabad-Rawalpindi`,
   };
 }
 

@@ -22,8 +22,8 @@ export async function generateMetadata({
   const location = getLocation(slug);
   if (!location) return {};
 
-  const title = `Real Estate Agency in ${location.phase}, Islamabad`;
-  const description = `AD Real Estate is a registered property advisory serving buyers, sellers and investors in ${location.phase}, Islamabad. Title checks, guided site visits and transfer support.`;
+  const title = `Real Estate Agency in ${location.phase}, Islamabad-Rawalpindi`;
+  const description = `AD Real Estate is a registered property advisory serving buyers, sellers and investors in ${location.phase}, Islamabad-Rawalpindi. Title checks, guided site visits and transfer support.`;
 
   return {
     title,
@@ -106,7 +106,7 @@ export default async function AreaPage({
             Service Area
           </p>
           <h1 className="mt-4 max-w-3xl font-display text-4xl font-medium leading-tight text-white sm:text-5xl">
-            Real Estate Agency in {phase}, Islamabad
+            Real Estate Agency in {phase}, Islamabad-Rawalpindi
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
             AD Real Estate is a registered property advisory based in DHA

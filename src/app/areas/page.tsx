@@ -5,12 +5,12 @@ import { Icon } from "@/components/ui/Icon";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Real Estate Agency in DHA Islamabad-Rawalpindi: Areas We Serve",
+  title: "Areas We Serve in DHA Islamabad-Rawalpindi",
   description:
-    "AD Real Estate advises buyers, sellers and investors across every phase of DHA Islamabad-Rawalpindi, from DHA Phase 1 to DHA Phase 6. See the phase you're interested in.",
+    "AD Real Estate advises buyers, sellers and investors across every phase of DHA Islamabad-Rawalpindi, from Phase 1 to Phase 6. See the phase you're interested in.",
   alternates: { canonical: "/areas" },
   openGraph: {
-    title: "Real Estate Agency in DHA Islamabad-Rawalpindi: Areas We Serve",
+    title: "Areas We Serve in DHA Islamabad-Rawalpindi",
     description:
       "AD Real Estate advises buyers, sellers and investors across every phase of DHA Islamabad-Rawalpindi, from Phase 1 to Phase 6.",
     url: `${site.url}/areas`,
