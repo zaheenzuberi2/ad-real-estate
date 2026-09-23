@@ -49,7 +49,7 @@ export const guides: Guide[] = [
     title: "Buying a Plot in DHA Islamabad-Rawalpindi: The Complete Process",
     metaTitle: "Buying a Plot in DHA Islamabad-Rawalpindi: Checklist",
     description:
-      "How a DHA Islamabad-Rawalpindi plot actually changes hands. The routes to market, file versus possession, the pre-purchase checks, the transfer step by step, and the costs beyond the plot price.",
+      "How a DHA Islamabad-Rawalpindi plot changes hands: routes to market, file vs possession, pre-purchase checks, the transfer steps, and costs beyond the price.",
     dek: "A DHA Islamabad-Rawalpindi plot changes hands through a documented transfer at the DHA office, not a handshake. Here is what the process involves, the paperwork you need, and the checks that protect your money.",
     category: "Buying guide",
     readingTime: "7 min read",
@@ -171,7 +171,7 @@ export const guides: Guide[] = [
     title: "DHA Phase 5 vs Phase 6, Islamabad: Which to Buy",
     metaTitle: "DHA Phase 5 vs Phase 6 Islamabad: Which to Buy",
     description:
-      "Phase 5 is the settled choice, Phase 6 is the growth bet. How the two DHA Islamabad-Rawalpindi phases compare on development, price, risk and buyer fit, and why the sector matters more than the phase.",
+      "Phase 5 is the settled choice, Phase 6 the growth bet. How the two DHA phases compare on development, price and buyer fit, and why the sector matters most.",
     dek: "Phase 5 is the settled choice; Phase 6 is the growth bet. The right answer depends on whether you want to build now or hold for appreciation, and, more than that, on the specific sector.",
     category: "Buying guide",
     readingTime: "6 min read",
@@ -264,7 +264,7 @@ export const guides: Guide[] = [
     title: "Buying DHA Islamabad-Rawalpindi Property as an Overseas Pakistani",
     metaTitle: "Overseas Pakistani Guide: Buying DHA Islamabad-Rawalpindi Property",
     description:
-      "Buy, transfer and hold a DHA Islamabad-Rawalpindi plot without flying home. The process for overseas buyers: the power of attorney, video verification, moving the money, and the tax to plan for.",
+      "Buy, transfer and hold a DHA Islamabad-Rawalpindi plot without flying home: power of attorney, video verification, moving money, and the tax to plan for.",
     dek: "You can buy, transfer and hold a DHA Islamabad-Rawalpindi plot without flying home. Here is the process for overseas buyers: the power of attorney, the verification, moving the money, and the tax you need to plan for.",
     category: "Buying guide",
     readingTime: "6 min read",
@@ -373,7 +373,7 @@ export const guides: Guide[] = [
     title: "DHA Islamabad-Rawalpindi Plot Prices: What Actually Drives Them",
     metaTitle: "DHA Islamabad-Rawalpindi Plot Prices: What Drives Them",
     description:
-      "There is no single per-marla rate for DHA Islamabad-Rawalpindi. Here is what actually moves the price of a plot: phase, sector, file versus possession, size and payment structure.",
+      "There is no single per-marla rate for DHA Islamabad-Rawalpindi. What actually moves a plot's price: phase, sector, file vs possession, size and payment.",
     dek: "There is no single per-marla rate for DHA Islamabad-Rawalpindi. Here is what actually moves the price of a specific plot, so you know what you are really paying for.",
     category: "Pricing guide",
     readingTime: "6 min read",
@@ -463,7 +463,7 @@ export const guides: Guide[] = [
     title: "DHA vs Bahria Town, Islamabad-Rawalpindi: Which to Choose",
     metaTitle: "DHA vs Bahria Town Islamabad-Rawalpindi: Which to Pick",
     description:
-      "DHA and Bahria Town are run on different models, not just different addresses. How they compare on development, amenities and buyer fit, and how to choose between them.",
+      "DHA and Bahria Town run on different models, not just different addresses. How they compare on development, amenities and buyer fit.",
     dek: "DHA and Bahria Town are built on different models, not just different addresses. Here is how they actually compare, and how to decide which fits you.",
     category: "Comparison guide",
     readingTime: "7 min read",
@@ -547,7 +547,7 @@ export const guides: Guide[] = [
     title: "Installment Plans for DHA Islamabad-Rawalpindi Plots, Explained",
     metaTitle: "DHA Islamabad-Rawalpindi Installment Plans Explained",
     description:
-      "Not all 'installment plans' in DHA Islamabad-Rawalpindi mean the same thing. How DHA's own membership instalments differ from a developer's new-launch plan, and what to check before you sign.",
+      "Not all 'installment plans' in DHA Islamabad-Rawalpindi mean the same thing. How DHA's instalments differ from a developer's plan, and what to check.",
     dek: "Not every 'installment plan' in DHA Islamabad-Rawalpindi means the same thing. Here is how the two common structures work, and what to check before you sign either one.",
     category: "Buying guide",
     readingTime: "6 min read",
@@ -634,7 +634,7 @@ export const guides: Guide[] = [
     title: "Selling a Plot in DHA Islamabad-Rawalpindi: How It Works",
     metaTitle: "Selling a Plot in DHA Islamabad-Rawalpindi: How It Works",
     description:
-      "How to sell a DHA Islamabad-Rawalpindi plot properly: getting your file transfer-ready, pricing it, who actually buys, the paperwork the buyer will ask for, and the mistakes that cost sellers money or time.",
+      "How to sell a DHA Islamabad-Rawalpindi plot properly: getting your file transfer-ready, pricing it, who actually buys, and the mistakes that cost sellers.",
     dek: "Selling a DHA Islamabad-Rawalpindi plot well means being ready before a serious buyer shows up, not after. Here is what to prepare, who buys, and how the transfer works from your side.",
     category: "Selling guide",
     readingTime: "6 min read",
@@ -726,6 +726,8 @@ export const guides: Guide[] = [
         a: "Both. We verify a seller's file, price it against current sector activity, market it to our buyer network, and manage the transfer through to completion.",
       },
     ],
+    relatedProperties: ["dha-phase-5-6-plots"],
+    relatedAreas: ["dha-phase-5", "dha-phase-6"],
   },
 ];
 

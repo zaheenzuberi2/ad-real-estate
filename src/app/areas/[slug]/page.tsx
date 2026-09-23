@@ -60,10 +60,14 @@ function relatedGuidesFor(phaseNumber: number) {
     phaseNumber === 5 || phaseNumber === 6
       ? [
           "buying-a-plot-in-dha-islamabad",
+          "selling-a-plot-in-dha-islamabad",
           "dha-phase-5-vs-phase-6",
           "dha-plot-prices-what-drives-them",
         ]
-      : ["buying-a-plot-in-dha-islamabad"];
+      : [
+          "buying-a-plot-in-dha-islamabad",
+          "selling-a-plot-in-dha-islamabad",
+        ];
   return slugs
     .map((slug) => guides.find((g) => g.slug === slug))
     .filter((g): g is (typeof guides)[number] => Boolean(g));
