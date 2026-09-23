@@ -629,6 +629,104 @@ export const guides: Guide[] = [
     ],
     relatedProperties: ["margalla-orchard", "dha-phase-5-6-plots"],
   },
+  {
+    slug: "selling-a-plot-in-dha-islamabad",
+    title: "Selling a Plot in DHA Islamabad-Rawalpindi: How It Works",
+    metaTitle: "Selling a Plot in DHA Islamabad-Rawalpindi: How It Works",
+    description:
+      "How to sell a DHA Islamabad-Rawalpindi plot properly: getting your file transfer-ready, pricing it, who actually buys, the paperwork the buyer will ask for, and the mistakes that cost sellers money or time.",
+    dek: "Selling a DHA Islamabad-Rawalpindi plot well means being ready before a serious buyer shows up, not after. Here is what to prepare, who buys, and how the transfer works from your side.",
+    category: "Selling guide",
+    readingTime: "6 min read",
+    date: "2026-09-23",
+    dateLabel: "23 September 2026",
+    body: [
+      { type: "h2", text: "Get transfer-ready before you list" },
+      {
+        type: "p",
+        text: "A serious buyer's first questions are about your file, not your price. Sort these before you list, and the sale moves faster once an offer comes in.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Clear any outstanding dues and get a current No Demand Certificate (NDC) from DHA, or at least confirm what you owe. A buyer will not complete a transfer with unpaid development charges or instalments attached.",
+          "Confirm the sector's transfer status. If your plot is a file in a sector still under a lock-in period, say so upfront. It affects who can buy and when the transfer can actually happen.",
+          "Have the original allotment or transfer letter and your CNIC ready. If you inherited the plot or hold it jointly, sort the succession or joint-ownership paperwork first, since it will otherwise stall the transfer at the DHA office.",
+          "If you live overseas, arrange a registered power of attorney with someone who can sign and appear at DHA on your behalf, or plan for a video verification call.",
+        ],
+      },
+      { type: "h2", text: "Pricing it" },
+      {
+        type: "p",
+        text: "Plot prices in DHA Islamabad-Rawalpindi move with the sector, category (corner, park-facing, boulevard), file versus possession status, and general market conditions at the time, so we will not quote a figure here. An advisor who is actively transacting in your sector can tell you where comparable plots are trading and price yours accordingly.",
+      },
+      { type: "h2", text: "Who actually buys" },
+      {
+        type: "p",
+        text: "Three kinds of buyer show up for a DHA plot, and each moves at a different pace.",
+      },
+      {
+        type: "ul",
+        items: [
+          "End users who plan to build. They move slower, ask more questions about location and category, and want possession-ready plots or clean files in transferable sectors.",
+          "Local investors. They move quickly on a clean file at a fair price and are usually comfortable with the paperwork.",
+          "Overseas Pakistanis. They transact through a power of attorney and want everything documented and verified before they commit funds from abroad.",
+        ],
+      },
+      { type: "h2", text: "The transfer, from the seller's side" },
+      {
+        type: "ol",
+        items: [
+          "Agree the price and terms in writing, including the token amount, payment schedule, and what happens if the buyer withdraws.",
+          "Apply for or renew your NDC and clear any dues DHA flags.",
+          "Book a transfer appointment at the DHA office. Bring your original letter, CNIC, and photographs; a power of attorney if you are not attending in person.",
+          "DHA verifies both parties, cancels your allocation, and issues a fresh transfer letter in the buyer's name.",
+          "Collect the agreed balance once the transfer is confirmed. Keep copies of every document exchanged.",
+        ],
+      },
+      { type: "h2", text: "Mistakes that cost sellers money or time" },
+      {
+        type: "ul",
+        items: [
+          "Listing before the NDC is sorted, then losing a buyer at the last step when unpaid dues surface.",
+          "Quoting a price with no reference to what comparable plots in the sector are actually trading at.",
+          "Accepting a token from a buyer without a written agreement covering the deadline and what happens if the deal falls through.",
+          "Not disclosing a sector's transfer restrictions upfront, which wastes both sides' time when it surfaces at the DHA office.",
+        ],
+      },
+      { type: "h2", text: "How we handle it" },
+      {
+        type: "p",
+        text: "We verify your file is transfer-ready, price it against what is actually moving in your sector, market it to our buyer network, and manage the DHA transfer end to end so you are not chasing paperwork yourself.",
+      },
+      {
+        type: "p",
+        text: "This guide is general information about how selling a DHA Islamabad-Rawalpindi plot works. Rules, fees, and current sector conditions vary and change over time, so confirm the specifics for your plot with DHA and a qualified advisor before you commit.",
+      },
+    ],
+    faqs: [
+      {
+        q: "What do I need ready before I can sell my DHA plot?",
+        a: "A current No Demand Certificate confirming no unpaid dues, your original allotment or transfer letter, your CNIC, and, if you are overseas or the plot is jointly held, the relevant power of attorney or succession paperwork. Sort these before you list so a serious buyer is not held up.",
+      },
+      {
+        q: "How is a DHA plot priced when selling?",
+        a: "By sector, category (corner, park-facing, boulevard), whether it is a file or a possession plot, and current market conditions. There is no fixed formula, so an advisor active in your sector can price it against what comparable plots are actually trading at.",
+      },
+      {
+        q: "Can I sell my DHA plot if I live overseas?",
+        a: "Yes. You arrange a registered power of attorney with someone who can attend the DHA transfer appointment on your behalf, or complete a video verification call, and the funds move through banking channels.",
+      },
+      {
+        q: "How long does selling a DHA plot usually take?",
+        a: "It depends on how transfer-ready your file already is. A plot with a clean NDC and no disputes can move to a signed agreement quickly once a buyer is found; the DHA transfer itself is typically a single appointment once documents are in order.",
+      },
+      {
+        q: "Do you help sell plots, or only buy on behalf of clients?",
+        a: "Both. We verify a seller's file, price it against current sector activity, market it to our buyer network, and manage the transfer through to completion.",
+      },
+    ],
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {
