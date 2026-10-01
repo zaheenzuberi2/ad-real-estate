@@ -25,7 +25,9 @@ export const certifications = [
   {
     title: "Certificate of Registration",
     issuer: "Government of the Punjab, Excise & Taxation Office",
-    body: "Registered under the Real Estate Agents & Motor Vehicle Dealers (Regulation of Business) Ordinance, 1980, as AD Real Estate & Builders (Pvt) Ltd. Renewed through 30 June 2026.",
+    // Renewal date removed 2026-10-01: the "30 June 2026" renewal had lapsed.
+    // Needs the real current renewed-through date from the physical certificate.
+    body: "Registered under the Real Estate Agents & Motor Vehicle Dealers (Regulation of Business) Ordinance, 1980, as AD Real Estate & Builders (Pvt) Ltd.",
   },
   {
     title: "“Trusted Agency” Award",
