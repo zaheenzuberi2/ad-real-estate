@@ -59,6 +59,8 @@ export type AdminProperty = {
   features?: { icon: string; label: string }[];
   highlights?: string[];
   installmentMonths?: number | null;
+  bedrooms?: number | null;
+  bathrooms?: number | null;
   featured?: boolean;
   order?: number;
   videoUrl?: string;
@@ -69,6 +71,7 @@ const PROPERTY_FIELDS = `
   _id, title, "slug": slug.current, eyebrow, location, phase,
   propertyType, status, description, overview, priceFrom, priceNote,
   sizes, features[]{ icon, label }, highlights, installmentMonths,
+  bedrooms, bathrooms,
   featured, order, videoUrl,
   images[]{ _key, alt, "url": asset->url }
 `;

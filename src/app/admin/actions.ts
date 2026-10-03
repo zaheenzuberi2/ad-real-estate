@@ -88,6 +88,8 @@ export async function updateLead(formData: FormData) {
 function listingFields(fd: FormData) {
   const priceRaw = str(fd, "priceFrom");
   const monthsRaw = str(fd, "installmentMonths");
+  const bedroomsRaw = str(fd, "bedrooms");
+  const bathroomsRaw = str(fd, "bathrooms");
   return {
     title: str(fd, "title"),
     eyebrow: str(fd, "eyebrow"),
@@ -111,6 +113,8 @@ function listingFields(fd: FormData) {
       .filter((f) => f.icon && f.label),
     highlights: lines(fd, "highlights"),
     installmentMonths: monthsRaw ? Number(monthsRaw) : null,
+    bedrooms: bedroomsRaw ? Number(bedroomsRaw) : null,
+    bathrooms: bathroomsRaw ? Number(bathroomsRaw) : null,
     videoUrl: str(fd, "videoUrl") || undefined,
     featured: fd.get("featured") === "on",
     order: Number(str(fd, "order")) || 100,
@@ -170,6 +174,9 @@ export async function saveListing(formData: FormData) {
     if (!fields.videoUrl) patch.unset(["videoUrl"]);
     await patch.commit();
   } else {
+    if (await client.fetch(`defined(*[_id == $id][0]._id)`, { id: targetId })) {
+      throw new Error(`A listing with the URL slug "${slug}" already exists. Use a different slug.`);
+    }
     await client.create({
       _type: "property",
       _id: targetId,

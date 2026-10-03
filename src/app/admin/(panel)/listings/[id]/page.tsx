@@ -147,6 +147,22 @@ export default async function ListingEditPage({
               className={inputCls}
             />
           </Field>
+          <Field label="Bedrooms" hint="built units only, blank for plots">
+            <input
+              name="bedrooms"
+              type="number"
+              defaultValue={p?.bedrooms ?? ""}
+              className={inputCls}
+            />
+          </Field>
+          <Field label="Bathrooms" hint="built units only, blank for plots">
+            <input
+              name="bathrooms"
+              type="number"
+              defaultValue={p?.bathrooms ?? ""}
+              className={inputCls}
+            />
+          </Field>
         </div>
 
         <Field label="Price note">

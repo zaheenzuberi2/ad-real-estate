@@ -37,6 +37,10 @@ const nextConfig: NextConfig = {
   // has no default export. Keeping it external lets Node resolve it normally.
   serverExternalPackages: ["sanity", "@sanity/vision"],
 
+  // Admin listing forms upload photos through Server Actions; the 1 MB default
+  // rejects a single phone photo. Vercel itself caps requests near 4.5 MB.
+  experimental: { serverActions: { bodySizeLimit: "4mb" } },
+
   images: {
     formats: ["image/avif", "image/webp"],
     // Sanity CDN, for property photos uploaded in Studio.
