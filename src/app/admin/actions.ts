@@ -197,6 +197,7 @@ export async function saveListing(formData: FormData) {
   revalidatePath(`/admin/listings/${targetId}`);
   revalidatePath("/properties");
   revalidatePath(`/properties/${slug}`);
+  revalidatePath("/sitemap.xml");
   revalidatePath("/");
   // A brand-new listing lands on its own edit screen, where the photos just
   // added can be captioned and reordered. Editing an existing one returns to
@@ -215,6 +216,7 @@ export async function deleteListing(formData: FormData) {
   revalidatePath("/admin/listings");
   revalidatePath("/properties");
   if (slug) revalidatePath(`/properties/${slug}`);
+  revalidatePath("/sitemap.xml");
   revalidatePath("/");
   redirect("/admin/listings");
 }
