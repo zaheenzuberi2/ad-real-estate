@@ -30,6 +30,12 @@ export default function PanelLayout({
               >
                 Listings
               </Link>
+              <Link
+                href="/admin/posts"
+                className="rounded-md px-3 py-1.5 text-slate-300 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                Blog
+              </Link>
             </nav>
           </div>
           <form action={logout}>

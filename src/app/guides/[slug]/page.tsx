@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { guides, getGuide, type GuideBlock } from "@/content/guides";
+import { guides, getGuide } from "@/content/guides";
 import { getProperties } from "@/lib/properties-data";
 import { dhaLocations } from "@/content/locations";
 import { site } from "@/lib/site";
@@ -13,6 +13,7 @@ import {
 } from "@/lib/schema";
 import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
+import { ArticleBlock } from "@/components/ui/ArticleBlocks";
 
 export function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
@@ -41,45 +42,6 @@ export async function generateMetadata(props: {
       description: guide.description,
     },
   };
-}
-
-function Block({ block }: { block: GuideBlock }) {
-  switch (block.type) {
-    case "h2":
-      return (
-        <h2 className="mt-10 font-display text-2xl font-semibold text-navy-deep">
-          {block.text}
-        </h2>
-      );
-    case "h3":
-      return (
-        <h3 className="mt-6 font-display text-lg font-semibold text-navy-deep">
-          {block.text}
-        </h3>
-      );
-    case "p":
-      return <p className="mt-4">{block.text}</p>;
-    case "ul":
-      return (
-        <ul className="mt-4 space-y-2">
-          {block.items.map((it, i) => (
-            <li key={i} className="ml-5 list-disc pl-1">
-              {it}
-            </li>
-          ))}
-        </ul>
-      );
-    case "ol":
-      return (
-        <ol className="mt-4 space-y-2">
-          {block.items.map((it, i) => (
-            <li key={i} className="ml-5 list-decimal pl-1">
-              {it}
-            </li>
-          ))}
-        </ol>
-      );
-  }
 }
 
 export default async function GuidePage(props: {
@@ -159,7 +121,7 @@ export default async function GuidePage(props: {
         <div className="shell max-w-3xl">
           <article className="text-base leading-relaxed text-slate-600">
             {guide.body.map((block, i) => (
-              <Block key={i} block={block} />
+              <ArticleBlock key={i} block={block} />
             ))}
           </article>
 

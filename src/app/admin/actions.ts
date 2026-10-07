@@ -270,3 +270,73 @@ export async function updatePhotoAlt(formData: FormData) {
   revalidatePath(`/admin/listings/${id}`);
   revalidatePath("/properties");
 }
+
+// ── Blog ────────────────────────────────────────────────────────────────
+
+export async function savePost(formData: FormData) {
+  await assertAdmin();
+
+  const existingId = str(formData, "id");
+  const slug = str(formData, "slug")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  const title = str(formData, "title");
+  const excerpt = str(formData, "excerpt");
+
+  if (!title || !slug || !excerpt) {
+    throw new Error("Title, slug and summary are required.");
+  }
+
+  const published = formData.get("published") === "on";
+  const dateInput = str(formData, "publishedAt");
+  // A published post always carries a date; default to now the first time it goes live.
+  const publishedAt = dateInput
+    ? new Date(`${dateInput}T09:00:00+05:00`).toISOString()
+    : published
+      ? new Date().toISOString()
+      : undefined;
+
+  const fields = {
+    title,
+    slug: { _type: "slug" as const, current: slug },
+    excerpt,
+    category: str(formData, "category") || "Insights",
+    body: String(formData.get("body") ?? "").trim(),
+    published,
+    ...(publishedAt ? { publishedAt } : {}),
+  };
+
+  const client = getWriteClient();
+  const id = existingId || `post-${slug}`;
+
+  if (existingId) {
+    await client.patch(existingId).set(fields).commit();
+  } else {
+    if (await client.fetch(`defined(*[_id == $id][0]._id)`, { id })) {
+      throw new Error(`A post with the URL slug "${slug}" already exists. Use a different slug.`);
+    }
+    await client.create({ _type: "post", _id: id, ...fields });
+  }
+
+  revalidatePath("/admin/posts");
+  revalidatePath("/blog");
+  revalidatePath(`/blog/${slug}`);
+  revalidatePath("/sitemap.xml");
+  redirect("/admin/posts");
+}
+
+export async function deletePost(formData: FormData) {
+  await assertAdmin();
+  const id = str(formData, "id");
+  const slug = str(formData, "slug");
+  if (!id) return;
+
+  await getWriteClient().delete(id);
+
+  revalidatePath("/admin/posts");
+  revalidatePath("/blog");
+  if (slug) revalidatePath(`/blog/${slug}`);
+  revalidatePath("/sitemap.xml");
+  redirect("/admin/posts");
+}

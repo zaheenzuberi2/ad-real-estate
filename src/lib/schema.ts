@@ -1,5 +1,6 @@
 import type { Property } from "@/lib/types";
 import type { Guide } from "@/content/guides";
+import type { Post } from "@/lib/blog-data";
 import type { Faq } from "@/content/faqs";
 import { site } from "@/lib/site";
 
@@ -347,5 +348,38 @@ export function faqPageSchema(faqs: Faq[]) {
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
+  };
+}
+
+/** One blog post. */
+export function blogPostingSchema(post: Post) {
+  const url = `${site.url}/blog/${post.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${url}#post`,
+    headline: post.title,
+    description: post.excerpt,
+    url,
+    image: `${site.url}/opengraph-image`,
+    datePublished: post.date,
+    dateModified: post.modified,
+    inLanguage: "en-PK",
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+    mainEntityOfPage: url,
+  };
+}
+
+/** Home > Blog > {post} */
+export function blogBreadcrumbSchema(post: Post) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${site.url}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: `${site.url}/blog/${post.slug}` },
+    ],
   };
 }

@@ -113,3 +113,30 @@ export const FEATURE_ICONS = [
   "heart-pulse",
   "building",
 ] as const;
+
+/** One blog post in the shape the edit form works with. */
+export type AdminPost = {
+  _id: string;
+  title?: string;
+  slug?: string;
+  excerpt?: string;
+  category?: string;
+  body?: string;
+  publishedAt?: string;
+  published?: boolean;
+};
+
+const POST_FIELDS = `_id, title, "slug": slug.current, excerpt, category, body, publishedAt, published`;
+
+export async function getAdminPosts(): Promise<AdminPost[]> {
+  return getWriteClient().fetch(
+    `*[_type == "post"] | order(coalesce(publishedAt, _createdAt) desc) { ${POST_FIELDS} }`,
+  );
+}
+
+export async function getAdminPost(id: string): Promise<AdminPost | null> {
+  return getWriteClient().fetch(
+    `*[_type == "post" && _id == $id][0] { ${POST_FIELDS} }`,
+    { id },
+  );
+}
