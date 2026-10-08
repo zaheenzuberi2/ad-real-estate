@@ -88,6 +88,14 @@ export async function Footer() {
                 Commercial Plots
               </Link>
             </li>
+            <li>
+              <Link
+                href="/houses"
+                className="tap flex items-center text-sm text-slate-300 transition-colors hover:text-white"
+              >
+                Houses &amp; Apartments
+              </Link>
+            </li>
           </ul>
 
           <h2 className="eyebrow mt-8 text-gold">Projects</h2>
