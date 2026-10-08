@@ -28,7 +28,7 @@ export async function generateMetadata({
   const location = getLocation(slug);
   if (!location) return {};
 
-  const title = `Property Dealers in ${location.phase}, Islamabad: AD Real Estate`;
+  const title = `Property Dealers & Real Estate Agency in ${location.phase}, Islamabad`;
   const description = `AD Real Estate is a registered property dealer and advisory serving buyers, sellers and investors in ${location.phase}, Islamabad-Rawalpindi. Title checks and transfer support.`;
 
   return {
