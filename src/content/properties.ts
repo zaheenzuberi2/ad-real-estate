@@ -111,9 +111,9 @@ export const properties: Property[] = [
       "dha-islamabad-rawalpindi-installment-plans",
       "dha-plot-prices-what-drives-them",
     ],
-    metaTitle: "Margalla Orchard Installment Plots, Islamabad",
+    metaTitle: "Margalla Orchard Islamabad: Plots & Payment Plan",
     metaDescription:
-      "Newly launched 5 to 10 Marla plots on 36-month installment plans at the base of the Margalla Hills, off Park Road, Islamabad. Built for first-time buyers and investors.",
+      "Margalla Orchard Islamabad plots for sale: 5, 7 and 10 Marla on a 36-month payment plan, at the base of the Margalla Hills off Park Road. Sizes, how it works, what to check.",
     faqs: [
       {
         q: "Is Margalla Orchard sold as files or possession plots?",
@@ -126,6 +126,18 @@ export const properties: Property[] = [
       {
         q: "Is there a lump sum due at the end of the plan?",
         a: "No. The structure is designed without a final balloon payment, and the monthly instalments complete the plan. Always confirm the current terms in writing before you sign.",
+      },
+      {
+        q: "Where is Margalla Orchard in Islamabad?",
+        a: "Margalla Orchard is on Park Road, at the base of the Margalla Hills, in the Bahria Enclave area of Islamabad. It is also searched as Margalla Orchards. Ask an advisor for the exact location and site visit arrangements.",
+      },
+      {
+        q: "What plot sizes are available in Margalla Orchard?",
+        a: "We currently list 5 Marla, 7 Marla and 10 Marla plots. If you are looking for a different size, such as a 1 Kanal plot, ask us: availability changes with the launch and we confirm it in writing rather than guessing.",
+      },
+      {
+        q: "What is the Margalla Orchard payment plan?",
+        a: "A modest down payment, then fixed monthly instalments over 36 months with no balloon payment at the end. Launch pricing is indicative, so confirm the current rate and instalment amount with an advisor before you commit.",
       },
       {
         q: "Who is a new launch like this suitable for?",
