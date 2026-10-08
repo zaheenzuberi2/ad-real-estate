@@ -29,7 +29,7 @@ export async function generateMetadata({
   if (!location) return {};
 
   const title = `Real Estate Agency in ${location.phase}, Islamabad-Rawalpindi`;
-  const description = `AD Real Estate is a registered property advisory serving buyers, sellers and investors in ${location.phase}, Islamabad-Rawalpindi. Title checks, guided site visits and transfer support.`;
+  const description = `AD Real Estate is a registered property dealer and advisory serving buyers, sellers and investors in ${location.phase}, Islamabad-Rawalpindi. Title checks and transfer support.`;
 
   return {
     title,

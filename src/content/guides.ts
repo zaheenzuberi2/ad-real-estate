@@ -544,17 +544,17 @@ export const guides: Guide[] = [
   },
   {
     slug: "dha-islamabad-rawalpindi-installment-plans",
-    title: "Installment Plans for DHA Islamabad-Rawalpindi Plots, Explained",
-    metaTitle: "DHA Islamabad-Rawalpindi Installment Plans Explained",
+    title: "DHA Islamabad-Rawalpindi Plots on Installments: How the Plans Work",
+    metaTitle: "DHA Islamabad Plots on Installments: How Plans Work",
     description:
-      "Not all 'installment plans' in DHA Islamabad-Rawalpindi mean the same thing. How DHA's instalments differ from a developer's plan, and what to check.",
+      "Buying DHA Islamabad-Rawalpindi plots on installments? Not every plan means the same thing. How DHA's instalments differ from a developer's plan, and what to check.",
     dek: "Not every 'installment plan' in DHA Islamabad-Rawalpindi means the same thing. Here is how the two common structures work, and what to check before you sign either one.",
     category: "Buying guide",
     readingTime: "6 min read",
     date: "2026-09-16",
     dateLabel: "16 September 2026",
     body: [
-      { type: "h2", text: "Two different things get called \"installments\"" },
+      { type: "h2", text: "Buying plots on installments: two different things get the name" },
       {
         type: "p",
         text: "Buyers often assume every instalment plan works the same way. In practice there are two distinct structures in DHA Islamabad-Rawalpindi, and confusing them is a common way to misjudge what you are actually signing up for.",
