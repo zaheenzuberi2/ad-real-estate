@@ -108,7 +108,7 @@ export default async function HousesPage() {
             {title}
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
-            AD Real Estate is a registered property dealer and advisory based
+            AD Real Estate is a registered real estate agency, property advisory and dealer based
             in DHA Phase 5, helping buyers find and verify houses and
             apartments across DHA Islamabad-Rawalpindi, including Phase 5 and
             Phase 2.

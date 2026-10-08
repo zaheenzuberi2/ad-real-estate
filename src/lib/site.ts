@@ -10,7 +10,7 @@ export const site = {
   legalName: "AD Real Estate & Builders (Pvt) Ltd",
   tagline: "DHA · Islamabad-Rawalpindi",
   description:
-    "Registered property dealers and advisory for DHA, Islamabad-Rawalpindi. Verified plots, villas and commercial units, with title checks, guided site visits and full transfer support for local and overseas buyers.",
+    "Property advisory, real estate agency and dealers for DHA, Islamabad-Rawalpindi. Verified plots, villas and commercial units, with title checks, guided site visits and full transfer support for local and overseas buyers.",
   // Set to the live domain before launch; also update NEXT_PUBLIC_SITE_URL on Vercel.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://adrealestate.pk",
   locale: "en_PK",

@@ -28,7 +28,7 @@ export const areaKinds: AreaKind[] = [
     types: ["Residential Plot"],
     noun: "residential plots",
     intro: (phase) =>
-      `Looking for a plot for sale in ${phase}, Islamabad? AD Real Estate is a registered property dealer and real estate agency in DHA Phase 5. We verify the file, the seller and the dues before you commit, then manage the transfer.`,
+      `Looking for a plot for sale in ${phase}, Islamabad? AD Real Estate is a registered real estate agency, property consultant and dealer in DHA Phase 5. We verify the file, the seller and the dues before you commit, then manage the transfer.`,
     checksTitle: "What we check on a plot",
     checks: [
       "Seller and ownership documents verified against the DHA record",
@@ -64,7 +64,7 @@ export const areaKinds: AreaKind[] = [
     types: ["House", "Apartment", "Villa"],
     noun: "houses and apartments",
     intro: (phase) =>
-      `Looking for a house for sale in ${phase}, Islamabad? AD Real Estate is a registered property dealer and real estate agency in DHA Phase 5. We confirm ownership, dues and construction status before you commit, and handle the transfer.`,
+      `Looking for a house for sale in ${phase}, Islamabad? AD Real Estate is a registered real estate agency, property consultant and dealer in DHA Phase 5. We confirm ownership, dues and construction status before you commit, and handle the transfer.`,
     checksTitle: "What we check on a house or apartment",
     checks: [
       "Ownership and title confirmed before you commit",
@@ -100,7 +100,7 @@ export const areaKinds: AreaKind[] = [
     types: ["Commercial Plot"],
     noun: "commercial plots",
     intro: (phase) =>
-      `Looking for a commercial plot for sale in ${phase}, Islamabad? AD Real Estate is a registered property dealer and real estate agency in DHA Phase 5. We check the plot's commercial-use category and dues before you commit.`,
+      `Looking for a commercial plot for sale in ${phase}, Islamabad? AD Real Estate is a registered real estate agency, property consultant and dealer in DHA Phase 5. We check the plot's commercial-use category and dues before you commit.`,
     checksTitle: "What we check on a commercial plot",
     checks: [
       "Title, dues and commercialization charges verified",

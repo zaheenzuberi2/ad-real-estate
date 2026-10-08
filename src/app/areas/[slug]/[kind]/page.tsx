@@ -30,7 +30,7 @@ export async function generateMetadata({
   if (!location || !k) return {};
 
   const title = `${k.label} in ${location.phase}, Islamabad | AD Real Estate`;
-  const description = `${k.label} in ${location.phase}, Islamabad-Rawalpindi from a registered property dealer and real estate agency. Title and dues verified, transfer handled.`;
+  const description = `${k.label} in ${location.phase}, Islamabad-Rawalpindi from a registered real estate agency, property consultant and dealer. Title and dues verified, transfer handled.`;
   const path = `/areas/${slug}/${kind}`;
 
   return {
