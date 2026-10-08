@@ -3,6 +3,7 @@ import { getProperties } from "@/lib/properties-data";
 import { guides } from "@/content/guides";
 import { getPosts } from "@/lib/blog-data";
 import { dhaLocations } from "@/content/locations";
+import { areaKinds } from "@/content/area-kinds";
 import { site } from "@/lib/site";
 
 // Without this, Next statically generates the sitemap once at build time —
@@ -58,5 +59,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
+    ...dhaLocations.flatMap((l) =>
+      areaKinds.map((k) => ({
+        url: `${site.url}/areas/${l.slug}/${k.slug}`,
+        lastModified: now,
+        changeFrequency: "weekly" as const,
+        priority: 0.6,
+      })),
+    ),
   ];
 }

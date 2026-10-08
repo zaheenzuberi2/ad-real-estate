@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { dhaLocations, getLocation, phaseNumbersIn } from "@/content/locations";
+import { areaKinds } from "@/content/area-kinds";
+import { dhaLocations, getLocation, phaseNumbersIn, phaseNote } from "@/content/locations";
 import { getProperties } from "@/lib/properties-data";
 import { guides } from "@/content/guides";
 import { PropertyCard } from "@/components/ui/PropertyCard";
@@ -37,22 +38,6 @@ export async function generateMetadata({
     alternates: { canonical: `/areas/${slug}` },
     openGraph: { title, description, url: `${site.url}/areas/${slug}` },
   };
-}
-
-/**
- * Real differentiators, not invented ones: only Phase 5 and 6 have
- * established facts elsewhere on the site (the phase comparison guide,
- * the Expressway-frontage listing). Phases 1-4 get no fabricated claims
- * until the client supplies real per-phase detail.
- */
-function phaseNote(phaseNumber: number): string | null {
-  if (phaseNumber === 5) {
-    return "Phase 5 is one of DHA's more settled, developed sectors, with direct frontage onto the Islamabad Expressway.";
-  }
-  if (phaseNumber === 6) {
-    return "Phase 6 is a newer, larger phase still developing in parts, also fronting the Islamabad Expressway, with more room for appreciation in sectors that are further along.";
-  }
-  return null;
 }
 
 function relatedGuidesFor(phaseNumber: number) {
@@ -202,6 +187,24 @@ export default async function AreaPage({
                 Full transfer support once a deal is agreed
               </li>
             </ul>
+
+            <div className="mt-10">
+              <h2 className="font-display text-xl font-medium text-navy-deep">
+                Browse {phase} by type
+              </h2>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {areaKinds.map((k) => (
+                  <li key={k.slug}>
+                    <Link
+                      href={`/areas/${slug}/${k.slug}`}
+                      className="tap inline-flex items-center rounded-full border border-hairline bg-white px-4 py-2 text-sm text-navy-deep transition-colors hover:border-gold/50 hover:text-gold"
+                    >
+                      {k.label} in {phase}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             {matches.length > 0 ? (
               <div className="mt-12">
