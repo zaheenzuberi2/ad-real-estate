@@ -29,7 +29,7 @@ export async function generateMetadata({
   const k = getAreaKind(kind);
   if (!location || !k) return {};
 
-  const title = `${k.label} in ${location.phase}, Islamabad | AD Real Estate`;
+  const title = `${k.label} in ${location.phase}, Islamabad`;
   const description = `${k.label} in ${location.phase}, Islamabad-Rawalpindi from a registered real estate agency, property consultant and dealer. Title and dues verified, transfer handled.`;
   const path = `/areas/${slug}/${kind}`;
 
