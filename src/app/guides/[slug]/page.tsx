@@ -211,7 +211,7 @@ export default async function GuidePage(props: {
                       className="tap group flex items-center justify-between gap-4 border-b border-hairline py-3 text-navy-deep transition-colors hover:text-gold-ink"
                     >
                       <span className="font-display text-lg font-medium">
-                        Property Dealers &amp; Real Estate Agency in {l.phase}
+                        Real Estate Agency in {l.phase}
                       </span>
                       <Icon
                         name="arrow-right"
