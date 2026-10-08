@@ -90,10 +90,10 @@ export const properties: Property[] = [
     ],
     priceFrom: null,
     priceNote: "Launch pricing is indicative. Confirm current rates with an advisor.",
-    sizes: ["5 Marla", "7 Marla", "10 Marla"],
+    sizes: ["5 Marla", "7 Marla", "10 Marla", "1 Kanal"],
     features: [
       { icon: "calendar-clock", label: "36-Month Installment Plans" },
-      { icon: "ruler", label: "5 Marla to 10 Marla Options" },
+      { icon: "ruler", label: "5 Marla to 1 Kanal, Any Size" },
       { icon: "map-pin", label: "Park Road, Islamabad" },
     ],
     badge: { text: "3-Year Installment Plans Available", highlight: true },
@@ -113,7 +113,7 @@ export const properties: Property[] = [
     ],
     metaTitle: "Margalla Orchard Islamabad: Plots & Payment Plan",
     metaDescription:
-      "Margalla Orchard Islamabad plots for sale: 5, 7 and 10 Marla on a 36-month payment plan, at the base of the Margalla Hills off Park Road. Sizes, how it works, what to check.",
+      "Margalla Orchard Islamabad plots for sale: 5 Marla to 1 Kanal, any size, on a 36-month payment plan, at the base of the Margalla Hills off Park Road. Sizes, how it works, what to check.",
     faqs: [
       {
         q: "Is Margalla Orchard sold as files or possession plots?",
@@ -133,7 +133,7 @@ export const properties: Property[] = [
       },
       {
         q: "What plot sizes are available in Margalla Orchard?",
-        a: "We currently list 5 Marla, 7 Marla and 10 Marla plots. If you are looking for a different size, such as a 1 Kanal plot, ask us: availability changes with the launch and we confirm it in writing rather than guessing.",
+        a: "We deal in plots of any size, including 5 Marla, 7 Marla, 10 Marla and 1 Kanal. Tell us the size you want and we confirm current availability and rate in writing.",
       },
       {
         q: "What is the Margalla Orchard payment plan?",
