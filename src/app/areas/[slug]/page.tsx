@@ -28,7 +28,7 @@ export async function generateMetadata({
   const location = getLocation(slug);
   if (!location) return {};
 
-  const title = `Real Estate Agency in ${location.phase}, Islamabad-Rawalpindi`;
+  const title = `Property Dealers in ${location.phase}, Islamabad: AD Real Estate`;
   const description = `AD Real Estate is a registered property dealer and advisory serving buyers, sellers and investors in ${location.phase}, Islamabad-Rawalpindi. Title checks and transfer support.`;
 
   return {
@@ -74,6 +74,10 @@ function relatedGuidesFor(phaseNumber: number) {
 }
 
 const faqsFor = (phase: string, hasListings: boolean) => [
+  {
+    q: `Are you registered property dealers in ${phase}?`,
+    a: `Yes. AD Real Estate is registered under the Real Estate Agents & Motor Vehicle Dealers (Regulation of Business) Ordinance, 1980, and our office is in DHA Phase 5, Islamabad. We buy, sell and verify property across DHA Islamabad-Rawalpindi, including ${phase}.`,
+  },
   {
     q: `Do you have plots for sale in ${phase}?`,
     a: hasListings
@@ -152,7 +156,7 @@ export default async function AreaPage({
             Service Area
           </p>
           <h1 className="mt-4 max-w-3xl font-display text-4xl font-medium leading-tight text-white sm:text-5xl">
-            Real Estate Agency in {phase}, Islamabad-Rawalpindi
+            Property Dealers &amp; Real Estate Agency in {phase}, Islamabad
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
             AD Real Estate is a registered property advisory based in DHA

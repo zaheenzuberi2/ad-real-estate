@@ -47,7 +47,7 @@ export default function AreasPage() {
             Areas We Serve
           </p>
           <h1 className="mt-4 max-w-3xl font-display text-4xl font-medium leading-tight text-white sm:text-5xl">
-            A real estate agency for every phase of DHA Islamabad-Rawalpindi
+            Property dealers for every phase of DHA Islamabad-Rawalpindi
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
             We are based in DHA Phase 5, and our advisors work with buyers,
