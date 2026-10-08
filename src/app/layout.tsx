@@ -27,7 +27,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name}: DHA Islamabad-Rawalpindi Plots, Villas & Property Advisory`,
+    default: `${site.name}: DHA Islamabad-Rawalpindi Property Dealers, Plots, Villas & Property Advisory`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     "DHA Phase 5 plots for sale",
     "DHA Phase 6 plots for sale",
     "real estate agent Islamabad",
+    "property dealers DHA Islamabad",
     "DHA Islamabad-Rawalpindi villas",
     "DHA Islamabad-Rawalpindi commercial plots",
     "overseas Pakistani property investment",
