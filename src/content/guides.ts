@@ -630,6 +630,86 @@ export const guides: Guide[] = [
     relatedProperties: ["margalla-orchard", "dha-phase-5-6-plots"],
   },
   {
+    slug: "how-to-choose-a-property-dealer-in-dha-islamabad",
+    title: "How to Choose a Property Dealer in DHA Islamabad-Rawalpindi: What to Check",
+    metaTitle: "How to Choose a Property Dealer in DHA Islamabad",
+    description:
+      "Choosing a property dealer in DHA Islamabad-Rawalpindi? What to verify before you trust one: registration, who actually owns the plot, written costs and transfer.",
+    dek: "Most property dealers in DHA Islamabad-Rawalpindi are honest, but the market is informal and the cost of a bad one is a plot you cannot transfer. Here is what to check before you hand over money or a file.",
+    category: "Buying guide",
+    readingTime: "5 min read",
+    date: "2026-10-14",
+    dateLabel: "14 October 2026",
+    body: [
+      { type: "h2", text: "What a property dealer actually does" },
+      {
+        type: "p",
+        text: "A property dealer connects buyers and sellers and takes a commission, usually from one or both sides. A real estate agency or property consultant does the same job with more of the surrounding work: checking the paperwork, advising on price and managing the transfer. The labels overlap in practice, so judge by what the dealer actually does for you, not by the sign on the door.",
+      },
+      { type: "h2", text: "Check these before you trust a dealer" },
+      {
+        type: "ol",
+        items: [
+          "Ask whether the business is a registered company and ask to see the registration. A shop front is not proof of registration.",
+          "Ask who the registered owner of the plot or file is, and ask to see the allotment or transfer documents in that person's name. A dealer should never be unable to tell you whose plot it is.",
+          "Meet the seller, or have the seller confirmed directly, before any payment. Never pay only on a dealer's word.",
+          "Get the commission and every other cost in writing before you agree to anything, including transfer fees and any taxes.",
+          "Confirm the sector's transfer status and the plot's exact location and category with DHA, not only with the dealer.",
+          "Pay by traceable bank transfer and keep every receipt. Be wary of anyone who insists on cash.",
+        ],
+      },
+      { type: "h2", text: "Red flags" },
+      {
+        type: "ul",
+        items: [
+          "Pressure to pay a token amount today because someone else is about to buy.",
+          "A price well below what comparable plots are asking, with no clear reason.",
+          "Reluctance to show documents or to let you verify the seller.",
+          "Vague answers about dues, the No Demand Certificate or transfer charges.",
+          "A verbal promise on anything that is not in the written agreement.",
+        ],
+      },
+      { type: "h2", text: "Dealer, agency or consultant: does it matter?" },
+      {
+        type: "p",
+        text: "The title matters less than the process. A registered real estate agency that verifies the seller, puts costs in writing and manages the transfer gives you more protection than an informal dealer, however friendly. That said, a good individual dealer who follows the same checks is fine. Use the list above on whoever you deal with.",
+      },
+      { type: "h2", text: "How we work" },
+      {
+        type: "p",
+        text: "AD Real Estate is a registered real estate agency, property advisory and dealer in DHA Phase 5. Before a client commits we verify the seller, the No Demand Certificate, the sector's transfer status and the plot's location and category, put the full cost breakdown in writing, and manage the transfer. If you are weighing a specific plot or a dealer's offer, send us the details and we will tell you what we would check.",
+      },
+      {
+        type: "p",
+        text: "This guide is general information. Procedures and charges change over time, so confirm current requirements with DHA or an advisor before you pay.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I know a property dealer in DHA Islamabad is genuine?",
+        a: "Ask for proof the business is registered, ask to see the plot's ownership documents in the seller's name, meet or directly verify the seller, and get all costs in writing. A genuine dealer will not mind any of these.",
+      },
+      {
+        q: "How much commission does a property dealer charge?",
+        a: "It varies by dealer and by deal, and is agreed between you and the dealer. Whatever the figure, get it in writing before you proceed and ask what it does and does not cover.",
+      },
+      {
+        q: "Should I pay a token amount to a dealer?",
+        a: "Not before you have verified the seller and seen the ownership documents. Any payment should be by traceable bank transfer with a receipt, ideally against a written agreement.",
+      },
+      {
+        q: "Is a real estate agency safer than an individual property dealer?",
+        a: "Not automatically, but a registered agency is accountable as a business and usually handles verification and transfer as part of the service. Whichever you choose, run the same checks.",
+      },
+      {
+        q: "Can you check a dealer's offer for me?",
+        a: "Yes. Send us the plot or file details and what you have been offered, and we will tell you what we would verify before you pay.",
+      },
+    ],
+    relatedProperties: ["dha-phase-5-6-plots"],
+    relatedAreas: ["dha-phase-5", "dha-phase-6"],
+  },
+  {
     slug: "selling-a-plot-in-dha-islamabad",
     title: "Selling a Plot in DHA Islamabad-Rawalpindi: How It Works",
     metaTitle: "Selling a Plot in DHA Islamabad-Rawalpindi: How It Works",

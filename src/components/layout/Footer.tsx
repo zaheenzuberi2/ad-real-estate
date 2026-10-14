@@ -96,6 +96,14 @@ export async function Footer() {
                 Houses &amp; Apartments
               </Link>
             </li>
+            <li>
+              <Link
+                href="/property-dealers"
+                className="tap flex items-center text-sm text-slate-300 transition-colors hover:text-white"
+              >
+                Property Dealers
+              </Link>
+            </li>
           </ul>
 
           <h2 className="eyebrow mt-8 text-gold">Projects</h2>
