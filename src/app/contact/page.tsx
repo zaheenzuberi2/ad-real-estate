@@ -4,8 +4,8 @@ import { Faq } from "@/components/sections/Faq";
 import { site, fullAddress } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact AD Real Estate: Islamabad Advisory Team, DHA Phase 5",
-  description: `Real estate agency and property consultants in DHA Phase 5, Islamabad. Office: ${fullAddress}. Call ${site.phone.display}, message us on WhatsApp or send an enquiry. A consultant replies personally.`,
+  title: "Contact Our Islamabad Advisory Team, Real Estate Agency in DHA Phase 5",
+  description: `Real estate agency and property consultants in DHA Phase 5, Islamabad. Call ${site.phone.display}, message us on WhatsApp or visit our office. A consultant replies personally.`,
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact AD Real Estate, Islamabad",
