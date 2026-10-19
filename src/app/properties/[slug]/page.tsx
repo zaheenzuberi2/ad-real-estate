@@ -53,6 +53,37 @@ function toEmbedUrl(raw: string): string | null {
   }
 }
 
+type MetaProperty = NonNullable<Awaited<ReturnType<typeof getProperty>>>;
+
+const squash = (s: string) => s.replace(/\s+/g, " ").trim();
+
+/** Title for listings with no hand-written metaTitle (anything added through
+ *  Studio). Avoids repeating "for sale" or the phase the title already names. */
+function fallbackTitle(p: MetaProperty): string {
+  const base = squash(p.title);
+  const type = squash(p.propertyType ?? "");
+  const mentionsPhase = base.toLowerCase().includes(p.phase.toLowerCase());
+  const forSale = !/sold/i.test(p.status);
+  if (/for sale/i.test(base)) return mentionsPhase ? base : `${base}, ${p.phase}`;
+  const label = type ? `${type}${forSale ? " for Sale" : ""}` : forSale ? "Property for Sale" : "";
+  if (!label) return mentionsPhase ? base : `${base}, ${p.phase}`;
+  return mentionsPhase ? `${base}: ${label}` : `${base}: ${label} in ${p.phase}`;
+}
+
+/** Meta description for listings with no hand-written one: strips stray line
+ *  breaks and pads thin or empty copy with the facts we do hold. */
+function fallbackDescription(p: MetaProperty): string {
+  const clean = squash(p.description ?? "");
+  if (clean.length >= 110) return clean;
+  const type = squash(p.propertyType ?? "").toLowerCase() || "property";
+  const size = p.sizes[0] ? `${squash(p.sizes[0])} ` : "";
+  const intro = `${size}${type} for sale in ${p.phase}, Islamabad.`;
+  const text = [intro, clean, "Call AD Real Estate for details and a guided site visit."]
+    .filter(Boolean)
+    .join(" ");
+  return text.length <= 160 ? text : text.slice(0, text.lastIndexOf(" ", 157)) + "...";
+}
+
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
@@ -60,10 +91,8 @@ export async function generateMetadata(props: {
   const property = await getProperty(slug);
   if (!property) return {};
 
-  const title =
-    property.metaTitle ??
-    `${property.title}: ${property.propertyType} in ${property.phase}`;
-  const description = property.metaDescription ?? property.description;
+  const title = property.metaTitle ?? fallbackTitle(property);
+  const description = property.metaDescription ?? fallbackDescription(property);
 
   return {
     title,

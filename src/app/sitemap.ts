@@ -8,7 +8,8 @@ import { site } from "@/lib/site";
 
 // Without this, Next statically generates the sitemap once at build time —
 // new Sanity listings silently never show up in it until the next deploy.
-export const revalidate = 3600;
+// Short window: listings added in Studio bypass the admin's on-demand revalidation.
+export const revalidate = 300;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
