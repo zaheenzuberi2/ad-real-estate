@@ -60,7 +60,7 @@ const squash = (s: string) => s.replace(/\s+/g, " ").trim();
 /** Title for listings with no hand-written metaTitle (anything added through
  *  Studio). Avoids repeating "for sale" or the phase the title already names. */
 function fallbackTitle(p: MetaProperty): string {
-  const base = squash(p.title);
+  const base = squash(p.title).replace(/[.,:;\s]+$/, "");
   const type = squash(p.propertyType ?? "");
   const mentionsPhase = base.toLowerCase().includes(p.phase.toLowerCase());
   const forSale = !/sold/i.test(p.status);
@@ -78,7 +78,7 @@ function fallbackDescription(p: MetaProperty): string {
   const type = squash(p.propertyType ?? "").toLowerCase() || "property";
   const size = p.sizes[0] ? `${squash(p.sizes[0])} ` : "";
   const intro = `${size}${type} for sale in ${p.phase}, Islamabad.`;
-  const text = [intro, clean, "Call AD Real Estate for details and a guided site visit."]
+  const text = [/for sale/i.test(clean) ? "" : intro, clean, "Call AD Real Estate for a guided site visit."]
     .filter(Boolean)
     .join(" ");
   return text.length <= 160 ? text : text.slice(0, text.lastIndexOf(" ", 157)) + "...";
