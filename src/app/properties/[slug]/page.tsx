@@ -211,7 +211,9 @@ export default async function PropertyPage(props: {
 
           <dl className="mt-8 grid max-w-3xl grid-cols-1 gap-px overflow-hidden rounded-2xl border border-gold/20 bg-gold/20 sm:mt-10 sm:grid-cols-3">
             <div className="bg-navy-deep/85 px-5 py-4 sm:px-6 sm:py-5">
-              <dt className="eyebrow text-[9px] text-slate-400">Starting From</dt>
+              <dt className="eyebrow text-[9px] text-slate-400">
+                {property.sizes.length > 1 ? "Starting From" : "Price"}
+              </dt>
               <dd className="mt-1 font-display text-xl font-semibold text-gold">
                 {property.priceFrom ? formatPkr(property.priceFrom) : "On Request"}
               </dd>
@@ -307,10 +309,12 @@ export default async function PropertyPage(props: {
               ))}
             </ul>
 
-            <p className="mt-8 rounded-xl border border-hairline bg-white px-5 py-4 text-xs leading-relaxed text-slate-500">
-              <strong className="text-navy-deep">Pricing note:</strong>{" "}
-              {property.priceNote}
-            </p>
+            {property.priceNote && (
+              <p className="mt-8 rounded-xl border border-hairline bg-white px-5 py-4 text-xs leading-relaxed text-slate-500">
+                <strong className="text-navy-deep">Pricing note:</strong>{" "}
+                {property.priceNote}
+              </p>
+            )}
 
             {property.faqs?.length ? (
               <section className="mt-12">
